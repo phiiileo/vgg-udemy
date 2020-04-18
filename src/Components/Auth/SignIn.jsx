@@ -4,8 +4,8 @@ export default class SignIn extends Component {
     render() {
         return (
             <div className="sign-in">
-                <h1>Sign in here</h1>
                 <form>
+                <h1>Sign in here</h1>
                     <div className="form-group">
                         <label htmlFor="username">Username:</label>
                         <input type="text" name="username"/>
@@ -16,7 +16,7 @@ export default class SignIn extends Component {
                     </div>
                    <div className="btns">
                        <button type="submit">Login</button>
-                       <button type="button">Login With Google</button>
+                       <button id="googlebtn" type="button">Login With Google</button>
                    </div>
                 </form>
             </div>
