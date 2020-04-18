@@ -1,13 +1,36 @@
 import React, { Component } from 'react'
 import './signin.scss';
 import { GoogleLogin } from 'react-google-login'
-
+import { Redirect } from 'react-router-dom';
 
 export default class SignIn extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: null,
+            userData: {}
+        }
+    }
     responseGoogle = (res) => {
         console.log(res)
+        if (res) { return } else {
+            this.setState({ userData: res.profileObj });
+            localStorage.setItem("vgg-user", JSON.stringify(this.state.userData))
+            this.setState({ redirect: "/home" })
+        }
+    }
+    login = (e) => {
+        e.preventDefault()
+        setTimeout(() => {
+            const data = { name: "Test User",email:"testUser@test.com" }
+            localStorage.setItem("vgg-user", JSON.stringify(data))
+            this.setState({ redirect: "/home" })
+        }, 1000);
     }
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect}></Redirect>
+        }
         return (
             <div className="sign-in">
                 <form>
@@ -21,7 +44,7 @@ export default class SignIn extends Component {
                         <input type="password" name="password" />
                     </div>
                     <div className="btns">
-                        <button type="submit">Login</button>
+                        <button type="submit" onClick={this.login}>Login</button>
                         <GoogleLogin
                             clientId="469983040665-j3v4v36rs2ndb6fs53hdv3joig8vdi25.apps.googleusercontent.com"
                             buttonText="Login With Google"
