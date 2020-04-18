@@ -2,9 +2,9 @@
   "name": "vgg-udemy",
   "version": "0.1.0",
   "private": true,
-  "engines":{
-    "node":"12.14.1",
-    "npm":"6.14.4"
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.14.4"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router": "^5.1.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
