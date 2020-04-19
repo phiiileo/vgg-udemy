@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './header.scss'
 
 export default function Header() {
     return (
-        <div>
-            header
-        </div>
+      <header>
+          <h3>Welcome!</h3>
+         <button>
+             Logout
+         </button>
+      </header>
     )
 }

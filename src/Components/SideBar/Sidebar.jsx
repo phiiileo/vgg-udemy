@@ -6,9 +6,21 @@ export default class Sidebar extends Component {
         console.log(this.props.data)
     }
     render() {
+        const data = this.props.data
         return (
             <div className="sidebar">
-                <h1>{this.props.title}</h1>
+                <div className="userDetails">
+                    <span><img src={data.imageUrl} alt="user" /></span>
+                    <p>{data.name}</p>
+                </div>
+
+                <menu>
+                    <ul>
+                        <li>Dashboard</li>
+                        <li>Videos</li>
+                        <li>Settings</li>
+                    </ul>
+                </menu>
             </div>
         )
     }

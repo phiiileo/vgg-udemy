@@ -2,4 +2,44 @@
     height: 100%;
     width: 100%;
     background-color: rgb(61, 59, 59);
+    padding-top: 50px;
+
+    .userDetails {
+        margin: 0 20px 50px 20px;
+        border-bottom: 1px solid whitesmoke;
+        text-align: center;
+        color: white;
+
+        span {
+            img {}
+        }
+
+        p {
+            margin: 20px 0;
+            font-weight: 700;
+        }
+    }
+
+    menu {
+        color: white;
+        padding: 0 20px;
+
+        ul {
+            list-style-type: none;
+
+            li {
+                cursor: pointer;
+                padding: 10px;
+                border-radius: 3px;
+                transition: all .5s ease-in-out;
+            }
+
+            li.active,
+            li:hover {
+                background-color: rgba(245, 245, 245, 0.575);
+                color: black;
+
+            }
+        }
+    }
 }

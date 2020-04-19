@@ -1,0 +1,25 @@
+header {
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 1px rgb(214, 203, 203);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+
+    h3 {
+        font-weight: 700;
+    }
+
+    button {
+        background-color: skyblue;
+        color: white;
+        border: none;
+        padding: 5px 20px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+    }
+}
