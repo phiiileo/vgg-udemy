@@ -1,12 +1,37 @@
 .video {
     margin-bottom: 20px;
-    border: 1px solid red;
     width: 100%;
     display: inline-block;
+    border-radius: 5px;
+
+    iframe {
+        width: 100%;
+        height: auto;
+        border: none;
+        border-radius: 5px 5px 0 0;
+        position: relative;
+        z-index: 6;
+    }
 
     p {
         padding: 20px 0;
         font-size: 18px;
         font-weight: 600;
+        position: relative;
+        padding-right: 20px;
+
+        span{
+            position: absolute;
+            top: 20px;
+            right: 5px;
+
+            i{
+                margin-left: 10px;
+                cursor: pointer;
+            }
+            i:hover{
+                color: rgb(16, 171, 233);
+            }
+        }
     }
 }

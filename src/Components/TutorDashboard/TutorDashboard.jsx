@@ -5,7 +5,7 @@ import './tutordashboard.scss'
 export default class TutorDashboard extends Component {
     render() {
         const videoData = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
-        const videos = videoData.map(vid => <VideoCard />)
+        const videos = videoData.map((vid, index) => <VideoCard key={index} />)
         return (
             <div className="tutorDashboard">
                 <div className="summary">
