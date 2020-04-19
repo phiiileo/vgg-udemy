@@ -1,10 +1,10 @@
 import React from 'react';
 import './header.scss'
 
-export default function Header() {
+export default function Header(props) {
     return (
       <header>
-          <h3>Welcome!</h3>
+          <h3>{props.data}</h3>
          <button>
              Logout
          </button>

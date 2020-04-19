@@ -18,7 +18,7 @@ export default class Tutor extends Component {
                     <Sidebar title="Tutor" data={data} />
                 </div>
                 <div className="tutor-main">
-                    <Header />
+                    <Header data={data.email} />
                     <TutorDashboard data={data} />
                 </div>
                 {/* <div className="image">

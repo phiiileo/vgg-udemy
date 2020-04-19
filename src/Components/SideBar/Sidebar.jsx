@@ -12,6 +12,7 @@ export default class Sidebar extends Component {
                 <div className="userDetails">
                     <span><img src={data.imageUrl} alt="user" /></span>
                     <p>{data.name}</p>
+                    <p>{this.props.title}</p>
                 </div>
 
                 <menu>
