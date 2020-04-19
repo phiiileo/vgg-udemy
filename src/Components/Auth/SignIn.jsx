@@ -2,31 +2,28 @@ import React, { Component } from 'react'
 import './signin.scss';
 import { GoogleLogin } from 'react-google-login'
 import { Redirect } from 'react-router-dom';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
+import udemy_logo from '../../udemy_logo.png'
 
 export default class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
             redirect: null,
-            userData: {}
+            userData: {},
+            activeCategory: ""
         }
     }
     responseGoogle = (res) => {
-        console.log(res)
-        if (res) { return } else {
+        if (!res && this.state.activeCategory === "") { return } else {
             this.setState({ userData: res.profileObj });
             localStorage.setItem("vgg-user", JSON.stringify(this.state.userData))
-            this.setState({ redirect: "/home" })
+            this.setState({ redirect: "/home/" + this.state.activeCategory })
         }
     }
-    login = (e) => {
-        e.preventDefault()
-        setTimeout(() => {
-            const data = { name: "Test User",email:"testUser@test.com" }
-            localStorage.setItem("vgg-user", JSON.stringify(data))
-            this.setState({ redirect: "/home" })
-        }, 1000);
+
+    setActiveCategory = (category) => {
+        this.setState({ activeCategory: category })
     }
     render() {
         if (this.state.redirect) {
@@ -34,29 +31,37 @@ export default class SignIn extends Component {
         }
         return (
             <div className="sign-in">
-                 <Helmet>
-                        <title>User | Sign</title>
-                    </Helmet>
+                <Helmet>
+                    <title>User | Sign</title>
+                </Helmet>
                 <form>
-                    <h1>Sign in here</h1>
-                    <div className="form-group">
-                        <label htmlFor="username">Username:</label>
-                        <input type="text" name="username" />
+                    <img src={udemy_logo} alt="logo"/>
+                <h1>Vgg-Udemy Clone</h1>
+                    <h3>Are you</h3>
+                    <div className="category">
+                        <button
+                            type="button"
+                            onClick={() => { this.setActiveCategory("student") }}
+                            className={this.state.activeCategory === "student" ? "active" : null}>
+                           A Student
+                            </button>
+                        <span>OR</span>
+                        <button type="button"
+                            onClick={() => { this.setActiveCategory("tutor") }}
+                            className={this.state.activeCategory === "tutor" ? "active" : null}>
+                            A Tutor
+                                </button>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password:</label>
-                        <input type="password" name="password" />
-                    </div>
-                    <div className="btns">
-                        <button type="submit" onClick={this.login}>Login</button>
+                    <div style={{ display: this.state.activeCategory === "" ? "none" : "block" }}>
                         <GoogleLogin
                             clientId="469983040665-j3v4v36rs2ndb6fs53hdv3joig8vdi25.apps.googleusercontent.com"
                             buttonText="Login With Google"
-                            onSuccess={this.responseGoogle}
-                            onFailure={this.responseGoogle}
+                            onSuccess={(res) => this.responseGoogle(res)}
+                            onFailure={(res) => this.responseGoogle(res)}
                             cookiePolicy={'single_host_origin'}
                         />
                     </div>
+
                 </form>
             </div>
         )

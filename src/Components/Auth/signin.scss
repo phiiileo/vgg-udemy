@@ -2,59 +2,127 @@
     background-color: whitesmoke;
     height: 100vh;
     width: 100vw;
-    padding: 30px 5%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        margin-bottom: 50px;
+    }
+
+    h3 {
+        color: blue;
+        margin: 20px auto;
+    }
 
     form {
         background-color: white;
-        padding: 50px;
+        padding:30px 50px;
         max-width: 600px;
-        margin: 0 auto;
+        margin: 0vh auto;
 
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-
-            label {
-                display: block;
-                font-weight: 700;
-                margin-bottom: 10px;
-            }
-
-            input {
-                width: 100%;
-                padding: 10px 20px;
-                border-radius: 5px;
-                border: 1px solid grey;
-            }
-
-
-        }
-
-        .btns {
+        .category {
+            margin: 30px auto;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                margin: 10px auto;
+            }
 
             button {
-                background-color: darkgoldenrod;
-                color: white;
-                border: 1px solid transparent;
+                width: 180px;
                 font-size: 20px;
-                padding: 10px 20px;
-                cursor: pointer;
-                margin-right: 30px;
-                transition: all .5s;
+                padding: 10px 30px;
+                background-color: grey;
+                color: white;
+                outline: none;
+                border: none;
+                border-radius: 5px;
             }
 
-            #googlebtn{
-                background-color: skyblue;
-            }
-
-            button:hover{
+            button.active,
+            button:hover {
+                background-color: yellowgreen;
                 box-shadow: 1px 1px 2px grey;
             }
         }
     }
+
+    @media screen and (min-width:650px) {
+        form {
+            .category {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+
+    // form {
+    //     background-color: white;
+    //     padding: 50px;
+    //     max-width: 600px;
+    //     margin: 0 auto;
+
+    //     h1 {
+    //         margin-bottom: 20px;
+    //     }
+
+    //     .form-group {
+    //         margin-bottom: 20px;
+
+    //         label {
+    //             display: block;
+    //             font-weight: 700;
+    //             margin-bottom: 10px;
+    //         }
+
+    //         input {
+    //             width: 100%;
+    //             padding: 10px 20px;
+    //             border-radius: 5px;
+    //             border: 1px solid grey;
+    //         }
+
+
+    //     }
+
+    //     .btns {
+    //         display: flex;
+    //         justify-content: center;
+
+    //         button {
+    //             background-color: darkgoldenrod;
+    //             color: white;
+    //             border: 1px solid transparent;
+    //             font-size: 20px;
+    //             padding: 10px 20px;
+    //             cursor: pointer;
+    //             margin-right: 30px;
+    //             transition: all .5s;
+    //         }
+
+    //         #googlebtn{
+    //             background-color: skyblue;
+    //         }
+
+    //         button:hover{
+    //             box-shadow: 1px 1px 2px grey;
+    //         }
+    //     }
+    // }
 }
