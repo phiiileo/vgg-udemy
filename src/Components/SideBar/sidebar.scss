@@ -1,8 +1,20 @@
 .sidebar {
     height: 100%;
-    width: 100%;
+    width: 250px;
     background-color: rgb(61, 59, 59);
     padding-top: 50px;
+    transition: all .5s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: -250px;
+
+    i.navMenu {
+        position: fixed;
+        top: 18px;
+        left: 10px;
+        cursor: pointer;
+        transition: all .5s;
+    }
 
     .userDetails {
         margin: 0 20px 30px 20px;
@@ -44,5 +56,15 @@
 
             }
         }
+    }
+}
+
+.sidebar.open {
+    left: 0 !important;
+
+    i.navMenu {
+        color: white;
+        transform: rotate(180deg);
+        font-size: 20px;
     }
 }

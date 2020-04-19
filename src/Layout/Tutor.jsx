@@ -14,9 +14,7 @@ export default class Tutor extends Component {
                 <Helmet>
                     <title>Tutor | Home</title>
                 </Helmet>
-                <div className="tutor-sidebar">
-                    <Sidebar title="Tutor" data={data} />
-                </div>
+                <Sidebar title="Tutor" data={data} />
                 <div className="tutor-main">
                     <Header data={data.email} />
                     <TutorDashboard data={data} />
