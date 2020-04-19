@@ -10,7 +10,13 @@ function App() {
     <Router>
       <Switch>
           <Route exact path="/"><SignIn /></Route>
-          <Route path="/home"><Home /></Route>
+          <Route exact path="/home"><Home /></Route>
+          <Route render= {()=>
+          (
+            <div>
+              Page not found
+            </div>
+          )}/>
       </Switch>
     </Router>
   </div>
