@@ -5,7 +5,8 @@ export default class Sidebar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            openNav: false
+            openNav: false,
+            activeRoute: "dashboard"
         }
     }
     componentDidMount() {
@@ -13,6 +14,11 @@ export default class Sidebar extends Component {
     }
     openNavBar = () => {
         this.setState({ openNav: !this.state.openNav })
+    }
+    changeRoute = (route) => {
+        this.setState({ activeRoute: route });
+        this.openNavBar()
+        this.props.changeRoute(route)
     }
     render() {
         const data = this.props.data;
@@ -29,8 +35,8 @@ export default class Sidebar extends Component {
 
                 <menu>
                     <ul>
-                        <li>Dashboard</li>
-                        <li>All Videos</li>
+                        <li className={this.state.activeRoute === "dashboard" ? "active" : ""} onClick={() => this.changeRoute("dashboard")}>Dashboard</li>
+                        <li className={this.state.activeRoute === "all-videos" ? "active" : ""} onClick={() => this.changeRoute("all-videos")}>All Videos</li>
                     </ul>
                 </menu>
             </div>

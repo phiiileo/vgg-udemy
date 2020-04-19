@@ -10,8 +10,12 @@ export default class Tutor extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            activeRoute: "x"
+            activeRoute: "dashboard"
         }
+    }
+
+    changeRoute = (route) => {
+        this.setState({ activeRoute: route })
     }
     render() {
         let data = this.props.data;
@@ -22,8 +26,9 @@ export default class Tutor extends Component {
                 <Helmet>
                     <title>Tutor | Home</title>
                 </Helmet>
-                <Sidebar title="Tutor" data={data} />
+                <Sidebar changeRoute={this.changeRoute}  title="Tutor" data={data} />
                 <div className="tutor-main">
+                {/* <button onClick={()=>{this.changeRoute("all-videos")}}>click</button> */}
                     <Header data={data.email} />
                     {ActivePage}
                 </div>
