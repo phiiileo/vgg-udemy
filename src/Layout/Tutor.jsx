@@ -10,7 +10,8 @@ export default class Tutor extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            activeRoute: "dashboard"
+            activeRoute: "dashboard",
+            accessLevel: "tutor"
         }
     }
 
@@ -20,15 +21,14 @@ export default class Tutor extends Component {
     render() {
         let data = this.props.data;
         let ActivePage;
-        (this.state.activeRoute === "dashboard") ? ActivePage = <TutorDashboard data={data} /> : ActivePage = <AllVideos access="tutor" />
+        (this.state.activeRoute === "dashboard") ? ActivePage = <TutorDashboard data={data} /> : ActivePage = <AllVideos access={this.state.accessLevel} />
         return (
             <div className="tutor">
                 <Helmet>
                     <title>Tutor | Home</title>
                 </Helmet>
-                <Sidebar changeRoute={this.changeRoute} title="Tutor" data={data} />
+                <Sidebar changeRoute={this.changeRoute} access={this.state.accessLevel} title="Tutor" data={data} />
                 <div className="tutor-main">
-                    {/* <button onClick={()=>{this.changeRoute("all-videos")}}>click</button> */}
                     <Header data={data.email} />
                     {ActivePage}
                 </div>

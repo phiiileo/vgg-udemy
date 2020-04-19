@@ -23,7 +23,17 @@ export default class Sidebar extends Component {
     render() {
         const data = this.props.data;
         const openNav = this.state.openNav ? "open" : null
-        const icon = this.state.openNav ? "fa-close" : "fa-bars"
+        const icon = this.state.openNav ? "fa-close" : "fa-bars";
+        let showMenu;
+        const Menu = (
+            <menu>
+                <ul>
+                    <li className={this.state.activeRoute === "dashboard" ? "active" : ""} onClick={() => this.changeRoute("dashboard")}>Dashboard</li>
+                    <li className={this.state.activeRoute === "all-videos" ? "active" : ""} onClick={() => this.changeRoute("all-videos")}>All Videos</li>
+                </ul>
+            </menu>
+        );
+        (this.props.access === "tutor") ? showMenu = Menu : showMenu = null;
         return (
             <div className={"sidebar " + openNav}>
                 <i onClick={this.openNavBar} className={"navMenu fa " + icon}></i>
@@ -33,12 +43,9 @@ export default class Sidebar extends Component {
                     <p>{this.props.title}</p>
                 </div>
 
-                <menu>
-                    <ul>
-                        <li className={this.state.activeRoute === "dashboard" ? "active" : ""} onClick={() => this.changeRoute("dashboard")}>Dashboard</li>
-                        <li className={this.state.activeRoute === "all-videos" ? "active" : ""} onClick={() => this.changeRoute("all-videos")}>All Videos</li>
-                    </ul>
-                </menu>
+                <div>
+                    {showMenu}
+                </div>
             </div>
         )
     }
