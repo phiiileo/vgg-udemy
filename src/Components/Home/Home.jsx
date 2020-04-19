@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom';
 import dummyUser from '../../dummyUser.png';
 import './home.scss';
+import {Helmet} from 'react-helmet';
 
 
 
@@ -23,6 +24,9 @@ export default class Home extends Component {
         } else {
             return (
                 <div className="home">
+                    <Helmet>
+                        <title>User | Home</title>
+                    </Helmet>
                     <nav>
                         <button onClick={this.resetLogin}>
                             <Link to="/">Logout</Link>

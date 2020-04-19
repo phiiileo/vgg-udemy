@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './signin.scss';
 import { GoogleLogin } from 'react-google-login'
 import { Redirect } from 'react-router-dom';
+import {Helmet} from 'react-helmet';
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -33,6 +34,9 @@ export default class SignIn extends Component {
         }
         return (
             <div className="sign-in">
+                 <Helmet>
+                        <title>User | Sign</title>
+                    </Helmet>
                 <form>
                     <h1>Sign in here</h1>
                     <div className="form-group">
