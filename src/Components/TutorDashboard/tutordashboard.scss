@@ -1,3 +1,19 @@
-.tutorDashboard{
+.tutorDashboard {
     padding: 50px 30px;
+
+    .summary {
+        display: grid;
+        row-gap: 10px;
+        column-gap: 20px;
+        border-bottom: 1px solid grey;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (min-width:760px) {
+    .tutorDashboard {
+        .summary {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 }

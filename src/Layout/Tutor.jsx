@@ -5,7 +5,7 @@ import './tutor.scss';
 import Sidebar from '../Components/SideBar/Sidebar';
 import TutorDashboard from '../Components/TutorDashboard/TutorDashboard';
 import Header from '../Components/Header/Header';
-
+import 'font-awesome/css/font-awesome.min.css';
 export default class Tutor extends Component {
     render() {
         let data = this.props.data;

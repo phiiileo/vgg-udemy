@@ -1,0 +1,25 @@
+.summaryCard {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 0px 5px grey;
+
+    P {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    i {
+        font-size: 50px;
+        display: block;
+        margin: 20px 0;
+    }
+
+    span{
+        font-size: 30px;
+        font-weight: 600;
+    }
+}
