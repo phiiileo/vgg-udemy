@@ -35,9 +35,9 @@ export default class Home extends Component {
             return <Redirect to="/"></Redirect>
         } else {
             if (this.state.path === "/home-tutor") {
-                return <Tutor data={data} />
+                return <Tutor resetLogin={this.resetLogin} data={data} />
             } else {
-                return <Student data={data} />
+                return <Student resetLogin={this.resetLogin} data={data} />
             }
         }
 
