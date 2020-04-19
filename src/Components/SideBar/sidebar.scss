@@ -1,12 +1,13 @@
 .sidebar {
     height: 100%;
     width: 250px;
-    background-color: rgb(61, 59, 59);
+    background-color: rgb(121, 116, 116);
     padding-top: 50px;
     transition: all .5s ease-in-out;
     position: fixed;
     top: 0;
     left: -250px;
+    z-index: 5;
 
     i.navMenu {
         position: fixed;

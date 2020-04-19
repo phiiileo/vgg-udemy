@@ -1,0 +1,31 @@
+.all-videos {
+    padding: 50px 30px;
+
+    .btns {
+        margin: 0 0 30px 0;
+
+        button {
+            font-size: 18px;
+            background-color: skyblue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    }
+
+    &-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .all-videos {
+
+        &-container {
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 30px;
+        }
+    }
+}
