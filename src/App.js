@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Switch>
           <Route exact path="/"><SignIn /></Route>
-          <Route exact path="/home/:id"><Home /></Route>
+          <Route exact path="/home-:id"><Home /></Route>
           <Route render= {()=>
           (
             <div>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom';
-import dummyUser from '../../dummyUser.png';
+import { Redirect } from 'react-router-dom';
 import './home.scss';
-import {Helmet} from 'react-helmet';
+import Tutor from '../../Layout/Tutor';
+import Student from '../../Layout/Student';
 
 
 
@@ -10,38 +10,35 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userData: JSON.parse(localStorage.getItem("vgg-user"))
+            userData: JSON.parse(localStorage.getItem("vgg-user")),
+            path: "/not-found",
+            redirect: false
         }
     }
+
+
     resetLogin = () => {
         localStorage.setItem("vgg-user", null)
     }
+
+    componentDidMount() {
+        const currentPath = window.location.pathname;
+
+        (currentPath === "/home-tutor") ? this.setState({ path: "/home-tutor" })
+            : (currentPath === "/home-student") ? this.setState({ path: "/home-student" }) : this.setState({ redirect: true })
+    }
+
     render() {
         console.log(this.state.userData)
         const data = this.state.userData
-        if (this.state.userData.name === undefined) {
+        if (this.state.userData.name === undefined || this.state.redirect) {
             return <Redirect to="/"></Redirect>
         } else {
-            return (
-                <div className="home">
-                    <Helmet>
-                        <title>User | Home</title>
-                    </Helmet>
-                    <nav>
-                        <button onClick={this.resetLogin}>
-                            <Link to="/">Logout</Link>
-                        </button>
-                        <p>This is just a test of Google sign in</p>
-                    </nav>
-                    <div className="image">
-                        <img src={data.imageUrl || dummyUser} alt="User" />
-                    </div>
-                    <div className="details">
-                        <p>Name: {data.name}</p>
-                        <p>Email: {data.email}</p>
-                    </div>
-                </div>
-            )
+            if (this.state.path === "/home-tutor") {
+                return <Tutor data={data} />
+            } else {
+                return <Student data={data} />
+            }
         }
 
     }

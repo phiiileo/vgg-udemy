@@ -18,7 +18,7 @@ export default class SignIn extends Component {
         if (!res && this.state.activeCategory === "") { return } else {
             this.setState({ userData: res.profileObj });
             localStorage.setItem("vgg-user", JSON.stringify(this.state.userData))
-            this.setState({ redirect: "/home/" + this.state.activeCategory })
+            this.setState({ redirect: "/home-" + this.state.activeCategory })
         }
     }
 
