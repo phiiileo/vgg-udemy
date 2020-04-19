@@ -11,3 +11,7 @@ export default function Header(props) {
       </header>
     )
 }
+
+Header.defaultProps = {
+    data:"email@email.com"
+}

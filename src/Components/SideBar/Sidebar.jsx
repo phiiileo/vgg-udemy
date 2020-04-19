@@ -18,7 +18,7 @@ export default class Sidebar extends Component {
                 <menu>
                     <ul>
                         <li>Dashboard</li>
-                        <li>Videos</li>
+                        <li>All Videos</li>
                         <li>Settings</li>
                     </ul>
                 </menu>
