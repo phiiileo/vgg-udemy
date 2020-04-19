@@ -9,10 +9,11 @@ export default class TutorDashboard extends Component {
         return (
             <div className="tutorDashboard">
                 <div className="summary">
-                    <SummaryCard icon="fa fa-youtube-play" title="Videos" value="45" />
-                    <SummaryCard title="Your Rating" value="65%" />
-                    <SummaryCard title="Followers" icon="fa fa-user" />
+                    <SummaryCard icon="fa fa-youtube-play" color="green" title="Videos" value="45" />
+                    <SummaryCard title="Your Rating" color="orange" value="65%" />
+                    <SummaryCard title="Followers" color="darkcyan" icon="fa fa-user" />
                 </div>
+                <h3>Recent Videos</h3>
                 <div className="video-container">
                     {videos}
                 </div>
