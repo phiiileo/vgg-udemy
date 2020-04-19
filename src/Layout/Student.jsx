@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import Sidebar from '../Components/SideBar/Sidebar'
-import Header from '../Components/Header/Header'
+import Sidebar from '../Components/SideBar/Sidebar';
+import Header from '../Components/Header/Header';
 import './student.scss'
+import StudentDashboard from '../Components/StudentDashboard/StudentDashboard';
 export default class Student extends Component {
     constructor(props) {
         super(props)
@@ -24,6 +25,7 @@ export default class Student extends Component {
                 <Sidebar changeRoute={this.changeRoute} title="Tutor" data={data} />
                 <div className="student-main">
                     <Header data={data.email} />
+                    <StudentDashboard />
                 </div>
             </div>
         )
