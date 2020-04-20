@@ -1,11 +1,29 @@
 import React, { Component } from 'react'
 import SummaryCard from '../SummaryCard/SummaryCard'
 import VideoCard from '../VideoCard/VideoCard'
-import './tutordashboard.scss'
+import './tutordashboard.scss';
+import videoData from '../AllVideos/videoData.json'
 export default class TutorDashboard extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            videoData: videoData
+        }
+    }
+
+    likeVideo = (id) => {
+        this.setState({
+            videoData: this.state.videoData.filter(vid => {
+                if (vid.title === id) {
+                    vid.liked = !vid.liked;
+                    (vid.liked) ? vid.totalLikes++ : vid.totalLikes--
+                }
+                return vid
+            })
+        })
+    }
     render() {
-        const videoData = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
-        const videos = videoData.map((vid, index) => <VideoCard key={index} />)
+        const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} />)
         return (
             <div className="tutorDashboard">
                 <div className="summary">

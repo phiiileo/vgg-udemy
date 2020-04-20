@@ -18,16 +18,18 @@
         position: relative;
         padding-right: 20px;
 
-        span{
+        span {
             position: absolute;
             top: 20px;
             right: 5px;
 
-            i{
+            i {
                 margin-left: 10px;
                 cursor: pointer;
             }
-            i:hover{
+
+            i:hover,
+            i.liked {
                 color: rgb(16, 171, 233);
             }
         }

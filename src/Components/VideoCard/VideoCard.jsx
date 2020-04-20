@@ -2,15 +2,28 @@ import React, { Component } from 'react'
 import './videoCard.scss'
 export default class VideoCard extends Component {
     render() {
+        const videoData = this.props.videoData;
+        console.log(videoData)
         return (
             <div className="video">
-                <iframe src="https://www.youtube.com/embed/qugY8axtvWY" title="c">
+                <iframe src={videoData.videoSrc} title={videoData.title}>
                 </iframe>
-                <p>Description: {this.props.title} <span>5<i className="fa fa-thumbs-up"></i></span></p>
+                <p>Description: {videoData.title}
+                    <span>{videoData.totalLikes}
+                        <i className="fa fa-thumbs-up"
+                            onClick={() => this.props.likeVideo(videoData.title)}
+                            style={{ color: (videoData.liked) ? "skyblue" : "" }}>
+                        </i>
+                    </span></p>
             </div>
         )
     }
 }
 VideoCard.defaultProps = {
-    title: 'Video 1'
+    videoData: {
+        title: 'Video 1',
+        videoSrc: "https://www.youtube.com/embed/qugY8axtvWY",
+        totalLikes: 0
+    },
+    likeVideo: (id) => { console.log("videoCard", id) }
 }
