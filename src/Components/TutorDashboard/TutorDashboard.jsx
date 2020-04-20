@@ -11,6 +11,12 @@ export default class TutorDashboard extends Component {
         }
     }
 
+    componentDidMount() {
+        fetch("http://localhost:5000/videos")
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
     render() {
         const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} />)
         return (

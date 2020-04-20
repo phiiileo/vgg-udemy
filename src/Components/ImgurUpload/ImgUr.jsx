@@ -12,10 +12,15 @@ export default class ImgUr extends Component {
     }
 
     // Upload Image
-    uploadVideo = (data_type, data) => {
-        console.log(data)
+    uploadVideo = (videoData) => {
+        console.log(videoData)
         const tokenPass = "e33e63643fb6e64";
         const postData = new FormData();
+        postData.append("video", videoData)
+        postData.append("name", videoData.name)
+
+
+        // Request Configuration
         const config = {
             method: "POST",
             headers: {
@@ -23,8 +28,7 @@ export default class ImgUr extends Component {
             },
             body: postData
         }
-        postData.append(data_type, data)
-        postData.append("name", data.name)
+
         fetch("https://cors-anywhere.herokuapp.com/https://api.imgur.com/3/upload", config)
             .then(res => res.json())
             .then(data => {

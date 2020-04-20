@@ -1,25 +1,6 @@
 {
   "images": [],
-  "videos": [
-    {
-      "data": {
-        "errorCode": null,
-        "ticket": "81fd117a"
-      },
-      "success": true,
-      "status": 200,
-      "id": 1
-    },
-    {
-      "data": {
-        "errorCode": null,
-        "ticket": "6de49981"
-      },
-      "success": true,
-      "status": 200,
-      "id": 2
-    },
-    {
+  "videos": [{
       "status": 200,
       "success": true,
       "data": {
@@ -52,11 +33,72 @@
         "processing": {
           "status": "pending"
         },
+        "totalLikes": [],
         "datetime": 1587405671,
         "mp4": "https://i.imgur.com/VcUSmAh.mp4",
         "hls": ""
       },
+      "id": 1
+    },
+    {
+      "status": 200,
+      "success": true,
+      "data": {
+        "title": "Video 1",
+        "link": "qugY8axtvWY",
+        "totalLikes": []
+      },
+      "id": 2
+    },
+    {
+      "status": 200,
+      "success": true,
+      "data": {
+        "title": "Video 2",
+        "link": "gRXE8QkFqtU",
+        "totalLikes": []
+      },
       "id": 3
+    },
+    {
+      "status": 200,
+      "success": true,
+      "data": {
+        "title": "Video 3",
+        "link": "EgpKu1tAVMY",
+        "totalLikes": []
+      },
+      "id": 4
+    },
+    {
+      "status": 200,
+      "success": true,
+      "data": {
+        "title": "Video 4",
+        "link": "FSV485hck7g",
+        "totalLikes": []
+      },
+      "id": 5
+    },
+    {
+      "status": 200,
+      "success": true,
+      "data": {
+        "title": "Video 5",
+        "link": "hb7Q33ysCwI",
+        "totalLikes": []
+      },
+      "id": 6
+    },
+    {
+      "status": 200,
+      "success": true,
+      "data": {
+        "title": "Video 6",
+        "link": "DBXZWB_dNsw",
+        "totalLikes": []
+      },
+      "id": 7
     }
   ],
   "Users": []

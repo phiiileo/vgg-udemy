@@ -11,7 +11,7 @@ export default class AllVideos extends Component {
         }
     }
     componentDidMount() {
-        fetch(" http://localhost:3005/images")
+        fetch(" http://localhost:5000/videos")
             .then(res => res.json())
             .then(data => console.log(data))
             .catch(err => console.log("Error:", err))
