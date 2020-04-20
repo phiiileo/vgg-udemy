@@ -11,17 +11,6 @@ export default class TutorDashboard extends Component {
         }
     }
 
-    likeVideo = (id) => {
-        this.setState({
-            videoData: this.state.videoData.filter(vid => {
-                if (vid.title === id) {
-                    vid.liked = !vid.liked;
-                    (vid.liked) ? vid.totalLikes++ : vid.totalLikes--
-                }
-                return vid
-            })
-        })
-    }
     render() {
         const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} />)
         return (

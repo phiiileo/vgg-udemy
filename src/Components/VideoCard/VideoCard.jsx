@@ -6,7 +6,7 @@ export default class VideoCard extends Component {
         console.log(videoData)
         return (
             <div className="video">
-                <iframe src={videoData.videoSrc} title={videoData.title}>
+                <iframe src={"https://www.youtube.com/embed/" + videoData.videoSrc} title={videoData.title}>
                 </iframe>
                 <p>Description: {videoData.title}
                     <span>{videoData.totalLikes}
