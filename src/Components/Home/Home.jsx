@@ -29,7 +29,6 @@ export default class Home extends Component {
     }
 
     render() {
-        console.log(this.state.userData)
         const data = this.state.userData
         if (this.state.userData.name === undefined || this.state.redirect) {
             return <Redirect to="/"></Redirect>

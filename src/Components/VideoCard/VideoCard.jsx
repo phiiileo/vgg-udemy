@@ -3,7 +3,6 @@ import './videoCard.scss'
 export default class VideoCard extends Component {
     render() {
         const videoData = this.props.videoData;
-        console.log(videoData)
         return (
             <div className="video">
                 <iframe src={"https://www.youtube.com/embed/" + videoData.videoSrc} title={videoData.title}>
@@ -22,7 +21,7 @@ export default class VideoCard extends Component {
 VideoCard.defaultProps = {
     videoData: {
         title: 'Video 1',
-        videoSrc: "https://www.youtube.com/embed/qugY8axtvWY",
+        videoSrc: "qugY8axtvWY",
         totalLikes: 0
     },
     likeVideo: (id) => { console.log("videoCard", id) }
