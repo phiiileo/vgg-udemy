@@ -4,6 +4,7 @@ import { GoogleLogin } from 'react-google-login'
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import udemy_logo from '../../udemy_logo.png'
+import ImgUr from '../ImgurUpload/ImgUr';
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -63,6 +64,7 @@ export default class SignIn extends Component {
                     </div>
 
                 </form>
+                <ImgUr />
             </div>
         )
     }
