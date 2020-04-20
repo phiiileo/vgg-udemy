@@ -3,8 +3,9 @@ import './signin.scss';
 import { GoogleLogin } from 'react-google-login'
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import udemy_logo from '../../udemy_logo.png'
-import ImgUr from '../ImgurUpload/ImgUr';
+import udemy_logo from '../../udemy_logo.png';
+
+
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -36,15 +37,15 @@ export default class SignIn extends Component {
                     <title>User | Sign</title>
                 </Helmet>
                 <form>
-                    <img src={udemy_logo} alt="logo"/>
-                <h1>Vgg-Udemy Clone</h1>
+                    <img src={udemy_logo} alt="logo" />
+                    <h1>Vgg-Udemy Clone</h1>
                     <h3>Are you</h3>
                     <div className="category">
                         <button
                             type="button"
                             onClick={() => { this.setActiveCategory("student") }}
                             className={this.state.activeCategory === "student" ? "active" : null}>
-                           A Student
+                            A Student
                             </button>
                         <span>OR</span>
                         <button type="button"
@@ -64,7 +65,6 @@ export default class SignIn extends Component {
                     </div>
 
                 </form>
-                <ImgUr />
             </div>
         )
     }

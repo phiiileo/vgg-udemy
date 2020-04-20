@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import videoData from '../AllVideos/videoData.json'
 // import axios from 'axios'
 export default class ImgUr extends Component {
     constructor(props) {
@@ -30,18 +31,26 @@ export default class ImgUr extends Component {
         fetch("https://api.imgur.com/3/image", config)
             .then(res => res.json())
             .then(image => {
-                console.log(image.data)
-                this.setState({ uploadedImgUrl: image.data.link })
+                window.location.reload()
+                console.log(image.data, videoData)
             })
             .catch(err => console.log("error = " + err))
     }
-    componentDidMount() {
+
+    handleSubmit = () => {
+        const fileInput = this.refs.fileInput;
+        videoData.push({ s: 2 })
+        console.log(videoData);
+        fileInput.click();
     }
     render() {
+        const style = {
+            display: "none"
+        }
         return (
             <div>
-                <input type="file" onChange={this.selectImage} />
-                <img src={this.state.uploadedImgUrl} alt="" />
+                <input style={style} type="file" ref="fileInput" onChange={this.selectImage} />
+                <button onClick={this.handleSubmit}>Upload a Video</button>
             </div>
         )
     }

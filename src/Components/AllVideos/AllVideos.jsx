@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import VideoCard from '../VideoCard/VideoCard';
 import './all-videos.scss';
 import videoData from './videoData.json'
+import ImgUr from '../ImgurUpload/ImgUr';
 export default class AllVideos extends Component {
     constructor(props) {
         super(props)
@@ -31,7 +32,7 @@ export default class AllVideos extends Component {
             <VideoCard access={this.props.access} likeVideo={this.likeVideo} videoData={vid} key={index} />
         );
         let uploadButton;
-        (this.props.access === "student") ? uploadButton = null : uploadButton = (<button>Upload A Video</button>);
+        (this.props.access === "student") ? uploadButton = null : uploadButton = (<ImgUr />);
         return (
             <div className="all-videos">
                 <div className="btns">
