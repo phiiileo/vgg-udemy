@@ -10,6 +10,12 @@ export default class AllVideos extends Component {
             videoData: videoData
         }
     }
+    componentDidMount() {
+        fetch(" http://localhost:3005/images")
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log("Error:", err))
+    }
 
     likeVideo = (id) => {
         if (this.props.access !== "student") {

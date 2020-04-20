@@ -1,0 +1,63 @@
+{
+  "images": [],
+  "videos": [
+    {
+      "data": {
+        "errorCode": null,
+        "ticket": "81fd117a"
+      },
+      "success": true,
+      "status": 200,
+      "id": 1
+    },
+    {
+      "data": {
+        "errorCode": null,
+        "ticket": "6de49981"
+      },
+      "success": true,
+      "status": 200,
+      "id": 2
+    },
+    {
+      "status": 200,
+      "success": true,
+      "data": {
+        "id": "VcUSmAh",
+        "deletehash": "Eepn1AK1bvR0SbG",
+        "account_id": null,
+        "account_url": null,
+        "ad_type": null,
+        "ad_url": null,
+        "title": null,
+        "description": null,
+        "name": "",
+        "type": "video/mp4",
+        "width": 0,
+        "height": 0,
+        "size": 0,
+        "views": 0,
+        "section": null,
+        "vote": null,
+        "bandwidth": 0,
+        "animated": true,
+        "favorite": false,
+        "in_gallery": false,
+        "in_most_viral": false,
+        "has_sound": false,
+        "is_ad": false,
+        "nsfw": null,
+        "link": "https://i.imgur.com/VcUSmAh.mp4",
+        "tags": [],
+        "processing": {
+          "status": "pending"
+        },
+        "datetime": 1587405671,
+        "mp4": "https://i.imgur.com/VcUSmAh.mp4",
+        "hls": ""
+      },
+      "id": 3
+    }
+  ],
+  "Users": []
+}
