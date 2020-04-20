@@ -27,7 +27,6 @@ export default class AllVideos extends Component {
 
     }
     render() {
-        console.log(this.state.videoData)
         const videos = this.state.videoData.map((vid, index) =>
             <VideoCard access={this.props.access} likeVideo={this.likeVideo} videoData={vid} key={index} />
         );
@@ -41,6 +40,7 @@ export default class AllVideos extends Component {
                 <h3>All Videos</h3>
                 <div className="all-videos-container">
                     {videos}
+                    {(this.props.access === "student") ? null : videos}
                 </div>
             </div>
         )
