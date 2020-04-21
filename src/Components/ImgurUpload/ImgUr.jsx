@@ -17,7 +17,7 @@ export default class ImgUr extends Component {
         const tokenPass = "e33e63643fb6e64";
         const postData = new FormData();
         postData.append("video", videoData)
-        postData.append("name", videoData.name)
+        postData.append("title", videoData.name)
 
 
         // Request Configuration
@@ -34,7 +34,7 @@ export default class ImgUr extends Component {
             .then(data => {
                 console.log(data)
                 if (data.status === 200) {
-                    this.saveUploadResponse("videos", data);
+                    this.saveUploadResponse(data);
                 } else {
                     console.log("Something Went wrong uploading data")
                 }
@@ -43,7 +43,10 @@ export default class ImgUr extends Component {
     }
 
     // Save Response to Local db.json
-    saveUploadResponse = (type, imgData) => {
+    saveUploadResponse = (imgData) => {
+        imgData.data.totalLikes = [];
+        let title = imgData.data.title;
+        imgData.data.title = title.substr(0, title.length - 4)
         const option = {
             method: "POST",
             headers: {
@@ -51,7 +54,7 @@ export default class ImgUr extends Component {
             },
             body: JSON.stringify(imgData)
         }
-        fetch(`http://localhost:5000/${type}`, option)
+        fetch(`http://localhost:5000/videos`, option)
             .then(res => res.json())
             .then(data => console.log(data))
             .catch(err => console.log("Posting Image Error", err))
@@ -60,10 +63,7 @@ export default class ImgUr extends Component {
     // Handle File upload
     handleSubmit = () => {
         const fileInput = this.refs.fileInput;
-        videoData.push({ s: 2 })
         console.log(videoData);
-        fetch(`http://localhost:5000/`).then(res => res.json()).then(data => console.log(data))
-
         fileInput.click();
     }
 

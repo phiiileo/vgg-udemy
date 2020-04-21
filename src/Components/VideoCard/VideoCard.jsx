@@ -28,7 +28,7 @@ export default class VideoCard extends Component {
                     <div className="videoContainer">
                         {videoContainer}
                     </div>
-                    <p>Description: {this.props.videoData.name}
+                    <p>Description: {this.props.videoData.title}
                         <span>{this.props.videoData.totalLikes.length}
                             <i className="fa fa-thumbs-up"
                                 onClick={() => this.props.likeVideo(this.props.videoData.title)}
