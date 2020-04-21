@@ -17,7 +17,7 @@ export default class TutorDashboard extends Component {
     }
 
     render() {
-        const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid.data} key={index} />)
+        const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid.data} key={index} _id={vid.id} />)
         return (
             <div className="tutorDashboard">
                 <div className="summary">

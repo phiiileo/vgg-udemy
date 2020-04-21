@@ -16,25 +16,13 @@ export default class AllVideos extends Component {
             .then(raw => this.setState({ videoData: raw }))
     }
 
-    likeVideo = (id) => {
-        if (this.props.access !== "student") {
-            return
-        } else {
-            this.setState({
-                videoData: this.state.videoData.filter(vid => {
-                    if (vid.title === id) {
-                        vid.liked = !vid.liked;
-                        (vid.liked) ? vid.totalLikes++ : vid.totalLikes--
-                    }
-                    return vid
-                })
-            })
-        }
+    componentWillMount() {
 
     }
+
     render() {
-        const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid.data} key={index} />)
-        
+        const videos = this.state.videoData.map((vid, index) => <VideoCard videoData={vid.data} key={vid.id} _id={vid.id} />)
+
         let uploadButton;
         (this.props.access === "student") ? uploadButton = null : uploadButton = (<ImgUr />);
         return (
