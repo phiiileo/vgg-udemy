@@ -2,23 +2,22 @@ import React, { Component } from 'react'
 import SummaryCard from '../SummaryCard/SummaryCard'
 import VideoCard from '../VideoCard/VideoCard'
 import './tutordashboard.scss';
-import videoData from '../AllVideos/videoData.json'
 export default class TutorDashboard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            videoData: videoData
+            videoData: []
         }
     }
 
     componentDidMount() {
         fetch("http://localhost:5000/videos")
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(raw => this.setState({ videoData: raw }))
     }
 
     render() {
-        const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} />)
+        const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid.data} key={index} />)
         return (
             <div className="tutorDashboard">
                 <div className="summary">

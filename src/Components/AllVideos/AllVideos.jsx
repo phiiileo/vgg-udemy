@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import VideoCard from '../VideoCard/VideoCard';
 import './all-videos.scss';
-import videoData from './videoData.json'
+// import videoData from './videoData.json'
 import ImgUr from '../ImgurUpload/ImgUr';
 export default class AllVideos extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            videoData: videoData
+            videoData: []
         }
     }
     componentDidMount() {
