@@ -11,10 +11,9 @@ export default class AllVideos extends Component {
         }
     }
     componentDidMount() {
-        fetch(" http://localhost:5000/videos")
+        fetch("http://localhost:5000/videos")
             .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log("Error:", err))
+            .then(raw => this.setState({ videoData: raw }))
     }
 
     likeVideo = (id) => {
@@ -34,9 +33,8 @@ export default class AllVideos extends Component {
 
     }
     render() {
-        const videos = this.state.videoData.map((vid, index) =>
-            <VideoCard access={this.props.access} likeVideo={this.likeVideo} videoData={vid} key={index} />
-        );
+        const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid.data} key={index} />)
+        
         let uploadButton;
         (this.props.access === "student") ? uploadButton = null : uploadButton = (<ImgUr />);
         return (
