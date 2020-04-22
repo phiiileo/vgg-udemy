@@ -21,7 +21,7 @@ export default class AllVideos extends Component {
     }
 
     render() {
-        const videos = this.state.videoData.map((vid, index) => <VideoCard videoData={vid.data} key={vid.id} _id={vid.id} />)
+        const videos = this.state.videoData.map((vid, index) => <VideoCard videoData={vid} key={vid.id} _id={vid.id} />)
 
         let uploadButton;
         (this.props.access === "student") ? uploadButton = null : uploadButton = (<CloudinaryUpload />);
