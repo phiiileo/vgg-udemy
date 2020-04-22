@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import VideoCard from '../VideoCard/VideoCard';
 import './all-videos.scss';
 // import videoData from './videoData.json'
-import ImgUr from '../ImgurUpload/ImgUr';
 import CloudinaryUpload from '../CloudinaryUpload/CloudinaryUpload';
 export default class AllVideos extends Component {
     constructor(props) {

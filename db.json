@@ -1,7 +1,6 @@
 {
   "images": [],
-  "videos": [
-    {
+  "videos": [{
       "id": 1,
       "data": {
         "id": "VcUSmAh",
@@ -246,6 +245,33 @@
           "emmanuelboluwajib1@gmail.com"
         ]
       }
+    },
+    {
+      "data": {
+        "public_id": "api_uploads/exrwng5tjj5g4qdo6thn",
+        "version": 1587584823,
+        "signature": "66ad6540140ec72f50ae9e06f5d44584fae90e3a",
+        "width": 4160,
+        "height": 3120,
+        "format": "jpg",
+        "resource_type": "image",
+        "created_at": "2020-04-22T19:47:03Z",
+        "tags": [
+          "browser_upload"
+        ],
+        "bytes": 549884,
+        "type": "upload",
+        "etag": "a1443456fb0e910fe4bef99aa91eb43a",
+        "placeholder": false,
+        "link":"https://res.cloudinary.com/phiileo/image/upload/v1587584823/api_uploads/exrwng5tjj5g4qdo6thn.jpg",
+        "url": "http://res.cloudinary.com/phiileo/image/upload/v1587584823/api_uploads/exrwng5tjj5g4qdo6thn.jpg",
+        "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587584823/api_uploads/exrwng5tjj5g4qdo6thn.jpg",
+        "access_mode": "public",
+        "name":"test2",
+        "original_filename": "IMG_20200417_121235_9",
+        "totalLikes": []
+      },
+      "id": 12
     }
   ],
   "Users": []

@@ -53,11 +53,13 @@ export default class CloudinaryUpload extends Component {
 
     }
     saveData = (data) => {
-        data.totalLikes = [];
+        const videoDetails = data
+        videoDetails["data"].totalLikes = [];
+        videoDetails["data"].name = data.original_name;
         const config = {
             method: "POST",
             headers: { "content-type": "application/json" },
-            body: JSON.stringify(data)
+            body: JSON.stringify(videoDetails)
         }
         const saveResponse = "http://localhost:5000/videos"
         fetch(saveResponse, config)
