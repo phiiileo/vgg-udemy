@@ -1,14 +1,12 @@
 {
   "images": [],
-  "videos": [
-    {
+  "videos": [{
       "id": 2,
       "title": "7 Js Libraries",
       "secure_url": "https://www.youtube.com/embed/qugY8axtvWY",
       "totalLikes": [
         "",
-        "",
-        "emmanuelboluwajib1@gmail.com"
+        ""
       ]
     },
     {
@@ -16,40 +14,34 @@
       "title": "Youtube Api Data",
       "secure_url": "https://www.youtube.com/embed/gRXE8QkFqtU",
       "totalLikes": [
-        "emmanuelboluwajib1@gmail.com"
+
       ]
     },
     {
       "id": 4,
       "title": "9 Things To know",
       "secure_url": "https://www.youtube.com/embed/EgpKu1tAVMY",
-      "totalLikes": [
-        "emmanuelboluwajib1@gmail.com"
-      ]
+      "totalLikes": []
     },
     {
       "id": 5,
       "title": "Learn Concepts with coding",
       "secure_url": "https://www.youtube.com/embed/FSV485hck7g",
       "totalLikes": [
-        "emmanuelboluwajib1@gmail.com"
+
       ]
     },
     {
       "id": 6,
       "title": "Coding Is Not Difficult",
       "secure_url": "https://www.youtube.com/embed/hb7Q33ysCwI",
-      "totalLikes": [
-        "emmanuelboluwajib1@gmail.com"
-      ]
+      "totalLikes": []
     },
     {
       "id": 7,
       "title": "14 Years Old Coding",
       "secure_url": "https://www.youtube.com/embed/DBXZWB_dNsw",
-      "totalLikes": [
-        "emmanuelboluwajib1@gmail.com"
-      ]
+      "totalLikes": []
     },
     {
       "id": 11,
@@ -74,7 +66,7 @@
       "access_mode": "public",
       "original_filename": "help_others",
       "totalLikes": [
-        "emmanuelboluwajib1@gmail.com"
+
       ]
     },
     {
@@ -99,7 +91,7 @@
       "access_mode": "public",
       "original_filename": "help_other2",
       "totalLikes": [
-        "emmanuelboluwajib1@gmail.com"
+
       ],
       "title": "help_other2"
     },
@@ -126,7 +118,7 @@
       "original_filename": "udemy_logo",
       "original_extension": "png",
       "totalLikes": [
-        "emmanuelboluwajib1@gmail.com"
+
       ],
       "title": "udemy_logo"
     },
@@ -174,7 +166,9 @@
       "secure_url": "https://res.cloudinary.com/phiileo/video/upload/v1587576893/api_uploads/ao5tuex6k6jyvkiki6iq.mp4",
       "access_mode": "public",
       "original_filename": "How to get a baby to sleep",
-      "totalLikes": [],
+      "totalLikes": [
+
+      ],
       "title": "How to get a baby to sleep",
       "id": 15
     },
@@ -221,7 +215,7 @@
       "original_filename": "Unboxing Iphone",
       "nb_frames": 1380,
       "totalLikes": [],
-      "name": "Unboxing Iphone",
+      "title": "Unboxing Iphone",
       "id": 16
     }
   ],

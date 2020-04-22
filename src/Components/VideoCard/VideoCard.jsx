@@ -33,7 +33,7 @@ export default class VideoCard extends Component {
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify({ id, data: details })
+            body: JSON.stringify(details)
         }
         fetch(`http://localhost:5000/videos/${id}`, option)
             .then(res => res.json())
@@ -53,7 +53,7 @@ export default class VideoCard extends Component {
         else {
             // Check if source is youtube if yes, use Iframe
             if (this.props.videoData.secure_url.indexOf("www.youtube.com") > 1 || this.props.videoData.secure_url.indexOf("res.cloudinary.com") > 1) {
-                videoContainer = <iframe src={this.props.videoData.secure_url} title={this.props.videoData.name}  frameBorder="0" allow="fullscreen"></iframe>
+                videoContainer = <iframe src={this.props.videoData.secure_url} title={this.props.videoData.name} frameBorder="0" allow="fullscreen"></iframe>
             } else {
                 // otherwise use video tag
                 videoContainer =

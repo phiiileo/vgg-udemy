@@ -55,7 +55,7 @@ export default class CloudinaryUpload extends Component {
     saveData = (data) => {
         const videoDetails = data
         videoDetails.totalLikes = [];
-        videoDetails.name = data.original_filename;
+        videoDetails.title = data.original_filename;
         console.log(data)
         const config = {
             method: "POST",
