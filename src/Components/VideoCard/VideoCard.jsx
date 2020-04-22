@@ -52,7 +52,7 @@ export default class VideoCard extends Component {
 
         else {
             // Check if source is youtube if yes, use Iframe
-            if (this.props.videoData.link.indexOf("www.youtube.com") > 1) {
+            if (this.props.videoData.link.indexOf("www.youtube.com") > 1 ||this.props.videoData.link.indexOf("res.cloudinary.com") > 1 ) {
                 videoContainer = <iframe src={this.props.videoData.link} title={this.props.videoData.name}></iframe>
             } else {
                 // otherwise use video tag

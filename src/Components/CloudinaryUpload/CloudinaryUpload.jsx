@@ -44,12 +44,26 @@ export default class CloudinaryUpload extends Component {
                 // File uploaded successfully
                 var response = JSON.parse(http.responseText);
                 console.log(e, response);
-                this.setState({ imageUrl: response.secure_url })
+                this.setState({ imageUrl: response.secure_url });
+                this.saveData(response)
             }
         };
         http.send(fd);
 
 
+    }
+    saveData = (data) => {
+        data.totalLikes = [];
+        const config = {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(data)
+        }
+        const saveResponse = "http://localhost:5000/videos"
+        fetch(saveResponse, config)
+            .then(res => res.json())
+            .then(rawData => console.log(rawData))
+            .catch(err => console.log("Error", err))
     }
     render() {
         return (
