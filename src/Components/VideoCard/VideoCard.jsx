@@ -43,8 +43,6 @@ export default class VideoCard extends Component {
 
     render() {
         let videoContainer;
-        const videoData = this.props.videoData;
-        console.log(videoData);
         const liked = this.props.videoData.totalLikes.indexOf(this.state.user_email) < 0 ? false : true
 
         // check if data exists

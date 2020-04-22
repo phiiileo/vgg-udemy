@@ -71,8 +71,8 @@ export default class CloudinaryUpload extends Component {
     render() {
         return (
             <div>
-                <button style={this.props.buttonStyle} onClick={this.handleUploadCLick}>Upload New Video</button>
-                <input style={{ display: "none" }} type="file" ref="newFile" onChange={this.getFiles} />
+                <button style={this.props.buttonStyle} onClick={this.handleUploadCLick}  >Upload New Video</button>
+                <input style={{ display: "none" }} type="file" ref="newFile" onChange={this.getFiles} accept="video/*" />
             </div>
         )
     }

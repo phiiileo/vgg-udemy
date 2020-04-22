@@ -1,6 +1,7 @@
 {
   "images": [],
-  "videos": [{
+  "videos": [
+    {
       "id": 2,
       "title": "7 Js Libraries",
       "secure_url": "https://www.youtube.com/embed/qugY8axtvWY",
@@ -13,9 +14,7 @@
       "id": 3,
       "title": "Youtube Api Data",
       "secure_url": "https://www.youtube.com/embed/gRXE8QkFqtU",
-      "totalLikes": [
-
-      ]
+      "totalLikes": []
     },
     {
       "id": 4,
@@ -27,9 +26,7 @@
       "id": 5,
       "title": "Learn Concepts with coding",
       "secure_url": "https://www.youtube.com/embed/FSV485hck7g",
-      "totalLikes": [
-
-      ]
+      "totalLikes": []
     },
     {
       "id": 6,
@@ -65,9 +62,7 @@
       "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587584251/api_uploads/z2gpa7p2dwxc2vxgexfa.png",
       "access_mode": "public",
       "original_filename": "help_others",
-      "totalLikes": [
-
-      ]
+      "totalLikes": []
     },
     {
       "id": 12,
@@ -90,9 +85,7 @@
       "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587593324/api_uploads/v8l0vgvhkknojfynoaq1.png",
       "access_mode": "public",
       "original_filename": "help_other2",
-      "totalLikes": [
-
-      ],
+      "totalLikes": [],
       "title": "help_other2"
     },
     {
@@ -117,9 +110,7 @@
       "access_mode": "public",
       "original_filename": "udemy_logo",
       "original_extension": "png",
-      "totalLikes": [
-
-      ],
+      "totalLikes": [],
       "title": "udemy_logo"
     },
     {
@@ -166,9 +157,7 @@
       "secure_url": "https://res.cloudinary.com/phiileo/video/upload/v1587576893/api_uploads/ao5tuex6k6jyvkiki6iq.mp4",
       "access_mode": "public",
       "original_filename": "How to get a baby to sleep",
-      "totalLikes": [
-
-      ],
+      "totalLikes": [],
       "title": "How to get a baby to sleep",
       "id": 15
     },
