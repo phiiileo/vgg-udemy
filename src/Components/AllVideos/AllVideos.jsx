@@ -3,6 +3,7 @@ import VideoCard from '../VideoCard/VideoCard';
 import './all-videos.scss';
 // import videoData from './videoData.json'
 import ImgUr from '../ImgurUpload/ImgUr';
+import CloudinaryUpload from '../CloudinaryUpload/CloudinaryUpload';
 export default class AllVideos extends Component {
     constructor(props) {
         super(props)
@@ -24,7 +25,7 @@ export default class AllVideos extends Component {
         const videos = this.state.videoData.map((vid, index) => <VideoCard videoData={vid.data} key={vid.id} _id={vid.id} />)
 
         let uploadButton;
-        (this.props.access === "student") ? uploadButton = null : uploadButton = (<ImgUr />);
+        (this.props.access === "student") ? uploadButton = null : uploadButton = (<CloudinaryUpload />);
         return (
             <div className="all-videos">
                 <div className="btns">
