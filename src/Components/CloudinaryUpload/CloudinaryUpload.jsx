@@ -17,33 +17,8 @@ export default class CloudinaryUpload extends Component {
     }
 
     getFiles = (e) => {
-        const response = {
-            "public_id": "api_uploads/exrwng5tjj5g4qdo6thn",
-            "version": 1587584823,
-            "signature": "66ad6540140ec72f50ae9e06f5d44584fae90e3a",
-            "width": 4160,
-            "height": 3120,
-            "format": "jpg",
-            "resource_type": "image",
-            "created_at": "2020-04-22T19:47:03Z",
-            "tags": [
-                "browser_upload"
-            ],
-            "bytes": 549884,
-            "type": "upload",
-            "etag": "a1443456fb0e910fe4bef99aa91eb43a",
-            "placeholder": false,
-            "link": "https://res.cloudinary.com/phiileo/image/upload/v1587584823/api_uploads/exrwng5tjj5g4qdo6thn.jpg",
-            "url": "http://res.cloudinary.com/phiileo/image/upload/v1587584823/api_uploads/exrwng5tjj5g4qdo6thn.jpg",
-            "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587584823/api_uploads/exrwng5tjj5g4qdo6thn.jpg",
-            "access_mode": "public",
-            "original_filename": "IMG_20200417_121235_9",
-            "totalLikes": []
-        };
         console.log(e.target.files[0]);
-        this.saveData(response)
-
-        // this.uploadFile(e.target.files[0])
+        this.uploadFile(e.target.files[0])
     }
     uploadFile = (file) => {
         console.log(file)
@@ -79,20 +54,19 @@ export default class CloudinaryUpload extends Component {
     }
     saveData = (data) => {
         const videoDetails = data
-        videoDetails["data"].totalLikes = [];
-        videoDetails["data"].name = data.original_name;
-
+        videoDetails.totalLikes = [];
+        videoDetails.name = data.original_filename;
         console.log(data)
         const config = {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(videoDetails)
         }
-        // const saveResponse = "http://localhost:5000/videos"
-        // fetch(saveResponse, config)
-        //     .then(res => res.json())
-        //     .then(rawData => console.log(rawData))
-        //     .catch(err => console.log("Error", err))
+        const saveResponse = "http://localhost:5000/videos"
+        fetch(saveResponse, config)
+            .then(res => res.json())
+            .then(rawData => console.log(rawData))
+            .catch(err => console.log("Error", err))
     }
     render() {
         return (

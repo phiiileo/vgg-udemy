@@ -3,7 +3,10 @@ import VideoCard from '../VideoCard/VideoCard';
 import './all-videos.scss';
 // import videoData from './videoData.json'
 import CloudinaryUpload from '../CloudinaryUpload/CloudinaryUpload';
+
+
 export default class AllVideos extends Component {
+    _isMounted = false;
     constructor(props) {
         super(props)
         this.state = {
@@ -11,17 +14,20 @@ export default class AllVideos extends Component {
         }
     }
     componentDidMount() {
-        fetch("http://localhost:5000/videos")
-            .then(res => res.json())
-            .then(raw => this.setState({ videoData: raw }))
+        this._isMounted = true;
+        if (this._isMounted) {
+            fetch("http://localhost:5000/videos?_sort=id&_order=desc")
+                .then(res => res.json())
+                .then(raw => this.setState({ videoData: raw }))
+        }
     }
 
-    componentWillMount() {
-
+    componentWillUnmount() {
+        this._isMounted = false
     }
 
     render() {
-        const videos = this.state.videoData.map((vid, index) => <VideoCard videoData={vid} key={vid.id} _id={vid.id} />)
+        const videos = this.state.videoData.map((vid) => <VideoCard videoData={vid} key={vid.id} _id={vid.id} />)
 
         let uploadButton;
         (this.props.access === "student") ? uploadButton = null : uploadButton = (<CloudinaryUpload />);

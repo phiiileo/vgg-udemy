@@ -52,12 +52,12 @@ export default class VideoCard extends Component {
 
         else {
             // Check if source is youtube if yes, use Iframe
-            if (this.props.videoData.link.indexOf("www.youtube.com") > 1 ||this.props.videoData.link.indexOf("res.cloudinary.com") > 1 ) {
-                videoContainer = <iframe src={this.props.videoData.link} title={this.props.videoData.name}></iframe>
+            if (this.props.videoData.secure_url.indexOf("www.youtube.com") > 1 || this.props.videoData.secure_url.indexOf("res.cloudinary.com") > 1) {
+                videoContainer = <iframe src={this.props.videoData.secure_url} title={this.props.videoData.name}  frameBorder="0" allow="fullscreen"></iframe>
             } else {
                 // otherwise use video tag
                 videoContainer =
-                    <video src={this.props.videoData.link} controls>
+                    <video src={this.props.videoData.secure_url} controls>
                     </video>
             }
 
@@ -81,7 +81,7 @@ export default class VideoCard extends Component {
 }
 VideoCard.defaultProps = {
     videoData: {
-        link: "",
+        secure_url: "",
         name: "Upload a video"
     },
     likeVideo: (id) => { console.log("videoCard", id) }

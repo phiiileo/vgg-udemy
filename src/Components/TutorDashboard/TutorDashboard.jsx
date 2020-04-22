@@ -3,6 +3,7 @@ import SummaryCard from '../SummaryCard/SummaryCard'
 import VideoCard from '../VideoCard/VideoCard'
 import './tutordashboard.scss';
 export default class TutorDashboard extends Component {
+    _isMounted = false;
     constructor(props) {
         super(props)
         this.state = {
@@ -11,9 +12,16 @@ export default class TutorDashboard extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:5000/videos")
-            .then(res => res.json())
-            .then(raw => this.setState({ videoData: raw }))
+        this._isMounted = true;
+        if (this._isMounted) {
+            fetch("http://localhost:5000/videos?_page=1&_limit=10&_sort=id&_order=desc")
+                .then(res => res.json())
+                .then(raw => this.setState({ videoData: raw }))
+        }
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false
     }
 
     render() {
@@ -25,7 +33,7 @@ export default class TutorDashboard extends Component {
                     <SummaryCard title="Your Rating" color="orange" value="65%" />
                     <SummaryCard title="Followers" color="darkcyan" icon="fa fa-user" />
                 </div>
-                <h3>Recent Videos</h3>
+                <h3>10 Recent Videos</h3>
                 <div className="video-container">
                     {videos}
                 </div>

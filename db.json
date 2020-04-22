@@ -1,56 +1,55 @@
 {
   "images": [],
-  "videos": [{
+  "videos": [
+    {
       "id": 2,
       "title": "7 Js Libraries",
-      "link": "https://www.youtube.com/embed/qugY8axtvWY",
+      "secure_url": "https://www.youtube.com/embed/qugY8axtvWY",
       "totalLikes": [
         "",
-        ""
+        "",
+        "emmanuelboluwajib1@gmail.com"
       ]
     },
     {
       "id": 3,
       "title": "Youtube Api Data",
-      "link": "https://www.youtube.com/embed/gRXE8QkFqtU",
+      "secure_url": "https://www.youtube.com/embed/gRXE8QkFqtU",
       "totalLikes": [
         "emmanuelboluwajib1@gmail.com"
       ]
-
     },
     {
       "id": 4,
       "title": "9 Things To know",
-      "link": "https://www.youtube.com/embed/EgpKu1tAVMY",
-      "totalLikes": []
-
+      "secure_url": "https://www.youtube.com/embed/EgpKu1tAVMY",
+      "totalLikes": [
+        "emmanuelboluwajib1@gmail.com"
+      ]
     },
     {
       "id": 5,
       "title": "Learn Concepts with coding",
-      "link": "https://www.youtube.com/embed/FSV485hck7g",
+      "secure_url": "https://www.youtube.com/embed/FSV485hck7g",
       "totalLikes": [
         "emmanuelboluwajib1@gmail.com"
       ]
-
     },
     {
       "id": 6,
       "title": "Coding Is Not Difficult",
-      "link": "https://www.youtube.com/embed/hb7Q33ysCwI",
+      "secure_url": "https://www.youtube.com/embed/hb7Q33ysCwI",
       "totalLikes": [
         "emmanuelboluwajib1@gmail.com"
       ]
-
     },
     {
       "id": 7,
       "title": "14 Years Old Coding",
-      "link": "https://www.youtube.com/embed/DBXZWB_dNsw",
+      "secure_url": "https://www.youtube.com/embed/DBXZWB_dNsw",
       "totalLikes": [
         "emmanuelboluwajib1@gmail.com"
       ]
-
     },
     {
       "id": 11,
@@ -69,8 +68,7 @@
       "type": "upload",
       "etag": "f4021bd5a256da3cde3308b51015c332",
       "placeholder": false,
-      "name": "Test Upload from cloudinary",
-      "link": "https://res.cloudinary.com/phiileo/image/upload/v1587584251/api_uploads/z2gpa7p2dwxc2vxgexfa.png",
+      "title": "Test Upload from cloudinary",
       "url": "http://res.cloudinary.com/phiileo/image/upload/v1587584251/api_uploads/z2gpa7p2dwxc2vxgexfa.png",
       "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587584251/api_uploads/z2gpa7p2dwxc2vxgexfa.png",
       "access_mode": "public",
@@ -78,6 +76,153 @@
       "totalLikes": [
         "emmanuelboluwajib1@gmail.com"
       ]
+    },
+    {
+      "id": 12,
+      "public_id": "api_uploads/v8l0vgvhkknojfynoaq1",
+      "version": 1587593324,
+      "signature": "644e04186f8a6997a760567e7cf73d3edcf0d0aa",
+      "width": 295,
+      "height": 291,
+      "format": "png",
+      "resource_type": "image",
+      "created_at": "2020-04-22T22:08:44Z",
+      "tags": [
+        "browser_upload"
+      ],
+      "bytes": 72248,
+      "type": "upload",
+      "etag": "361402ad8d16de515c14fcaf28383bb7",
+      "placeholder": false,
+      "url": "http://res.cloudinary.com/phiileo/image/upload/v1587593324/api_uploads/v8l0vgvhkknojfynoaq1.png",
+      "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587593324/api_uploads/v8l0vgvhkknojfynoaq1.png",
+      "access_mode": "public",
+      "original_filename": "help_other2",
+      "totalLikes": [
+        "emmanuelboluwajib1@gmail.com"
+      ],
+      "title": "help_other2"
+    },
+    {
+      "id": 13,
+      "public_id": "api_uploads/fvxljq8elcp7fg9nmcfz",
+      "version": 1587593599,
+      "signature": "b9a49a9bd8b5c94e843ba736f228179df52b720d",
+      "width": 600,
+      "height": 600,
+      "format": "jpg",
+      "resource_type": "image",
+      "created_at": "2020-04-22T22:13:19Z",
+      "tags": [
+        "browser_upload"
+      ],
+      "bytes": 11982,
+      "type": "upload",
+      "etag": "c8a92757b80b180eedb7429d5197b46a",
+      "placeholder": false,
+      "url": "http://res.cloudinary.com/phiileo/image/upload/v1587593599/api_uploads/fvxljq8elcp7fg9nmcfz.jpg",
+      "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587593599/api_uploads/fvxljq8elcp7fg9nmcfz.jpg",
+      "access_mode": "public",
+      "original_filename": "udemy_logo",
+      "original_extension": "png",
+      "totalLikes": [
+        "emmanuelboluwajib1@gmail.com"
+      ],
+      "title": "udemy_logo"
+    },
+    {
+      "public_id": "api_uploads/u8uww6fdzsbx7gtr8atn",
+      "version": 1587594389,
+      "signature": "a500a5e9dc92206b6dee033850da13080cfed8d7",
+      "width": 719,
+      "height": 372,
+      "format": "png",
+      "resource_type": "image",
+      "created_at": "2020-04-22T22:26:29Z",
+      "tags": [
+        "browser_upload"
+      ],
+      "bytes": 26794,
+      "type": "upload",
+      "etag": "7696eefa9a4ac1dec4a8a1e801ff97ef",
+      "placeholder": false,
+      "url": "http://res.cloudinary.com/phiileo/image/upload/v1587594389/api_uploads/u8uww6fdzsbx7gtr8atn.png",
+      "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587594389/api_uploads/u8uww6fdzsbx7gtr8atn.png",
+      "access_mode": "public",
+      "original_filename": "Group 135",
+      "totalLikes": [],
+      "title": "Group 135",
+      "id": 14
+    },
+    {
+      "public_id": "api_uploads/ao5tuex6k6jyvkiki6iq",
+      "version": 1587594389,
+      "signature": "a500a5e9dc92206b6dee033850da13080cfed8d7",
+      "width": 719,
+      "height": 372,
+      "format": "png",
+      "resource_type": "image",
+      "created_at": "2020-04-22T22:26:29Z",
+      "tags": [
+        "browser_upload"
+      ],
+      "bytes": 26794,
+      "type": "upload",
+      "etag": "7696eefa9a4ac1dec4a8a1e801ff97ef",
+      "placeholder": false,
+      "url": "https://res.cloudinary.com/phiileo/video/upload/v1587576893/api_uploads/ao5tuex6k6jyvkiki6iq.mp4",
+      "secure_url": "https://res.cloudinary.com/phiileo/video/upload/v1587576893/api_uploads/ao5tuex6k6jyvkiki6iq.mp4",
+      "access_mode": "public",
+      "original_filename": "How to get a baby to sleep",
+      "totalLikes": [],
+      "title": "How to get a baby to sleep",
+      "id": 15
+    },
+    {
+      "public_id": "api_uploads/fthep4eglmoft6iwvvfc",
+      "version": 1587595558,
+      "signature": "7634b042b8620465c363c52266e874b231991109",
+      "width": 640,
+      "height": 360,
+      "format": "mp4",
+      "resource_type": "video",
+      "created_at": "2020-04-22T22:45:58Z",
+      "tags": [
+        "browser_upload"
+      ],
+      "pages": 0,
+      "bytes": 2249878,
+      "type": "upload",
+      "etag": "d62a8c3e3f82860937c69c9c818929ea",
+      "placeholder": false,
+      "url": "http://res.cloudinary.com/phiileo/video/upload/v1587595558/api_uploads/fthep4eglmoft6iwvvfc.mp4",
+      "secure_url": "https://res.cloudinary.com/phiileo/video/upload/v1587595558/api_uploads/fthep4eglmoft6iwvvfc.mp4",
+      "access_mode": "public",
+      "audio": {
+        "codec": "aac",
+        "bit_rate": "95999",
+        "frequency": 44100,
+        "channels": 2,
+        "channel_layout": "stereo"
+      },
+      "video": {
+        "pix_format": "yuv420p",
+        "codec": "h264",
+        "level": 30,
+        "profile": "Constrained Baseline",
+        "bit_rate": "214132",
+        "dar": "16:9"
+      },
+      "is_audio": false,
+      "frame_rate": 23.976023976023978,
+      "bit_rate": 312434,
+      "duration": 57.608707,
+      "rotation": 0,
+      "original_filename": "Unboxing Iphone",
+      "nb_frames": 1380,
+      "totalLikes": [],
+      "name": "Unboxing Iphone",
+      "id": 16
     }
   ],
   "Users": []
