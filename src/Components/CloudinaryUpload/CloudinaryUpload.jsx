@@ -6,7 +6,9 @@ export default class CloudinaryUpload extends Component {
         this.state = {
             cloudName: "phiileo",
             unsignedUploadPreset: "dvjugjo8",
-            url: ""
+            url: "",
+            uploadProgress: 0 + "%",
+            progressBar: "none"
         }
     }
 
@@ -22,6 +24,7 @@ export default class CloudinaryUpload extends Component {
     }
     uploadFile = (file) => {
         console.log(file)
+        this.setState({ progressBar: "block" })
         var url = `https://api.cloudinary.com/v1_1/${this.state.cloudName}/upload`;
         var http = new XMLHttpRequest();
         var fd = new FormData();
@@ -35,7 +38,7 @@ export default class CloudinaryUpload extends Component {
         // Update progress (can be used to show progress indicator)
         http.upload.addEventListener("progress", (progressData) => {
             var progress = Math.round((progressData.loaded * 100.0) / progressData.total);
-            console.log(progress, progressData)
+            this.setState({ uploadProgress: progress })
             console.log(`Amount Uploaded: ${progressData.loaded}, Total Data: ${progressData.total}`);
         });
 
@@ -45,7 +48,8 @@ export default class CloudinaryUpload extends Component {
                 var response = JSON.parse(http.responseText);
                 console.log(e, response);
                 this.setState({ imageUrl: response.secure_url });
-                this.saveData(response)
+                this.saveData(response);
+                window.location.reload()
             }
         };
         http.send(fd);
@@ -69,8 +73,27 @@ export default class CloudinaryUpload extends Component {
             .catch(err => console.log("Error", err))
     }
     render() {
+        const Style = {
+            position: "fixed",
+            top: 0,
+            left: 0,
+            zIndex: 6,
+            backgroundColor: "grey",
+            width: "100%",
+            height: "5px",
+            display: this.state.progressBar
+        }
+
+        const ProgressStyle = {
+            backgroundColor: "green",
+            width: this.state.uploadProgress,
+            height: "100%"
+        }
         return (
             <div>
+                <div className="loader" style={Style}>
+                    <div className="progress" style={ProgressStyle}></div>
+                </div>
                 <button style={this.props.buttonStyle} onClick={this.handleUploadCLick}  >Upload New Video</button>
                 <input style={{ display: "none" }} type="file" ref="newFile" onChange={this.getFiles} accept="video/*" />
             </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './home.scss';
 import Tutor from '../../Layout/Tutor';
 import Student from '../../Layout/Student';
