@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import './home.scss';
 import Tutor from '../../Layout/Tutor';
 import Student from '../../Layout/Student';
@@ -11,6 +11,7 @@ export default class Home extends Component {
         super(props);
         this.state = {
             userData: JSON.parse(localStorage.getItem("vgg-user")),
+            auth_user: JSON.parse(localStorage.getItem("vgg-auth")),
             path: "/not-found",
             redirect: false
         }
@@ -33,12 +34,12 @@ export default class Home extends Component {
         if (this.state.userData.name === undefined || this.state.redirect) {
             return <Redirect to="/"></Redirect>
         } else {
-            if (this.state.path === "/home-tutor") {
+            if (this.state.path === "/home-tutor" && this.state.auth_user.user === "tutor") {
                 return <Tutor resetLogin={this.resetLogin} data={data} />
             } else {
                 return <Student resetLogin={this.resetLogin} data={data} />
             }
-        }
 
+        }
     }
 }

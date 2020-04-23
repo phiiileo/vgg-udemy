@@ -5,6 +5,7 @@ export default function Header(props) {
 
     const resetLogin = () => {
         localStorage.setItem("vgg-user", {})
+        localStorage.setItem("vgg-auth", null)
         window.location.href = "/"
     }
     return (
