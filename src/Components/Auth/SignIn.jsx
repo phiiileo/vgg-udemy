@@ -16,17 +16,19 @@ export default class SignIn extends Component {
             activeCategory: "",
             is_auth: false,
             current_auth_user: "",
+            base_api: ""
         }
     }
 
     componentDidMount() {
-
         // Set Base Url for the Api call
         const test_base_api = "http://localhost:5000";
         const base_api = null;
         const vgg_clone_api = base_api || test_base_api;
+        this.setState({ base_api: vgg_clone_api })
         localStorage.setItem("vgg_base_api", JSON.stringify(vgg_clone_api));
         console.log(localStorage["vgg_base_api"])
+
 
         // Get Auth Details
         const getToken = localStorage.getItem("vgg-auth");
@@ -49,13 +51,43 @@ export default class SignIn extends Component {
                 expiryTime: currentDate.getTime() + (24 * 60 * 60 * 1000),
                 token: res.accessToken,
                 auth: "_phileo",
-                user: this.state.activeCategory
+                user: this.state.activeCategory,
+                userData: this.state.userData
             }
+            this.resolveLogin(createToken)
             localStorage.setItem("vgg-auth", JSON.stringify(createToken));
-            this.setState({ redirect: "/home-" + this.state.activeCategory })
+            // this.setState({ redirect: "/home-" + this.state.activeCategory })
         }
     }
+    resolveLogin = (loginDetails) => {
+        console.log(loginDetails)
+        fetch(this.state.base_api + `/users?userData.email=${loginDetails.userData.email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.length < 1) {
+                    this.RegisterUser(loginDetails)
+                } else {
+                    this.setState({ redirect: "/home-" + data[0].user })
+                }
+            })
+            .catch(err => console.log(err))
+    }
 
+    RegisterUser = (RegDetails) => {
+        const config = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(RegDetails)
+        }
+
+        fetch(this.state.base_api + "/users", config)
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ redirect: "/home-" + this.state.activeCategory })
+            })
+    }
     setActiveCategory = (category) => {
         this.setState({ activeCategory: category })
         if (this.state.is_auth && this.state.current_auth_user === category) {
@@ -63,7 +95,6 @@ export default class SignIn extends Component {
         } else {
             console.log(this.state.activeCategory)
         }
-
     }
     render() {
         if (this.state.redirect) {
