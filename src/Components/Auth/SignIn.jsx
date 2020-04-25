@@ -85,7 +85,7 @@ export default class SignIn extends Component {
         fetch(this.state.base_api + "/users", config)
             .then(res => res.json())
             .then(data => {
-                this.setState({ redirect: "/home-" + this.state.activeCategory })
+                this.setState({ redirect: "/home-" + data[0].user })
             })
     }
     setActiveCategory = (category) => {
