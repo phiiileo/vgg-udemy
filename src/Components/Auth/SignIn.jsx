@@ -51,6 +51,7 @@ export default class SignIn extends Component {
 
 
     responseGoogle = (res) => {
+        localStorage.setItem("vgg-error", "")
         if (!res && this.state.activeCategory === "") { return } else {
             this.setState({ userData: res.profileObj });
             // localStorage.setItem("vgg-user", JSON.stringify(this.state.userData));
