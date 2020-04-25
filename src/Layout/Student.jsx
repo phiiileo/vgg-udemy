@@ -22,9 +22,9 @@ export default class Student extends Component {
                 <Helmet>
                     <title>Tutor | Home</title>
                 </Helmet>
-                <Sidebar changeRoute={this.changeRoute} title="Student" data={data} />
+                <Sidebar changeRoute={this.changeRoute} title="Student" data={data.userData} />
                 <div className="student-main">
-                    <Header data={data.email} />
+                    <Header data={data.userData.email} />
                     <StudentDashboard />
                 </div>
             </div>

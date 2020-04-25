@@ -20,16 +20,18 @@ export default class Home extends Component {
 
     resetLogin = () => {
         localStorage.setItem("vgg-user", null)
+        localStorage.setItem("vgg-auth", null)
     }
 
     componentDidMount() {
         const currentPath = window.location.pathname;
-        (currentPath === "/home-tutor") ? this.setState({ path: "/home-tutor" })
-            : (currentPath === "/home-student") ? this.setState({ path: "/home-student" }) : this.setState({ redirect: true });
+        const currentUser = this.state.auth_user;
+        (currentPath === "/home-tutor" && currentUser.user_category === "tutor") ? this.setState({ path: "/home-tutor" })
+            : (currentPath === "/home-student" && currentUser.user_category === "student") ? this.setState({ path: "/home-student" }) : this.setState({ redirect: true });
     }
 
     render() {
-        console.log(this.state.path, this.state.auth_user, this.state.userData)
+        // console.log(this.state.path, this.state.auth_user, this.state.userData)
         const data = this.state.auth_user
         if (this.state.userData === undefined || this.state.redirect) {
             return <Redirect to="/"></Redirect>
