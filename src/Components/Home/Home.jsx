@@ -24,17 +24,17 @@ export default class Home extends Component {
 
     componentDidMount() {
         const currentPath = window.location.pathname;
-
         (currentPath === "/home-tutor") ? this.setState({ path: "/home-tutor" })
-            : (currentPath === "/home-student") ? this.setState({ path: "/home-student" }) : this.setState({ redirect: true })
+            : (currentPath === "/home-student") ? this.setState({ path: "/home-student" }) : this.setState({ redirect: true });
     }
 
     render() {
-        const data = this.state.userData
-        if (this.state.userData.name === undefined || this.state.redirect) {
+        console.log(this.state.path, this.state.auth_user, this.state.userData)
+        const data = this.state.auth_user
+        if (this.state.userData === undefined || this.state.redirect) {
             return <Redirect to="/"></Redirect>
         } else {
-            if (this.state.path === "/home-tutor" && this.state.auth_user.user === "tutor") {
+            if (this.state.path === "/home-tutor" && this.state.auth_user.user_category === "tutor") {
                 return <Tutor resetLogin={this.resetLogin} data={data} />
             } else {
                 return <Student resetLogin={this.resetLogin} data={data} />

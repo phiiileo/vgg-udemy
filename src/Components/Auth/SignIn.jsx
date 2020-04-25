@@ -27,51 +27,53 @@ export default class SignIn extends Component {
         const vgg_clone_api = base_api || test_base_api;
         this.setState({ base_api: vgg_clone_api })
         localStorage.setItem("vgg_base_api", JSON.stringify(vgg_clone_api));
-        console.log(localStorage["vgg_base_api"])
-
 
         // Get Auth Details
         const getToken = localStorage.getItem("vgg-auth");
         if (getToken !== "null") {
-            const token = JSON.parse(getToken)
-            console.log("Existing Token", token);
-            this.setState({ is_auth: true, current_auth_user: token.user })
+            const UserData = JSON.parse(getToken)
+            console.log("Existing Token", UserData);
+            this.setState({ is_auth: true, current_auth_user: UserData.user })
         } else {
             console.log("No auth")
         }
     }
+
 
     responseGoogle = (res) => {
         if (!res && this.state.activeCategory === "") { return } else {
             this.setState({ userData: res.profileObj });
             localStorage.setItem("vgg-user", JSON.stringify(this.state.userData));
             const currentDate = new Date()
-            const createToken = {
-                createdAT: currentDate.getTime(),
+            const auth_user = {
+                createdAt: currentDate.getTime(),
                 expiryTime: currentDate.getTime() + (24 * 60 * 60 * 1000),
                 token: res.accessToken,
-                auth: "_phileo",
-                user: this.state.activeCategory,
+                user_category: this.state.activeCategory,
                 userData: this.state.userData
             }
-            this.resolveLogin(createToken)
-            localStorage.setItem("vgg-auth", JSON.stringify(createToken));
+            this.resolveLogin(auth_user)
+            localStorage.setItem("vgg-auth", JSON.stringify(auth_user));
             // this.setState({ redirect: "/home-" + this.state.activeCategory })
         }
     }
-    resolveLogin = (loginDetails) => {
-        console.log(loginDetails)
-        fetch(this.state.base_api + `/users?userData.email=${loginDetails.userData.email}`)
+
+
+    resolveLogin = (auth_user) => {
+        console.log(auth_user)
+        fetch(this.state.base_api + `/users?userData.email=${auth_user.userData.email}`)
             .then(res => res.json())
             .then(data => {
                 if (data.length < 1) {
-                    this.RegisterUser(loginDetails)
+                    this.RegisterUser(auth_user)
                 } else {
-                    this.setState({ redirect: "/home-" + data[0].user })
+                    console.log("Existing User", data[0])
+                    this.setState({ redirect: "/home-" + data[0].user_category })
                 }
             })
             .catch(err => console.log(err))
     }
+
 
     RegisterUser = (RegDetails) => {
         const config = {
@@ -85,9 +87,12 @@ export default class SignIn extends Component {
         fetch(this.state.base_api + "/users", config)
             .then(res => res.json())
             .then(data => {
-                this.setState({ redirect: "/home-" + data[0].user })
+                console.log("RegUser", data[0])
+                this.setState({ redirect: "/home-" + data.user_category })
             })
     }
+
+
     setActiveCategory = (category) => {
         this.setState({ activeCategory: category })
         if (this.state.is_auth && this.state.current_auth_user === category) {
@@ -96,6 +101,8 @@ export default class SignIn extends Component {
             console.log(this.state.activeCategory)
         }
     }
+
+
     render() {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect}></Redirect>
@@ -109,6 +116,8 @@ export default class SignIn extends Component {
                     <img src={udemy_logo} alt="logo" />
                     <h1>Vgg-Udemy Clone</h1>
                     <h3>Are you</h3>
+
+                    {/* Category selector */}
                     <div className="category">
                         <button
                             type="button"
@@ -123,6 +132,8 @@ export default class SignIn extends Component {
                             A Tutor
                                 </button>
                     </div>
+
+                    {/* Google login Button */}
                     <div style={{ display: this.state.activeCategory === "" ? "none" : "block" }}>
                         <GoogleLogin
                             clientId="469983040665-j3v4v36rs2ndb6fs53hdv3joig8vdi25.apps.googleusercontent.com"

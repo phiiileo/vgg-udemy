@@ -20,16 +20,17 @@ export default class Tutor extends Component {
     }
     render() {
         let data = this.props.data;
+        console.log("Tutor page", data)
         let ActivePage;
-        (this.state.activeRoute === "dashboard") ? ActivePage = <TutorDashboard data={data} /> : ActivePage = <AllVideos access={this.state.accessLevel} />
+        (this.state.activeRoute === "dashboard") ? ActivePage = <TutorDashboard data={data.userData} /> : ActivePage = <AllVideos access={this.state.accessLevel} />
         return (
             <div className="tutor">
                 <Helmet>
                     <title>Tutor | Home</title>
                 </Helmet>
-                <Sidebar changeRoute={this.changeRoute} access={this.state.accessLevel} title="Tutor" data={data} />
+                <Sidebar changeRoute={this.changeRoute} access={this.state.accessLevel} title="Tutor" data={data.userData} />
                 <div className="tutor-main">
-                    <Header data={data.email} />
+                    <Header data={data.userData.email} />
                     {ActivePage}
                 </div>
             </div>

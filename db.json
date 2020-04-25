@@ -394,11 +394,10 @@
   ],
   "Users": [
     {
-      "createdAT": 1587821739306,
-      "expiryTime": 1587908139306,
-      "token": "ya29.a0Ae4lvC1qdkS2isPG-luJAaNCgymF0gEj2U_I7Fc1HS1qrK6vNAl4mCGumUCgTpLv-4OOOZ54Y_2TyF2VKQXvbhuiYzRKeTMOaEGlWFIDa0yF7-XiHVj1iJwozEBPa6wOGwZXibpUJwW68NrG_2ajO8cxwAZMj2Okc-WF",
-      "auth": "_phileo",
-      "user": "tutor",
+      "createdAt": 1587840112148,
+      "expiryTime": 1587926512148,
+      "token": "ya29.a0Ae4lvC1wUd2CAds97ZugxgTbalohKmWbC96JrmxZ_Qb3jYyPcs0G4RDwqj9iSSckJN1ur1GhE9yEjkYI7oDGmY9duTc67qdmkWOShu5LKBW8k4G84PoH23SFl4MWLo9FNNXMe42YGnk_BVgCx_JDJ8x-rLzyCura_B8p",
+      "user_category": "tutor",
       "userData": {
         "googleId": "109175176585058394998",
         "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14Gg5Fv9u6Q3rgONh9VSq0jEKeESEU8UDxnQGQqOC=s96-c",
@@ -410,11 +409,10 @@
       "id": 1
     },
     {
-      "createdAT": 1587821852351,
-      "expiryTime": 1587908252351,
-      "token": "ya29.a0Ae4lvC339MzH7GGzf7uebAoYFThG5VYlibiwFjuaqgSuAoqezWVqF1LGdJVfwg4DQVoffFPv-mIN8uhiZe-ar3AWCxaR4p7UUgD7wz5y9N0X4jj7uvDh-Z13VjTgMX5AAE5K9Q-3eIq_Dp9EskW1LqV0MR6v6z5gu1gr",
-      "auth": "_phileo",
-      "user": "tutor",
+      "createdAt": 1587840533215,
+      "expiryTime": 1587926933215,
+      "token": "ya29.a0Ae4lvC0o9M73AGa4TAfr8V_b85iN4vP04FgrglyShShqMJe6veEKlU_JfA8jU-csc3CpD6vCQ8RTVwTWkug2FesuzyfryxNxSXLbrSE3hHMo_8l2LekhyUVsEi48bRRID4lLWIbbTAS7EmkJ_qMYJPo0OfH6YRstPjHe",
+      "user_category": "student",
       "userData": {
         "googleId": "109055461829752857338",
         "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14Gj9KoIatC1Crgpdbfo1fS2Ugw6XR7HND4vMr16s=s96-c",
