@@ -19,8 +19,8 @@ export default class Home extends Component {
 
 
     resetLogin = () => {
-        localStorage.setItem("vgg-user", null)
-        localStorage.setItem("vgg-auth", null)
+        localStorage.setItem("vgg-user", JSON.stringify({}))
+        localStorage.setItem("vgg-auth", JSON.stringify({}))
     }
 
     componentDidMount() {

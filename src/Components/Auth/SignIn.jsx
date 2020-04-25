@@ -33,7 +33,7 @@ export default class SignIn extends Component {
         if (getToken !== "null") {
             const UserData = JSON.parse(getToken)
             console.log("Existing Token", UserData);
-            this.setState({ is_auth: true, current_auth_user: UserData.user })
+            this.setState({ is_auth: true, current_auth_user: UserData })
         } else {
             console.log("No auth")
         }
@@ -95,7 +95,8 @@ export default class SignIn extends Component {
 
     setActiveCategory = (category) => {
         this.setState({ activeCategory: category })
-        if (this.state.is_auth && this.state.current_auth_user === category) {
+        console.log("Cat", this.state.current_auth_user, this.state.is_auth)
+        if (this.state.is_auth && this.state.current_auth_user.user_category === category) {
             this.setState({ redirect: "/home-" + category })
         } else {
             console.log(this.state.activeCategory)
@@ -115,7 +116,7 @@ export default class SignIn extends Component {
                 <form>
                     <img src={udemy_logo} alt="logo" />
                     <h1>Vgg-Udemy Clone</h1>
-                    <h3>Are you</h3>
+                    <h3>Login As</h3>
 
                     {/* Category selector */}
                     <div className="category">
