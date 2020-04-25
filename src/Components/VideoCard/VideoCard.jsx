@@ -5,7 +5,7 @@ export default class VideoCard extends Component {
         super(props)
         this.state = {
             totalLikes: this.props.videoData.totalLikes,
-            user_email: JSON.parse(localStorage.getItem("vgg-user")).email
+            user_email: JSON.parse(localStorage.getItem("vgg-auth")).userData.email
         }
     }
 

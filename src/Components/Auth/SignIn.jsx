@@ -16,7 +16,9 @@ export default class SignIn extends Component {
             activeCategory: "",
             is_auth: false,
             current_auth_user: "",
-            base_api: ""
+            base_api: "",
+            correlate: false,
+            error: {}
         }
     }
 
@@ -37,13 +39,21 @@ export default class SignIn extends Component {
         } else {
             console.log("No auth")
         }
+
+        //Check if there is handled error from previous activities
+        const vgg_error = localStorage.getItem("vgg-error");
+        if (vgg_error !== "") {
+            this.setState({ error: JSON.parse(vgg_error) })
+        } else {
+            // this.setState({ error: "" })
+        }
     }
 
 
     responseGoogle = (res) => {
         if (!res && this.state.activeCategory === "") { return } else {
             this.setState({ userData: res.profileObj });
-            localStorage.setItem("vgg-user", JSON.stringify(this.state.userData));
+            // localStorage.setItem("vgg-user", JSON.stringify(this.state.userData));
             const currentDate = new Date()
             const auth_user = {
                 createdAt: currentDate.getTime(),
@@ -64,6 +74,7 @@ export default class SignIn extends Component {
         fetch(this.state.base_api + `/users?userData.email=${auth_user.userData.email}`)
             .then(res => res.json())
             .then(data => {
+                localStorage.setItem("vgg-error", "")
                 if (data.length < 1) {
                     this.RegisterUser(auth_user)
                 } else {
@@ -96,15 +107,22 @@ export default class SignIn extends Component {
     setActiveCategory = (category) => {
         this.setState({ activeCategory: category })
         console.log("Cat", this.state.current_auth_user, this.state.is_auth)
-        if (this.state.is_auth && this.state.current_auth_user.user_category === category) {
-            this.setState({ redirect: "/home-" + category })
+        if (this.state.is_auth && this.state.current_auth_user.user_category === category && !this.state.error.status) {
+            this.setState({ redirect: "/home-" + category });
+            localStorage.setItem("vgg-error", "")
         } else {
-            console.log(this.state.activeCategory)
+            console.log("No user")
         }
     }
 
-
+    componentWillUnmount() {
+        localStorage.setItem("vgg-error", "")
+    }
     render() {
+        const errStyle = {
+            color: "red",
+            margin: "20px auto"
+        }
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect}></Redirect>
         }
@@ -144,6 +162,8 @@ export default class SignIn extends Component {
                             cookiePolicy={'single_host_origin'}
                         />
                     </div>
+
+                    <div style={errStyle}>{this.state.error.status ? this.state.error.errorText + "! Login again" : ""}</div>
 
                 </form>
             </div>

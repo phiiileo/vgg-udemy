@@ -1,6 +1,7 @@
 {
   "images": [],
-  "videos": [{
+  "videos": [
+    {
       "id": 2,
       "tutor": "emmanuelboluwajib1@gmail.com",
       "title": "7 Js Libraries",
@@ -403,13 +404,15 @@
       "original_filename": "Unboxing Iphone",
       "nb_frames": 1380,
       "totalLikes": [
-        "owojoriemmanuelb1@gmail.com"
+        "owojoriemmanuelb1@gmail.com",
+        "emmanuelboluwajib1@gmail.com"
       ],
       "title": "Unboxing Iphone",
       "id": 20
     }
   ],
-  "Users": [{
+  "Users": [
+    {
       "createdAt": 1587840112148,
       "expiryTime": 1587926512148,
       "token": "ya29.a0Ae4lvC1wUd2CAds97ZugxgTbalohKmWbC96JrmxZ_Qb3jYyPcs0G4RDwqj9iSSckJN1ur1GhE9yEjkYI7oDGmY9duTc67qdmkWOShu5LKBW8k4G84PoH23SFl4MWLo9FNNXMe42YGnk_BVgCx_JDJ8x-rLzyCura_B8p",
