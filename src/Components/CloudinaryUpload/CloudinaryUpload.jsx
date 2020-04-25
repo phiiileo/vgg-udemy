@@ -57,9 +57,11 @@ export default class CloudinaryUpload extends Component {
 
     }
     saveData = (data) => {
+        const tutor = JSON.parse(localStorage.getItem("vgg-auth"))
         const videoDetails = data
         videoDetails.totalLikes = [];
         videoDetails.title = data.original_filename;
+        videoDetails.tutor = tutor.userData.email
         console.log(data)
         const config = {
             method: "POST",
@@ -78,7 +80,7 @@ export default class CloudinaryUpload extends Component {
             top: 0,
             left: 0,
             zIndex: 6,
-            backgroundColor: "grey",
+            backgroundColor: "whitesmoke",
             width: "100%",
             height: "5px",
             display: this.state.progressBar
@@ -93,6 +95,7 @@ export default class CloudinaryUpload extends Component {
             <div>
                 <div className="loader" style={Style}>
                     <div className="progress" style={ProgressStyle}></div>
+                    <div className="roller"></div>
                 </div>
                 <button style={this.props.buttonStyle} onClick={this.handleUploadCLick}  >Upload New Video</button>
                 <input style={{ display: "none" }} type="file" ref="newFile" onChange={this.getFiles} accept="video/*" />
