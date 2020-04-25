@@ -30,7 +30,6 @@ export default class SignIn extends Component {
 
         // Get Auth Details
         const getToken = localStorage.getItem("vgg-auth");
-        console.log(getToken)
         if (getToken !== "null") {
             const token = JSON.parse(getToken)
             console.log("Existing Token", token);

@@ -344,6 +344,52 @@
       "totalLikes": [],
       "title": "How to get a baby to sleep",
       "id": 19
+    },
+    {
+      "public_id": "api_uploads/ayl9cleyo25zlk3en2qq",
+      "version": 1587654260,
+      "signature": "49221a89d27aa0e118dcc469da6d3d848a71cba0",
+      "width": 640,
+      "height": 360,
+      "format": "mp4",
+      "resource_type": "video",
+      "created_at": "2020-04-23T15:04:20Z",
+      "tags": [
+        "browser_upload"
+      ],
+      "pages": 0,
+      "bytes": 2249878,
+      "type": "upload",
+      "etag": "d62a8c3e3f82860937c69c9c818929ea",
+      "placeholder": false,
+      "url": "http://res.cloudinary.com/phiileo/video/upload/v1587654260/api_uploads/ayl9cleyo25zlk3en2qq.mp4",
+      "secure_url": "https://res.cloudinary.com/phiileo/video/upload/v1587654260/api_uploads/ayl9cleyo25zlk3en2qq.mp4",
+      "access_mode": "public",
+      "audio": {
+        "codec": "aac",
+        "bit_rate": "95999",
+        "frequency": 44100,
+        "channels": 2,
+        "channel_layout": "stereo"
+      },
+      "video": {
+        "pix_format": "yuv420p",
+        "codec": "h264",
+        "level": 30,
+        "profile": "Constrained Baseline",
+        "bit_rate": "214132",
+        "dar": "16:9"
+      },
+      "is_audio": false,
+      "frame_rate": 23.976023976023978,
+      "bit_rate": 312434,
+      "duration": 57.608707,
+      "rotation": 0,
+      "original_filename": "Unboxing Iphone",
+      "nb_frames": 1380,
+      "totalLikes": [],
+      "title": "Unboxing Iphone",
+      "id": 20
     }
   ],
   "Users": []
