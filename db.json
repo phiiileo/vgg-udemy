@@ -1,9 +1,9 @@
 {
   "images": [],
-  "videos": [
-    {
+  "videos": [{
       "id": 2,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "title": "7 Js Libraries",
       "secure_url": "https://www.youtube.com/embed/qugY8axtvWY",
       "totalLikes": [
@@ -16,35 +16,40 @@
     },
     {
       "id": 3,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "title": "Youtube Api Data",
       "secure_url": "https://www.youtube.com/embed/gRXE8QkFqtU",
       "totalLikes": []
     },
     {
       "id": 4,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "title": "9 Things To know",
       "secure_url": "https://www.youtube.com/embed/EgpKu1tAVMY",
       "totalLikes": []
     },
     {
       "id": 5,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "title": "Learn Concepts with coding",
       "secure_url": "https://www.youtube.com/embed/FSV485hck7g",
       "totalLikes": []
     },
     {
       "id": 6,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "title": "Coding Is Not Difficult",
       "secure_url": "https://www.youtube.com/embed/hb7Q33ysCwI",
       "totalLikes": []
     },
     {
       "id": 7,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "title": "14 Years Old Coding",
       "secure_url": "https://www.youtube.com/embed/DBXZWB_dNsw",
       "totalLikes": [
@@ -55,7 +60,8 @@
     },
     {
       "id": 11,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "public_id": "api_uploads/z2gpa7p2dwxc2vxgexfa",
       "version": 1587584251,
       "signature": "aa15afa0729229797cc3f33b0be91fca7f43ac42",
@@ -85,7 +91,8 @@
     },
     {
       "id": 12,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "public_id": "api_uploads/v8l0vgvhkknojfynoaq1",
       "version": 1587593324,
       "signature": "644e04186f8a6997a760567e7cf73d3edcf0d0aa",
@@ -110,7 +117,8 @@
     },
     {
       "id": 13,
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "public_id": "api_uploads/fvxljq8elcp7fg9nmcfz",
       "version": 1587593599,
       "signature": "b9a49a9bd8b5c94e843ba736f228179df52b720d",
@@ -135,7 +143,8 @@
       "title": "udemy_logo"
     },
     {
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "public_id": "api_uploads/u8uww6fdzsbx7gtr8atn",
       "version": 1587594389,
       "signature": "a500a5e9dc92206b6dee033850da13080cfed8d7",
@@ -160,7 +169,8 @@
       "id": 14
     },
     {
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "public_id": "api_uploads/ao5tuex6k6jyvkiki6iq",
       "version": 1587594389,
       "signature": "a500a5e9dc92206b6dee033850da13080cfed8d7",
@@ -185,7 +195,8 @@
       "id": 15
     },
     {
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "public_id": "api_uploads/fthep4eglmoft6iwvvfc",
       "version": 1587595558,
       "signature": "7634b042b8620465c363c52266e874b231991109",
@@ -232,7 +243,8 @@
       "id": 16
     },
     {
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "public_id": "api_uploads/drifbfje15kspr7ikmtc",
       "version": 1587603565,
       "signature": "059704cbd8dff218b1f4928bec9bfa0e1d9d79a4",
@@ -279,7 +291,8 @@
       "id": 17
     },
     {
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "test@gmail.com",
       "public_id": "api_uploads/r4vm4q184wa6y1offi2k",
       "version": 1587604064,
       "signature": "38a94b17af72e7b0af135215dbddde16698802cb",
@@ -326,7 +339,8 @@
       "id": 18
     },
     {
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "test@gmail.com",
       "public_id": "api_uploads/qsiispxprvzwtkuuea7y",
       "version": 1587604096,
       "signature": "47584ca26a8633433c748f17b7f24c9660d284a5",
@@ -375,7 +389,8 @@
       "id": 19
     },
     {
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "public_id": "api_uploads/ayl9cleyo25zlk3en2qq",
       "version": 1587654260,
       "signature": "49221a89d27aa0e118dcc469da6d3d848a71cba0",
@@ -470,12 +485,12 @@
         "owojoriemmanuelb1@gmail.com"
       ],
       "title": "How to get a baby to sleep",
-      "tutor": "emmanuelboluwajib1@gmail.com",
+      "tutor_name": "Emmanuel Owojori",
+      "tutor_email": "emmanuelboluwajib1@gmail.com",
       "id": 21
     }
   ],
-  "Users": [
-    {
+  "Users": [{
       "createdAt": 1587840112148,
       "expiryTime": 1587926512148,
       "token": "ya29.a0Ae4lvC1wUd2CAds97ZugxgTbalohKmWbC96JrmxZ_Qb3jYyPcs0G4RDwqj9iSSckJN1ur1GhE9yEjkYI7oDGmY9duTc67qdmkWOShu5LKBW8k4G84PoH23SFl4MWLo9FNNXMe42YGnk_BVgCx_JDJ8x-rLzyCura_B8p",
