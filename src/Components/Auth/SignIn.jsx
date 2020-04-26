@@ -129,44 +129,46 @@ export default class SignIn extends Component {
         }
         return (
             <div className="sign-in">
-                <Helmet>
-                    <title>User | Sign</title>
-                </Helmet>
-                <form>
-                    <img src={udemy_logo} alt="logo" />
-                    <h1>Vgg-Udemy Clone</h1>
-                    <h3>Login As</h3>
-
-                    {/* Category selector */}
-                    <div className="category">
-                        <button
-                            type="button"
-                            onClick={() => { this.setActiveCategory("student") }}
-                            className={this.state.activeCategory === "student" ? "active" : null}>
-                            A Student
+                <div className="container">
+                    <Helmet>
+                        <title>User | Sign</title>
+                    </Helmet>
+                    <form>
+                        <img src={udemy_logo} alt="logo" />
+                        <h1>Vgg-Udemy Clone</h1>
+                        <p>Note: First Login doubles as registration</p>
+                        <h3>Login As</h3>
+                        {/* Category selector */}
+                        <div className="category">
+                            <button
+                                type="button"
+                                onClick={() => { this.setActiveCategory("student") }}
+                                className={this.state.activeCategory === "student" ? "active" : null}>
+                                A Student
                             </button>
-                        <span>OR</span>
-                        <button type="button"
-                            onClick={() => { this.setActiveCategory("tutor") }}
-                            className={this.state.activeCategory === "tutor" ? "active" : null}>
-                            A Tutor
+                            <span>OR</span>
+                            <button type="button"
+                                onClick={() => { this.setActiveCategory("tutor") }}
+                                className={this.state.activeCategory === "tutor" ? "active" : null}>
+                                A Tutor
                                 </button>
-                    </div>
+                        </div>
 
-                    {/* Google login Button */}
-                    <div style={{ display: this.state.activeCategory === "" ? "none" : "block" }}>
-                        <GoogleLogin
-                            clientId="469983040665-j3v4v36rs2ndb6fs53hdv3joig8vdi25.apps.googleusercontent.com"
-                            buttonText="Login With Google"
-                            onSuccess={(res) => this.responseGoogle(res)}
-                            onFailure={(res) => this.responseGoogle(res)}
-                            cookiePolicy={'single_host_origin'}
-                        />
-                    </div>
+                        {/* Google login Button */}
+                        <div style={{ display: this.state.activeCategory === "" ? "none" : "block" }}>
+                            <GoogleLogin
+                                clientId="469983040665-j3v4v36rs2ndb6fs53hdv3joig8vdi25.apps.googleusercontent.com"
+                                buttonText="Login With Google"
+                                onSuccess={(res) => this.responseGoogle(res)}
+                                onFailure={(res) => this.responseGoogle(res)}
+                                cookiePolicy={'single_host_origin'}
+                            />
+                        </div>
 
-                    <div style={errStyle}>{this.state.error.status ? this.state.error.errorText + "! Login again" : ""}</div>
+                        <div style={errStyle}>{this.state.error.status ? this.state.error.errorText + "! Login again" : ""}</div>
 
-                </form>
+                    </form>
+                </div>
             </div>
         )
     }
