@@ -17,7 +17,7 @@ export default class AllVideos extends Component {
     componentDidMount() {
         this._isMounted = true;
         if (this._isMounted) {
-            fetch("http://localhost:5000/videos?_sort=id&_order=desc&_limit=6")
+            fetch("http://localhost:5000/videos?_sort=id&_order=desc&_limit=0")
                 .then(res => res.json())
                 .then(raw => this.setState({ videoData: raw }))
         }
@@ -26,7 +26,7 @@ export default class AllVideos extends Component {
     componentWillUnmount() {
         this._isMounted = false
     }
-    filterValue = (value) => {
+    searchValue = (value) => {
         const base_url = JSON.parse(localStorage.getItem("vgg_base_api"));
         fetch(base_url + "/videos")
             .then(res => res.json(res))
@@ -42,11 +42,15 @@ export default class AllVideos extends Component {
         console.log("search", value)
     }
 
+    filterValue = (value) => {
+        console.log(value)
+    }
+
     render() {
         const videos = this.state.videoData.map((vid) => <VideoCard videoData={vid} key={vid.id} _id={vid.id} />)
 
         let barContent;
-        (this.props.access === "student") ? barContent = (<VideoFilter filter={this.filterValue} />) : barContent = (<CloudinaryUpload />);
+        (this.props.access === "student") ? barContent = (<VideoFilter filter={this.filterValue} search={this.searchValue} />) : barContent = (<CloudinaryUpload />);
         return (
             <div className="all-videos">
                 <div className="btns">

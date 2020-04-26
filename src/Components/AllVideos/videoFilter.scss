@@ -1,0 +1,54 @@
+$color: skyblue;
+
+.video-filter {
+    form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+
+        .form-group {
+            height: 40px;
+            display: flex;
+            margin-bottom: 20px;
+            font-size: 20px;
+
+            input {
+                height: 100%;
+                border: 1px solid $color;
+                border-radius: 5px 0 0 5px;
+                padding: 0 10px;
+                background-color: transparent;
+            }
+
+            button {
+                margin-left: -5px;
+                border-radius: 0px 5px 5px 0;
+            }
+
+            select {
+                height: 100%;
+                background-color: $color;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:560px) {
+    .video-filter {
+        form {
+            flex-direction: row;
+
+            .form-group {
+                margin-bottom: 0;
+                input{
+                    width: 200px;
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}
