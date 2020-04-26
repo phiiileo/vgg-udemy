@@ -19,19 +19,20 @@ export default class VideoFilter extends Component {
     render() {
         const formGroupStyle = {
             display: "flex",
-            justifyContent: "flex-end"
+            justifyContent: "flex-end",
+            // border: "1px solid red"
         }
         const inputStyle = {
-            padding: "5px 10px",
+            padding: "2px 10px",
             border: "1px solid skyblue",
             width: "250px",
-            borderRadius:"5px 0 0 5px",
-            backgroundColor:"transparent"
-
+            borderRadius: "5px 0 0 5px",
+            backgroundColor: "transparent",
         }
 
         const btnStyle = {
-            borderRadius: "0px 5px 5px 0px"
+            borderRadius: "0px 5px 5px 0px",
+            height: "auto"
         }
         return (
             <div>

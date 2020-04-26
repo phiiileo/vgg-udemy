@@ -26,7 +26,17 @@
     }
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 560px) {
+    .all-videos {
+
+        &-container {
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 30px;
+            row-gap: 30px;
+        }
+    }
+}
+@media screen and (min-width: 980px) {
     .all-videos {
 
         &-container {
