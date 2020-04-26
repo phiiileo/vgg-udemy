@@ -20,19 +20,33 @@ export default class TutorDashboard extends Component {
                 .then(raw => this.setState({ videoData: raw }))
         }
     }
+    getTotalLikes = () => {
+        return this.state.videoData.reduce((total, curr) => {
+            return total += curr.totalLikes.length
+        }, 0);
+    }
+    getRatings = () => {
+        const fullRating = this.state.videoData.length * 10;
+        console.log(fullRating)
+        const rating = Math.ceil((this.getTotalLikes() / fullRating) * 100)
+        return rating
+    }
 
     componentWillUnmount() {
         this._isMounted = false
     }
 
     render() {
+        const followers = this.getTotalLikes()
+        const rating = this.getRatings()
+        console.log(followers)
         const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} _id={vid.id} />)
         return (
             <div className="tutorDashboard">
                 <div className="summary">
-                    <SummaryCard icon="fa fa-youtube-play" color="green" title="Videos" value="45" />
-                    <SummaryCard title="Your Rating" color="orange" value="65%" />
-                    <SummaryCard title="Followers" color="darkcyan" icon="fa fa-user" />
+                    <SummaryCard icon="fa fa-youtube-play" color="green" title="Videos" value={this.state.videoData.length} />
+                    <SummaryCard title="Your Rating" color="orange" value={rating + "%"} />
+                    <SummaryCard title="Total Likes" value={followers} color="red" icon="fa fa-heart" />
                 </div>
                 <h3>My Videos</h3>
                 <div className="video-container">

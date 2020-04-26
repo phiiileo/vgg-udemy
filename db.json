@@ -1,14 +1,13 @@
 {
   "images": [],
-  "videos": [
-    {
+  "videos": [{
       "id": 2,
       "tutor": "emmanuelboluwajib1@gmail.com",
       "title": "7 Js Libraries",
       "secure_url": "https://www.youtube.com/embed/qugY8axtvWY",
       "totalLikes": [
         "",
-        ""
+        "", "", "", ""
       ]
     },
     {
@@ -44,7 +43,7 @@
       "tutor": "emmanuelboluwajib1@gmail.com",
       "title": "14 Years Old Coding",
       "secure_url": "https://www.youtube.com/embed/DBXZWB_dNsw",
-      "totalLikes": []
+      "totalLikes": ["","",""]
     },
     {
       "id": 11,
@@ -69,7 +68,7 @@
       "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587584251/api_uploads/z2gpa7p2dwxc2vxgexfa.png",
       "access_mode": "public",
       "original_filename": "help_others",
-      "totalLikes": []
+      "totalLikes": ["","","",""]
     },
     {
       "id": 12,
@@ -356,7 +355,9 @@
       "rotation": 0,
       "original_filename": "How to get a baby to sleep",
       "nb_frames": 1245,
-      "totalLikes": [],
+      "totalLikes": [
+        "owojoriemmanuelb1@gmail.com"
+      ],
       "title": "How to get a baby to sleep",
       "id": 19
     },
@@ -452,14 +453,15 @@
       "rotation": 0,
       "original_filename": "How to get a baby to sleep",
       "nb_frames": 1245,
-      "totalLikes": [],
+      "totalLikes": [
+        "owojoriemmanuelb1@gmail.com"
+      ],
       "title": "How to get a baby to sleep",
       "tutor": "emmanuelboluwajib1@gmail.com",
       "id": 21
     }
   ],
-  "Users": [
-    {
+  "Users": [{
       "createdAt": 1587840112148,
       "expiryTime": 1587926512148,
       "token": "ya29.a0Ae4lvC1wUd2CAds97ZugxgTbalohKmWbC96JrmxZ_Qb3jYyPcs0G4RDwqj9iSSckJN1ur1GhE9yEjkYI7oDGmY9duTc67qdmkWOShu5LKBW8k4G84PoH23SFl4MWLo9FNNXMe42YGnk_BVgCx_JDJ8x-rLzyCura_B8p",

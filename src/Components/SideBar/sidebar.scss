@@ -34,7 +34,9 @@
             img {
                 width: 150px;
                 height: 150px;
-                border-bottom: 1px solid wheat;
+                border: 3px solid whitesmoke;
+                border-radius: 50%;
+                box-shadow: 1px 1px 1px white;
             }
         }
 
