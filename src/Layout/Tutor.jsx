@@ -31,7 +31,9 @@ export default class Tutor extends Component {
                 <Sidebar changeRoute={this.changeRoute} access={this.state.accessLevel} title="Tutor" data={data.userData} />
                 <div className="tutor-main">
                     <Header data={data.userData.email} />
-                    {ActivePage}
+                    <div style={(this.state.activeRoute !=="dashboard")? {padding:"20px 30px"}:null}>
+                        {ActivePage}
+                    </div>
                 </div>
             </div>
         )

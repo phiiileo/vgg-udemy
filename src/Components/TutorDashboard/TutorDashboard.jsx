@@ -44,7 +44,7 @@ export default class TutorDashboard extends Component {
         let videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} _id={vid.id} />);
         let fallbackText;
         if (videos.length < 1) {
-            fallbackText = <h3 style={{ textAlign: "center", color: "deepskyblue" }}>You have not uploaded a video yet. Go to All Videos to upload one...</h3>
+            fallbackText = <h3 style={{ textAlign: "left", color: "deepskyblue" }}>You have not uploaded a video yet. Go to All Videos to upload one...</h3>
         }
         return (
             <div className="tutorDashboard">
