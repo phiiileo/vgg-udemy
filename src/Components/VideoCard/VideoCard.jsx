@@ -5,6 +5,7 @@ export default class VideoCard extends Component {
         super(props)
         this.state = {
             totalLikes: this.props.videoData.totalLikes,
+            totalStars: this.props.videoData.totalStars,
             user_email: JSON.parse(localStorage.getItem("vgg-auth")).userData.email
         }
     }
@@ -12,22 +13,30 @@ export default class VideoCard extends Component {
     likeVideo = (id, details) => {
         if (window.location.pathname !== "/home-student") { }
         else {
-            console.log(details);
-            console.log(details.totalLikes)
-            const email_position = details.totalLikes.indexOf(this.state.user_email)
-            if (email_position < 0) {
-                details.totalLikes = [...details.totalLikes, this.state.user_email];
-            } else {
-                details.totalLikes.splice(email_position, 1);
-                console.log(details.totalLikes)
-                console.log("You already liked the video")
-            }
-            this.setState({ totalLikes: details.totalLikes })
-            this.toggleLike(id, details)
+            this.toggleAction(id, details, "totalLikes")
+        }
+    }
+    starVideo = (id, details) => {
+        if (window.location.pathname !== "/home-student") { }
+        else {
+            this.toggleAction(id, details, "totalStars")
         }
     }
 
-    toggleLike = (id, details) => {
+    toggleAction = (id, details, action) => {
+        console.log("Default", details);
+        console.log("default1", details[action])
+        const email_position = details[action].indexOf(this.state.user_email)
+        if (email_position < 0) {
+            details[action] = [...details[action], this.state.user_email];
+        } else {
+            details[action].splice(email_position, 1);
+            console.log("update", details[action])
+            console.log("You already liked the video")
+        }
+        this.setState({ action: details[action] })
+        console.log("state", this.state)
+
         const option = {
             method: "PUT",
             headers: {
@@ -35,15 +44,16 @@ export default class VideoCard extends Component {
             },
             body: JSON.stringify(details)
         }
-        fetch(`http://localhost:5000/videos/${id}`, option)
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log("Error: Action not successful", err))
+        // fetch(`http://localhost:5000/videos/${id}`, option)
+        //     .then(res => res.json())
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log("Error: Action not successful", err))
     }
 
     render() {
         let videoContainer;
         const liked = this.props.videoData.totalLikes.indexOf(this.state.user_email) < 0 ? false : true
+        const starred = this.props.videoData.totalStars.indexOf(this.state.user_email) < 0 ? false : true
 
         // check if data exists
         if (this.props.videoData === undefined) { return (<h1>No data</h1>) }
@@ -66,12 +76,23 @@ export default class VideoCard extends Component {
                         {videoContainer}
                     </div>
                     <p>Description: {this.props.videoData.title}
-                        <span style={{ color: (liked) ? "skyblue" : "" }}>{this.props.videoData.totalLikes.length}
-                            <i className="fa fa-thumbs-up"
+                        <span style={{ color: (liked) ? "skyblue" : "" }}>
+                            {this.props.videoData.totalLikes.length}
+                            <i className="fa fa-heart"
                                 onClick={() => this.likeVideo(this.props._id, this.props.videoData)}
                             >
                             </i>
-                        </span></p>
+                        </span>
+                        <span
+                            className="star"
+                            style={{ color: (starred) ? "skyblue" : "" }}>
+                            {this.props.videoData.totalStars.length}
+                            <i className="fa fa-star"
+                                onClick={() => this.starVideo(this.props._id, this.props.videoData)}
+                            >
+                            </i>
+                        </span>
+                    </p>
                     <span>By: {this.props.videoData.tutor_name}</span>
                 </div>
             )
