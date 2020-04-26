@@ -8,6 +8,7 @@ export default function Header(props) {
         localStorage.setItem("vgg-auth", null)
         window.location.href = "/"
     }
+
     return (
         <header>
             <h3>{props.data}</h3>
@@ -19,5 +20,5 @@ export default function Header(props) {
 }
 
 Header.defaultProps = {
-    data: "email@email.com",
+    data: "placeholder@email.com",
 }

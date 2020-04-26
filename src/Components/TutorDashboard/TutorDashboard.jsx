@@ -40,7 +40,11 @@ export default class TutorDashboard extends Component {
         const followers = this.getTotalLikes()
         const rating = this.getRatings()
         console.log(followers)
-        const videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} _id={vid.id} />)
+        let videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} _id={vid.id} />);
+        let fallbackText;
+        if (videos.length < 1) {
+            fallbackText = <h3 style={{ textAlign: "center", color: "deepskyblue" }}>You have not uploaded a video yet. Go to All Videos to upload one...</h3>
+        }
         return (
             <div className="tutorDashboard">
                 <div className="summary">
@@ -49,6 +53,7 @@ export default class TutorDashboard extends Component {
                     <SummaryCard title="Total Likes" value={followers} color="red" icon="fa fa-heart" />
                 </div>
                 <h3>My Videos</h3>
+                {fallbackText}
                 <div className="video-container">
                     {videos}
                 </div>
