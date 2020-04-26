@@ -24,7 +24,9 @@ export default class VideoFilter extends Component {
         const inputStyle = {
             padding: "5px 10px",
             border: "1px solid skyblue",
-            width: "250px"
+            width: "250px",
+            borderRadius:"5px 0 0 5px",
+            backgroundColor:"transparent"
 
         }
 
