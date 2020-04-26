@@ -72,6 +72,7 @@ export default class VideoCard extends Component {
                             >
                             </i>
                         </span></p>
+                    <span>By: {this.props.videoData.tutor_name}</span>
                 </div>
             )
         }
