@@ -29,7 +29,7 @@ export default class TutorDashboard extends Component {
         const fullRating = this.state.videoData.length * 10;
         console.log(fullRating)
         const rating = Math.ceil((this.getTotalLikes() / fullRating) * 100)
-        return rating
+        return (isNaN(rating)) ? 0 : rating
     }
 
     componentWillUnmount() {

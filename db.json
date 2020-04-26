@@ -1,13 +1,17 @@
 {
   "images": [],
-  "videos": [{
+  "videos": [
+    {
       "id": 2,
       "tutor": "emmanuelboluwajib1@gmail.com",
       "title": "7 Js Libraries",
       "secure_url": "https://www.youtube.com/embed/qugY8axtvWY",
       "totalLikes": [
         "",
-        "", "", "", ""
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
@@ -43,7 +47,11 @@
       "tutor": "emmanuelboluwajib1@gmail.com",
       "title": "14 Years Old Coding",
       "secure_url": "https://www.youtube.com/embed/DBXZWB_dNsw",
-      "totalLikes": ["","",""]
+      "totalLikes": [
+        "",
+        "",
+        ""
+      ]
     },
     {
       "id": 11,
@@ -68,7 +76,12 @@
       "secure_url": "https://res.cloudinary.com/phiileo/image/upload/v1587584251/api_uploads/z2gpa7p2dwxc2vxgexfa.png",
       "access_mode": "public",
       "original_filename": "help_others",
-      "totalLikes": ["","","",""]
+      "totalLikes": [
+        "",
+        "",
+        "",
+        ""
+      ]
     },
     {
       "id": 12,
@@ -461,7 +474,8 @@
       "id": 21
     }
   ],
-  "Users": [{
+  "Users": [
+    {
       "createdAt": 1587840112148,
       "expiryTime": 1587926512148,
       "token": "ya29.a0Ae4lvC1wUd2CAds97ZugxgTbalohKmWbC96JrmxZ_Qb3jYyPcs0G4RDwqj9iSSckJN1ur1GhE9yEjkYI7oDGmY9duTc67qdmkWOShu5LKBW8k4G84PoH23SFl4MWLo9FNNXMe42YGnk_BVgCx_JDJ8x-rLzyCura_B8p",
@@ -490,6 +504,21 @@
         "familyName": "Emmanuel B"
       },
       "id": 2
+    },
+    {
+      "createdAt": 1587863251149,
+      "expiryTime": 1587949651149,
+      "token": "ya29.a0Ae4lvC3ATz-t0IhQe-sa_bBSULji8QPYb1qy9ssgBSVCTVY0pVC0ZqvYMJSvLtoa_cuj8eQajtii0_8_bvHUdnFrlQENZHYBLBZBWoZq5xLQ7LoQfbL1ZvLajqjdam_H975MjieDKuVCduLOaQLnuNuLar1e0dgi2V4T",
+      "user_category": "tutor",
+      "userData": {
+        "googleId": "112444454237831943330",
+        "imageUrl": "https://lh4.googleusercontent.com/-purRXv6S8X8/AAAAAAAAAAI/AAAAAAAAAAA/AAKWJJN4Tn8nySTxNdVk032j01DIR_0GNA/s96-c/photo.jpg",
+        "email": "emmanuel.owojori@flutterwavego.com",
+        "name": "Emmanuel Owojori",
+        "givenName": "Emmanuel",
+        "familyName": "Owojori"
+      },
+      "id": 3
     }
   ]
 }
