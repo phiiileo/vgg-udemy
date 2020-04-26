@@ -47,3 +47,6 @@ export default class VideoFilter extends Component {
         )
     }
 }
+VideoFilter.defaultProps = {
+    filter: () => console.log("You need to handle the response, pass a prop - name:filter and value is a function")
+}
