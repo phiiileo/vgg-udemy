@@ -397,9 +397,7 @@
       "rotation": 0,
       "original_filename": "How to get a baby to sleep",
       "nb_frames": 1245,
-      "totalStars": [
-        "owojoriemmanuelb1@gmail.com"
-      ],
+      "totalStars": [],
       "totalLikes": [],
       "title": "How to get a baby to sleep",
       "id": 19
@@ -451,7 +449,9 @@
       "totalStars": [
         "owojoriemmanuelb1@gmail.com"
       ],
-      "totalLikes": [],
+      "totalLikes": [
+        "owojoriemmanuelb1@gmail.com"
+      ],
       "title": "Unboxing Iphone",
       "id": 20
     },

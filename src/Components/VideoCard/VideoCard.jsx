@@ -44,10 +44,10 @@ export default class VideoCard extends Component {
             },
             body: JSON.stringify(details)
         }
-        // fetch(`http://localhost:5000/videos/${id}`, option)
-        //     .then(res => res.json())
-        //     .then(data => console.log(data))
-        //     .catch(err => console.log("Error: Action not successful", err))
+        fetch(`http://localhost:5000/videos/${id}`, option)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log("Error: Action not successful", err))
     }
 
     render() {
