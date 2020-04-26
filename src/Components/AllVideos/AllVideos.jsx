@@ -27,23 +27,46 @@ export default class AllVideos extends Component {
         this._isMounted = false
     }
     searchValue = (value) => {
-        const base_url = JSON.parse(localStorage.getItem("vgg_base_api"));
-        fetch(base_url + "/videos")
-            .then(res => res.json(res))
-            .then(rawData => {
-                const vid = rawData.filter(video => {
+        this.fetchVideo()
+            .then(data => {
+                const vid = data.filter(video => {
                     return (video.title.toLowerCase().indexOf(value.toLowerCase())) >= 0 || (video.tutor_name.toLowerCase().indexOf(value.toLowerCase())) >= 0
                 })
-                console.log(vid)
                 this.setState({ videoData: vid })
-            }
-            )
-            .catch(err => { console.log("Error", err) })
-        console.log("search", value)
+            })
     }
 
     filterValue = (value) => {
-        console.log(value)
+        const current_user = JSON.parse(localStorage.getItem("vgg-auth"));
+        let filterParam;
+        if (value === "0") {
+            this.fetchVideo()
+                .then(data => this.setState({ videoData: data }))
+            return
+        }
+        else if (value === "liked") {
+            filterParam = "totalLikes"
+        } else if (value === "starred") {
+            filterParam = "totalStars"
+        }
+        this.fetchVideo()
+            .then(data => {
+                const vid = data.filter(video => {
+                    return video[filterParam].indexOf(current_user.userData.email) >= 0
+                })
+                this.setState({ videoData: vid })
+            })
+    }
+
+    fetchVideo = async () => {
+        const base_url = JSON.parse(localStorage.getItem("vgg_base_api"));
+        try {
+            const res = await fetch(base_url + "/videos");
+            return await res.json(res);
+        }
+        catch (err) {
+            return err;
+        }
     }
 
     render() {
