@@ -34,19 +34,23 @@ export default class Sidebar extends Component {
             </menu>
         );
         (this.props.access === "tutor") ? showMenu = Menu : showMenu = null;
+
         return (
             <div className={"sidebar " + openNav}>
-                <i onClick={this.openNavBar} className={"navMenu fa " + icon}></i>
-                <div className="userDetails">
-                    <span><img src={data.imageUrl} alt="user" /></span>
-                    <p>{data.name}</p>
-                    <p>{this.props.title}</p>
-                </div>
+                <div className="sidebar-container">
+                    <i onClick={this.openNavBar} className={"navMenu fa " + icon}></i>
+                    <div className="userDetails">
+                        <span><img src={data.imageUrl} alt="user" /></span>
+                        <p>{data.name}</p>
+                        <p>{this.props.title}</p>
+                    </div>
 
-                <div>
-                    {showMenu}
+                    <div>
+                        {showMenu}
+                    </div>
                 </div>
             </div>
+
         )
     }
 }

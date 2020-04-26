@@ -2,12 +2,19 @@
     height: 100%;
     width: 250px;
     background-color: rgb(121, 116, 116);
-    padding-top: 50px;
     transition: all .5s ease-in-out;
     position: fixed;
     top: 0;
     left: -250px;
     z-index: 5;
+    background-image: url(../../bg_image.jpg);
+
+    .sidebar-container {
+        padding-top: 50px;
+        background-color: rgba(0, 0, 0, 0.747);
+        height: 100%;
+        width: 100%;
+    }
 
     i.navMenu {
         position: fixed;
@@ -27,6 +34,7 @@
             img {
                 width: 150px;
                 height: 150px;
+                border-bottom: 1px solid wheat;
             }
         }
 
@@ -75,7 +83,7 @@
     .sidebar {
         left: 0;
 
-        i.navMenu{
+        i.navMenu {
             display: none;
         }
     }
