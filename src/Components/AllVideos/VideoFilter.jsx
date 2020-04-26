@@ -28,7 +28,7 @@ export default class VideoFilter extends Component {
                         <select name="category" onChange={this.handleFilter} value={this.state.filterValue} placeholder="Filter by Preference">
                             <option value="0">Filter by Preference</option>
                             <option value="liked">Your Favorite Videos</option>
-                            <option value="starred">You Starred Videos</option>
+                            <option value="starred">Your Starred Videos</option>
                         </select>
                     </div>
                     <div className="form-group">

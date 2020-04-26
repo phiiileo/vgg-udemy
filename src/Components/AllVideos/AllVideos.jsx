@@ -80,10 +80,15 @@ export default class AllVideos extends Component {
                     {barContent}
                 </div>
                 <h3>All Videos</h3>
-                <div className="all-videos-container">
-                    {videos}
-                    {(this.props.access === "student") ? null : videos}
-                </div>
+                <hr />
+                {
+                    (this.state.videoData.length > 0) ?
+                        <div className="all-videos-container">
+                            {videos}
+                        </div>
+                        :
+                        <h3 style={{ color: "red", marginTop: "20px" }}>Sorry, No Video to display</h3>
+                }
             </div>
         )
     }
