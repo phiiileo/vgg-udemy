@@ -29,12 +29,20 @@ export default class Sidebar extends Component {
         const Menu = (
             <menu>
                 <ul>
-                    <li className={this.state.activeRoute === "dashboard" ? "active" : ""} onClick={() => this.changeRoute("dashboard")}>Dashboard</li>
-                    <li className={this.state.activeRoute === "all-videos" ? "active" : ""} onClick={() => this.changeRoute("all-videos")}>All Videos</li>
+                    <li
+                        className={this.state.activeRoute === "dashboard" ? "active" : ""} onClick={() => this.changeRoute("dashboard")}>
+                        <i className="menuIcon"><FontAwesomeIcon icon="tachometer-alt" /> </i>Dashboard
+                    </li>
+                    <li
+                        className={this.state.activeRoute === "all-videos" ? "active" : ""} onClick={() => this.changeRoute("all-videos")}>
+                        <i className="menuIcon"><FontAwesomeIcon icon={["fab", "youtube"]} /> </i>All Videos
+                    </li>
                 </ul>
             </menu>
         );
-        (this.props.access === "tutor") ? showMenu = Menu : showMenu = null;
+        (this.props.access === "tutor") ?
+            showMenu = Menu :
+            showMenu = <i className="studentIcon"><FontAwesomeIcon icon="user-graduate" /></i>;
 
         return (
             <div className={"sidebar " + openNav}>
