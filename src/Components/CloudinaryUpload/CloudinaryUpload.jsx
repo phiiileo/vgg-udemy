@@ -109,7 +109,7 @@ export default class CloudinaryUpload extends Component {
 }
 CloudinaryUpload.defaultProps = {
     buttonStyle: {
-        backgroundColor: "rgb(16, 171, 233)",
+        backgroundColor: "skyblue",
         color: "white",
         fontSize: "20px",
         padding: "15px 20px",

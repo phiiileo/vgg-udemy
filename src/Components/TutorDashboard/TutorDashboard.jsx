@@ -50,7 +50,7 @@ export default class TutorDashboard extends Component {
             <div className="tutorDashboard">
                 <div className="summary">
                     <SummaryCard icon="youtube" fab="true" color="green" title="Videos" value={this.state.videoData.length} />
-                    <SummaryCard title="Your Rating" color="orange" value={rating + "%"} />
+                    <SummaryCard title="Your Rating" color="orange" value={rating + "%"} icon="chart-line"/>
                     <SummaryCard title="Total Likes" value={followers} color="red" icon="heart" />
                 </div>
                 <h3>My Videos</h3>

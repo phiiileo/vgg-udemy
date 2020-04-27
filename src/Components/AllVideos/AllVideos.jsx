@@ -17,7 +17,7 @@ export default class AllVideos extends Component {
     componentDidMount() {
         this._isMounted = true;
         if (this._isMounted) {
-            fetch("http://localhost:5000/videos?_sort=id&_order=desc&_limit=0")
+            fetch("http://localhost:5000/videos?_sort=id&_order=desc&_limit=1")
                 .then(res => res.json())
                 .then(raw => this.setState({ videoData: raw }))
         }
