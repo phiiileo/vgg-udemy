@@ -136,7 +136,7 @@ export default class SignIn extends Component {
                     <form>
                         <img src={udemy_logo} alt="logo" />
                         <h1>Udemy Clone</h1>
-                        <p className="alert">Note: First Login doubles as registration</p>
+                        <p className="alert">Note: First New Login doubles as a registration!</p>
                         <h3>Login As</h3>
                         {/* Category selector */}
                         <div className="category">
