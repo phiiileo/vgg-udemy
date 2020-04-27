@@ -24,7 +24,7 @@ export default class Student extends Component {
                 </Helmet>
                 <Sidebar changeRoute={this.changeRoute} title="Student" data={data.userData} />
                 <div className="student-main">
-                    <Header data={data.userData.email} />
+                    <Header email={data.userData.email} />
                     <StudentDashboard />
                 </div>
             </div>

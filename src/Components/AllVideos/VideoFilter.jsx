@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './videoFilter.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default class VideoFilter extends Component {
     constructor(props) {
         super(props)
@@ -36,7 +37,9 @@ export default class VideoFilter extends Component {
                             value={this.state.searchValue}
                             onChange={this.handleInput}
                             type="text" />
-                        <button type="submit">Search</button>
+                        <button type="submit">
+                            <FontAwesomeIcon icon="search" />
+                        </button>
                     </div>
                 </form>
             </div>
