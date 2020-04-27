@@ -3,6 +3,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home/Home';
 import SignIn from './Components/Auth/SignIn';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faSignOutAlt, faHeart, faQuestion } from '@fortawesome/free-solid-svg-icons';
+library.add(fab, faSignOutAlt, faHeart, faQuestion )
 
 function App() {
   return (

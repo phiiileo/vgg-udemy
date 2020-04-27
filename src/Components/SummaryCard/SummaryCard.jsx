@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import './summaryCard.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default class SummaryCard extends Component {
     render() {
+        let icon;
+        (this.props.fab) ? icon = ["fab", this.props.icon] : icon = this.props.icon
 
         return (
             <div className="summaryCard" >
                 <p>{this.props.title}</p>
-                <i className={this.props.icon} style={{color:this.props.color}}></i>
-                <span>{this.props.value}</span>
+                <i>
+                    <FontAwesomeIcon icon={icon} color={this.props.color} />
+                </i>
+                <p>{this.props.value}</p>
             </div>
         )
     }
@@ -16,8 +21,6 @@ export default class SummaryCard extends Component {
 SummaryCard.defaultProps = {
     title: "Card Title",
     value: 0,
-    style: {
-        color: "black"
-    },
-    icon: "fa fa-question"
+    icon: "question",
+    color: "black"
 }

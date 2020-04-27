@@ -1,5 +1,6 @@
 import React from 'react';
-import './header.scss'
+import './header.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Header(props) {
 
@@ -11,14 +12,14 @@ export default function Header(props) {
 
     return (
         <header>
-            <h3>{props.data}</h3>
+            <h3 style={{wordWrap:"break-word", width:"70%"}}>{props.email}</h3>
             <button onClick={resetLogin}>
-                Logout
+            <FontAwesomeIcon icon="sign-out-alt" color="white" size="lg"/>
          </button>
         </header>
     )
 }
 
 Header.defaultProps = {
-    data: "placeholder@email.com",
+    email: "placeholdfhffhfhfhfhfhhfhffhfher@email.com",
 }

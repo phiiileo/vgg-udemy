@@ -14,12 +14,32 @@
 
     i {
         font-size: 50px;
+        margin: 20px auto;
         display: block;
-        margin: 20px 0;
+        width: 60px;
+        height: 60px;
+        cursor: grab;
     }
 
-    span{
+    i:hover {
+        animation: animate 2s ease-in-out 0s infinite;
+    }
+
+    span {
         font-size: 30px;
         font-weight: 600;
+    }
+}
+
+@keyframes animate {
+    from {
+        transform: scale(.8);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+
+    to {
+        transform: scale(0.8);
     }
 }

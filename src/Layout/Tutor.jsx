@@ -5,7 +5,9 @@ import Sidebar from '../Components/SideBar/Sidebar';
 import TutorDashboard from '../Components/TutorDashboard/TutorDashboard';
 import Header from '../Components/Header/Header';
 import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.css';
 import AllVideos from '../Components/AllVideos/AllVideos';
+
 export default class Tutor extends Component {
     constructor(props) {
         super(props)
@@ -30,7 +32,7 @@ export default class Tutor extends Component {
                 </Helmet>
                 <Sidebar changeRoute={this.changeRoute} access={this.state.accessLevel} title="Tutor" data={data.userData} />
                 <div className="tutor-main">
-                    <Header data={data.userData.email} />
+                    <Header email={data.userData.email} />
                     <div style={(this.state.activeRoute !=="dashboard")? {padding:"20px 30px"}:null}>
                         {ActivePage}
                     </div>
