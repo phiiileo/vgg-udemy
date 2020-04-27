@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './sidebar.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class Sidebar extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ export default class Sidebar extends Component {
     render() {
         const data = this.props.data;
         const openNav = this.state.openNav ? "open" : null
-        const icon = this.state.openNav ? "fa-close" : "fa-bars";
+        const icon = this.state.openNav ? "times" : "bars";
         let showMenu;
         const Menu = (
             <menu>
@@ -38,7 +39,9 @@ export default class Sidebar extends Component {
         return (
             <div className={"sidebar " + openNav}>
                 <div className="sidebar-container">
-                    <i onClick={this.openNavBar} className={"navMenu fa " + icon}></i>
+                    <i onClick={this.openNavBar} className={"navMenu fa " + icon}>
+                        <FontAwesomeIcon icon={icon} />
+                    </i>
                     <div className="userDetails">
                         <span><img src={data.imageUrl} alt="user" /></span>
                         <p>{data.name}</p>
