@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class CloudinaryUpload extends Component {
     constructor(props) {
@@ -97,7 +98,10 @@ export default class CloudinaryUpload extends Component {
                     <div className="progress" style={ProgressStyle}></div>
                     <div className="roller"></div>
                 </div>
-                <button style={this.props.buttonStyle} onClick={this.handleUploadCLick}  >Upload New Video</button>
+                <button style={this.props.buttonStyle} onClick={this.handleUploadCLick}  >
+                    <i style={{marginRight:"20px", fontSize:"18px"}}><FontAwesomeIcon icon={"cloud-upload-alt"} /></i>
+                   New Video
+                </button>
                 <input style={{ display: "none" }} type="file" ref="newFile" onChange={this.getFiles} accept="video/*" />
             </div>
         )
