@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './videoCard.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default class VideoCard extends Component {
     constructor(props) {
         super(props)
@@ -78,18 +79,20 @@ export default class VideoCard extends Component {
                     <p>Description: {this.props.videoData.title}
                         <span style={{ color: (liked) ? "skyblue" : "" }}>
                             {this.props.videoData.totalLikes.length}
-                            <i className="fa fa-heart"
-                                onClick={() => this.likeVideo(this.props._id, this.props.videoData)}
+                            <i onClick={() => this.likeVideo(this.props._id, this.props.videoData)}
                             >
+                                <FontAwesomeIcon icon="heart" />
                             </i>
                         </span>
                         <span
                             className="star"
-                            style={{ color: (starred) ? "skyblue" : "" }}>
+                            style={{ color: (starred) ? "skyblue" : "" }
+                            }>
                             {this.props.videoData.totalStars.length}
-                            <i className="fa fa-star"
-                                onClick={() => this.starVideo(this.props._id, this.props.videoData)}
+                            <i 
+                            onClick={() => this.starVideo(this.props._id, this.props.videoData)}
                             >
+                                <FontAwesomeIcon icon="star" />
                             </i>
                         </span>
                     </p>
