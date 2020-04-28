@@ -40,18 +40,18 @@ export default class VideoCard extends Component {
     }
 
     toggleAction = (id, details, action) => {
-        console.log("Default", details);
-        console.log("default1", details[action])
+        // console.log("Default", details);
+        // console.log("default1", details[action])
         const email_position = details[action].indexOf(this.state.user_email)
         if (email_position < 0) {
             details[action] = [...details[action], this.state.user_email];
         } else {
             details[action].splice(email_position, 1);
-            console.log("update", details[action])
-            console.log("You already liked the video")
+            // console.log("update", details[action])
+            // console.log("You already liked the video")
         }
         this.setState({ action: details[action] })
-        console.log("state", this.state)
+        // console.log("state", this.state)
 
         const option = {
             method: "PUT",
@@ -62,7 +62,7 @@ export default class VideoCard extends Component {
         }
         fetch(`http://localhost:5000/videos/${id}`, option)
             .then(res => res.json())
-            .then(data => console.log(data))
+            // .then(data => console.log(data))
             .catch(err => console.log("Error: Action not successful", err))
     }
 
