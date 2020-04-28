@@ -8,7 +8,7 @@ export default class CloudinaryUpload extends Component {
             cloudName: "phiileo",
             unsignedUploadPreset: "dvjugjo8",
             url: "",
-            uploadProgress: 0 + "%",
+            uploadProgress: 0,
             progressBar: "none"
         }
     }
@@ -40,7 +40,8 @@ export default class CloudinaryUpload extends Component {
         http.upload.addEventListener("progress", (progressData) => {
             var progress = Math.round((progressData.loaded * 100.0) / progressData.total);
             this.setState({ uploadProgress: progress })
-            console.log(`Amount Uploaded: ${progressData.loaded}, Total Data: ${progressData.total}`);
+            console.log(progress)
+            // console.log(`Amount Uploaded: ${progressData.loaded}, Total Data: ${progressData.total}`);
         });
 
         http.onreadystatechange = (e) => {
@@ -63,7 +64,8 @@ export default class CloudinaryUpload extends Component {
         videoDetails.totalLikes = [];
         videoDetails.totalStars = [];
         videoDetails.title = data.original_filename;
-        videoDetails.tutor = tutor.userData.email
+        videoDetails.tutor = tutor.userData.email;
+        videoDetails.tutor_name = tutor.userData.name
         console.log(data)
         const config = {
             method: "POST",
@@ -90,7 +92,7 @@ export default class CloudinaryUpload extends Component {
 
         const ProgressStyle = {
             backgroundColor: "green",
-            width: this.state.uploadProgress,
+            width: this.state.uploadProgress + "%",
             height: "100%"
         }
         return (
@@ -100,7 +102,7 @@ export default class CloudinaryUpload extends Component {
                     <div className="roller"></div>
                 </div>
                 <button style={this.props.buttonStyle} onClick={this.handleUploadCLick}  >
-                    <i style={{marginRight:"20px", fontSize:"18px"}}><FontAwesomeIcon icon={"cloud-upload-alt"} /></i>
+                    <i style={{ marginRight: "20px", fontSize: "18px" }}><FontAwesomeIcon icon={"cloud-upload-alt"} /></i>
                    New Video
                 </button>
                 <input style={{ display: "none" }} type="file" ref="newFile" onChange={this.getFiles} accept="video/*" />
