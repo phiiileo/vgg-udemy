@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function Loader(props) {
 
     let [isLoading, setIsLoading] = useState(true);
+
     setTimeout(() => {
         setIsLoading(false)
-    }, 5000)
+    }, 50000)
 
     const loading = <div> {props.title} Loading <i style={{marginLeft:"15px"}}><FontAwesomeIcon icon="spinner" spin /></i></div>;
     const error = <p style={{ color: "red" }}>No {props.title} to show</p>
