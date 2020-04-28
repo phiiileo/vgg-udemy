@@ -23,6 +23,7 @@ export default class VideoCard extends Component {
             totalLikes: this.props.videoData.totalLikes,
             totalStars: this.props.videoData.totalStars,
             user_email: JSON.parse(localStorage.getItem("vgg-auth")).userData.email,
+            base_api: JSON.parse(localStorage.getItem("vgg_base_api"))
         }
     }
 
@@ -60,7 +61,7 @@ export default class VideoCard extends Component {
             },
             body: JSON.stringify(details)
         }
-        fetch(`http://localhost:5000/videos/${id}`, option)
+        fetch(`${this.state.base_api}/videos/${id}`, option)
             .then(res => res.json())
             // .then(data => console.log(data))
             .catch(err => console.log("Error: Action not successful", err))
