@@ -93,7 +93,8 @@ export default class CloudinaryUpload extends Component {
         const ProgressStyle = {
             backgroundColor: "green",
             width: this.state.uploadProgress + "%",
-            height: "100%"
+            height: "100%",
+            transition: "all .5s"
         }
         return (
             <div>
