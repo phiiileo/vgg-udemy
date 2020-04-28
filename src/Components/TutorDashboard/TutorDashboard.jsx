@@ -28,7 +28,7 @@ export default class TutorDashboard extends Component {
     }
     getRatings = () => {
         const fullRating = this.state.videoData.length * 10;
-        console.log(fullRating)
+        // console.log(fullRating)
         const rating = Math.ceil((this.getTotalLikes() / fullRating) * 100)
         return (isNaN(rating)) ? 0 : rating
     }
@@ -40,7 +40,7 @@ export default class TutorDashboard extends Component {
     render() {
         const followers = this.getTotalLikes()
         const rating = this.getRatings()
-        console.log(followers)
+        // console.log(followers)
         let videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} _id={vid.id} />);
         let fallbackText;
         if (videos.length < 1) {

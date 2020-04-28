@@ -7,7 +7,7 @@ export default function Loader(props) {
 
     setTimeout(() => {
         setIsLoading(false)
-    }, 50000)
+    }, 10000)
 
     const loading = <div> {props.title} Loading <i style={{marginLeft:"15px"}}><FontAwesomeIcon icon="spinner" spin /></i></div>;
     const error = <p style={{ color: "red" }}>No {props.title} to show</p>

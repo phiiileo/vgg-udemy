@@ -2,12 +2,27 @@ import React, { Component } from 'react'
 import './videoCard.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default class VideoCard extends Component {
+
+    Months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "April",
+        "May",
+        "June",
+        "July",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    ]
     constructor(props) {
         super(props)
         this.state = {
             totalLikes: this.props.videoData.totalLikes,
             totalStars: this.props.videoData.totalStars,
-            user_email: JSON.parse(localStorage.getItem("vgg-auth")).userData.email
+            user_email: JSON.parse(localStorage.getItem("vgg-auth")).userData.email,
         }
     }
 
@@ -55,7 +70,12 @@ export default class VideoCard extends Component {
         let videoContainer;
         const liked = this.props.videoData.totalLikes.indexOf(this.state.user_email) < 0 ? false : true
         const starred = this.props.videoData.totalStars.indexOf(this.state.user_email) < 0 ? false : true
-
+        const vid_createdDate = new Date(this.props.videoData.created_at);
+        const VideoDate = {
+            year: vid_createdDate.getFullYear(),
+            month: this.Months[vid_createdDate.getMonth()],
+            day: vid_createdDate.getDate()
+        }
         // check if data exists
         if (this.props.videoData === undefined) { return (<h1>No data</h1>) }
 
@@ -89,14 +109,14 @@ export default class VideoCard extends Component {
                             style={{ color: (starred) ? "skyblue" : "" }
                             }>
                             {this.props.videoData.totalStars.length}
-                            <i 
-                            onClick={() => this.starVideo(this.props._id, this.props.videoData)}
+                            <i
+                                onClick={() => this.starVideo(this.props._id, this.props.videoData)}
                             >
                                 <FontAwesomeIcon icon="star" />
                             </i>
                         </span>
                     </p>
-                    <span>By: {this.props.videoData.tutor_name}</span>
+                    <span style={{ fontSize: "12px", fontWeight: "700" }}>By: {this.props.videoData.tutor_name}. <span style={{ color: "darkred" }}>{VideoDate.month + " " + VideoDate.day + ", " + VideoDate.year}.</span></span>
                 </div>
             )
         }

@@ -32,7 +32,7 @@ export default class Home extends Component {
             this.setState({ error: false })
             const currentPath = window.location.pathname;
             const currentUser = this.state.auth_user;
-            console.log(currentUser)
+            // console.log(currentUser)
             if (currentPath === "/home-tutor" && currentUser.user_category === "tutor") {
                 this.setState({ path: "/home-tutor" })
             }

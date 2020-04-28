@@ -11,7 +11,7 @@ export default class Sidebar extends Component {
         }
     }
     componentDidMount() {
-        console.log(this.props.data)
+        // console.log(this.props.data)
     }
     openNavBar = () => {
         this.setState({ openNav: !this.state.openNav })
