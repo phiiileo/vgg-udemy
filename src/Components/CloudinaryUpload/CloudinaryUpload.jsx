@@ -61,6 +61,7 @@ export default class CloudinaryUpload extends Component {
         const tutor = JSON.parse(localStorage.getItem("vgg-auth"))
         const videoDetails = data
         videoDetails.totalLikes = [];
+        videoDetails.totalStars = [];
         videoDetails.title = data.original_filename;
         videoDetails.tutor = tutor.userData.email
         console.log(data)
