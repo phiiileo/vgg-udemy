@@ -25,7 +25,7 @@ export default class SignIn extends Component {
     componentDidMount() {
         // Set Base Url for the Api call
         const test_base_api = "http://localhost:5000";
-        const base_api = null;
+        const base_api = "https://phileo-api-v1.herokuapp.com" && false; //Remove && false when you go live
         const vgg_clone_api = base_api || test_base_api;
         this.setState({ base_api: vgg_clone_api })
         localStorage.setItem("vgg_base_api", JSON.stringify(vgg_clone_api));
