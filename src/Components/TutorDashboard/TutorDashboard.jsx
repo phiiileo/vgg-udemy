@@ -16,7 +16,7 @@ export default class TutorDashboard extends Component {
         const current_user = JSON.parse(localStorage.getItem("vgg-auth")).userData;
         const base_api = JSON.parse(localStorage.getItem("vgg_base_api"));
         if (this._isMounted) {
-            fetch(`${base_api}/videos?_sort=id&_order=desc&tutor_email=${current_user.email}&_limit=1`)
+            fetch(`${base_api}/videos?_sort=id&_order=desc&tutor=${current_user.email}&_limit=5`)
                 .then(res => res.json())
                 .then(raw => this.setState({ videoData: raw }))
         }
@@ -53,7 +53,7 @@ export default class TutorDashboard extends Component {
                     <SummaryCard title="Your Rating" color="orange" value={rating + "%"} icon="chart-line"/>
                     <SummaryCard title="Total Likes" value={followers} color="red" icon="heart" />
                 </div>
-                <h3>My Videos</h3>
+                <h3>My Videos ({this.state.videoData.length})</h3>
                 {fallbackText}
                 <div className="video-container">
                     {videos}

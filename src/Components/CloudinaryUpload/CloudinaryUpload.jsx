@@ -15,7 +15,7 @@ export default class CloudinaryUpload extends Component {
     }
 
     componentDidMount() {
-        const get_base_url = localStorage.getItem("vgg_base_api");
+        const get_base_url = JSON.parse(localStorage.getItem("vgg_base_api"));
         console.log(get_base_url)
         this.setState({ base_url: get_base_url })
     }
@@ -58,7 +58,6 @@ export default class CloudinaryUpload extends Component {
                 console.log(e, response);
                 this.setState({ imageUrl: response.secure_url });
                 this.saveData(response);
-                window.location.reload()
             }
         };
         http.send(fd);
@@ -73,7 +72,7 @@ export default class CloudinaryUpload extends Component {
         videoDetails.title = data.original_filename;
         videoDetails.tutor = tutor.userData.email;
         videoDetails.tutor_name = tutor.userData.name
-        console.log(data)
+        console.log(videoDetails, this.state.base_url)
         const config = {
             method: "POST",
             headers: { "content-type": "application/json" },
@@ -83,7 +82,10 @@ export default class CloudinaryUpload extends Component {
         console.log("savedurl", base_url)
         fetch(`${base_url}/videos`, config)
             .then(res => res.json())
-            .then(rawData => console.log(rawData))
+            .then(rawData => {
+                console.log(rawData)
+                window.location.reload()
+            })
             .catch(err => console.log("Error", err))
     }
     render() {
