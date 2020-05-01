@@ -33,17 +33,19 @@ export default class Home extends Component {
             const currentPath = window.location.pathname;
             const currentUser = this.state.auth_user;
             // console.log(currentUser)
-            if (currentPath === "/home-tutor" && currentUser.user_category === "tutor") {
-                this.setState({ path: "/home-tutor" })
+            if (currentUser) {
+                if (currentPath === "/home-tutor" && currentUser.user_category === "tutor") {
+                    this.setState({ path: "/home-tutor" })
+                }
+                else if (currentPath === "/home-student" && currentUser.user_category === "student") { this.setState({ path: "/home-student" }) }
+                else {
+                    console.log("User doesn't match");
+                    localStorage.setItem("vgg-error", JSON.stringify({ status: true, errorName: "wrong_route", errorText: `${currentUser.userData.email} is not registered as ${currentUser.user_category}` }))
+                    this.setState({ redirect: true });
+                }
             }
-            else if (currentPath === "/home-student" && currentUser.user_category === "student") { this.setState({ path: "/home-student" }) }
-            else {
-                console.log("User doesn't match");
-                localStorage.setItem("vgg-error", JSON.stringify({ status: true, errorName: "wrong_route", errorText: `${currentUser.userData.email} is not registered as ${currentUser.user_category}` }))
-                this.setState({ redirect: true });
-            }
-        }
 
+        }
     }
 
     render() {

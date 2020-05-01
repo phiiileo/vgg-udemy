@@ -21,7 +21,8 @@ export default class SignIn extends Component {
             base_api: "",
             correlate: false,
             error: {
-                status: false
+                status: false,
+                errorText:""
             }
         }
     }
