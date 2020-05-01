@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './videoCard.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ReactPlayer from 'react-player'
 export default class VideoCard extends Component {
 
     Months = [
@@ -68,7 +69,7 @@ export default class VideoCard extends Component {
     }
 
     render() {
-        let videoContainer;
+        // let videoContainer;
         const liked = this.props.videoData.totalLikes.indexOf(this.state.user_email) < 0 ? false : true
         const starred = this.props.videoData.totalStars.indexOf(this.state.user_email) < 0 ? false : true
         const vid_createdDate = new Date(this.props.videoData.created_at);
@@ -80,22 +81,28 @@ export default class VideoCard extends Component {
         // check if data exists
         if (this.props.videoData === undefined) { return (<h1>No data</h1>) }
 
-        else {
+        else if (true) {
             // Check if source is youtube if yes, use Iframe
-            if (this.props.videoData.secure_url.indexOf("www.youtube.com") > 1 || this.props.videoData.secure_url.indexOf("res.cloudinary.com") > 1) {
-                videoContainer = <iframe src={this.props.videoData.secure_url} title={this.props.videoData.name} frameBorder="0" allow="fullscreen"></iframe>
-            } else {
-                // otherwise use video tag
-                videoContainer =
-                    <video src={this.props.videoData.secure_url} controls>
-                    </video>
-            }
+            // if (this.props.videoData.secure_url.indexOf("www.youtube.com") > 1 || this.props.videoData.secure_url.indexOf("res.cloudinary.com") > 1) {
+            //     videoContainer = <iframe src={this.props.videoData.secure_url} title={this.props.videoData.name} frameBorder="0" allow="fullscreen"></iframe>
+            // } else {
+            //     // otherwise use video tag
+            //     videoContainer =
+            //         <video src={this.props.videoData.secure_url} controls>
+            //         </video>
+            // }
 
 
             return (
                 <div className="video">
                     <div className="videoContainer">
-                        {videoContainer}
+                        <ReactPlayer
+                            className='react-player fixed-bottom'
+                            url={this.props.videoData.secure_url}
+                            width='100%'
+                            height='100%'
+                            controls={true}
+                        />
                     </div>
                     <p>Description: {this.props.videoData.title}
                         <span style={{ color: (liked) ? "skyblue" : "" }}>
@@ -120,6 +127,17 @@ export default class VideoCard extends Component {
                     <span style={{ fontSize: "12px", fontWeight: "700" }}>By: {this.props.videoData.tutor_name}. <span style={{ color: "darkred" }}>{VideoDate.month + " " + VideoDate.day + ", " + VideoDate.year}.</span></span>
                 </div>
             )
+        }
+        else {
+            return <div >
+                <ReactPlayer
+                    className='react-player fixed-bottom'
+                    url={this.props.videoData.secure_url}
+                    width='100%'
+                    height='100%'
+                    controls={true}
+                />
+            </div>
         }
     }
 }
