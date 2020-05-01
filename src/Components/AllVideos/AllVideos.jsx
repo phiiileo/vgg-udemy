@@ -11,13 +11,19 @@ export default class AllVideos extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            videoData: []
+            videoData: [],
+            base_api_url: ""
         }
     }
     componentDidMount() {
         this._isMounted = true;
-        if (this._isMounted) {
-            fetch("http://localhost:5000/videos?_sort=id&_order=desc&_limit=1")
+        const base_url = JSON.parse(localStorage.getItem("vgg_base_api"));
+        if (base_url) {
+            this.setState({ base_api_url: base_url })
+        }
+
+        if (this._isMounted && base_url) {
+            fetch(`${base_url}/videos?_sort=id&_order=desc&_limit=5`)
                 .then(res => res.json())
                 .then(raw => this.setState({ videoData: raw }))
         }
@@ -27,13 +33,16 @@ export default class AllVideos extends Component {
         this._isMounted = false
     }
     searchValue = (value) => {
-        this.fetchVideo()
-            .then(data => {
-                const vid = data.filter(video => {
-                    return (video.title.toLowerCase().indexOf(value.toLowerCase())) >= 0 || (video.tutor_name.toLowerCase().indexOf(value.toLowerCase())) >= 0
+        if (value === "") { return }
+        else {
+            this.fetchVideo()
+                .then(data => {
+                    const vid = data.filter(video => {
+                        return (video.title.toLowerCase().indexOf(value.toLowerCase())) >= 0 || (video.tutor_name.toLowerCase().indexOf(value.toLowerCase())) >= 0
+                    })
+                    this.setState({ videoData: vid })
                 })
-                this.setState({ videoData: vid })
-            })
+        }
     }
 
     filterValue = (value) => {
@@ -59,9 +68,8 @@ export default class AllVideos extends Component {
     }
 
     fetchVideo = async () => {
-        const base_url = JSON.parse(localStorage.getItem("vgg_base_api"));
         try {
-            const res = await fetch(base_url + "/videos");
+            const res = await fetch(`${this.state.base_api_url}/videos`);
             return await res.json(res);
         }
         catch (err) {
@@ -73,20 +81,25 @@ export default class AllVideos extends Component {
         const videos = this.state.videoData.map((vid) => <VideoCard videoData={vid} key={vid.id} _id={vid.id} />)
 
         let barContent;
-        (this.props.access === "student") ? barContent = (<VideoFilter filter={this.filterValue} search={this.searchValue} />) : barContent = (<CloudinaryUpload />);
+        (this.props.access === "student") ?
+            barContent = (
+                <VideoFilter filter={this.filterValue} search={this.searchValue} />
+            ) :
+            barContent = (<CloudinaryUpload />);
         return (
             <div className="all-videos">
                 <div className="btns">
                     {barContent}
                 </div>
-                <h3>All Videos</h3>
+                <h3>All Videos ({this.state.videoData.length})</h3>
+
                 <hr />
+
                 {
                     (this.state.videoData.length > 0) ?
                         <div className="all-videos-container">
                             {videos}
-                        </div>
-                        :
+                        </div> :
                         <Loader title="Videos" color="deepskyblue" />
                 }
             </div>

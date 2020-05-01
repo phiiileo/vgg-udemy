@@ -30,7 +30,9 @@ export default class Tutor extends Component {
         let data = this.props.data;
         // console.log("Tutor page", data)
         let ActivePage;
-        (this.state.activeRoute === "dashboard") ? ActivePage = <TutorDashboard data={data.userData} /> : ActivePage = <AllVideos access={this.state.accessLevel} />
+        (this.state.activeRoute === "dashboard") ? 
+        ActivePage = <TutorDashboard data={data.userData} /> : 
+        ActivePage = <AllVideos access={this.state.accessLevel} />
         return (
             <div className="tutor">
                 <Helmet>
