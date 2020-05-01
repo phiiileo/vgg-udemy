@@ -15,10 +15,14 @@ export default class SignIn extends Component {
             userData: {},
             activeCategory: "",
             is_auth: false,
-            current_auth_user: "",
+            current_auth_user: {
+                user_ategory: ""
+            },
             base_api: "",
             correlate: false,
-            error: {}
+            error: {
+                status: false
+            }
         }
     }
 
@@ -108,11 +112,16 @@ export default class SignIn extends Component {
     setActiveCategory = (category) => {
         this.setState({ activeCategory: category })
         console.log("Cat", this.state.current_auth_user, this.state.is_auth)
-        if (this.state.is_auth && this.state.current_auth_user.user_category === category && !this.state.error.status) {
-            this.setState({ redirect: "/home-" + category });
-            localStorage.setItem("vgg-error", "")
-        } else {
-            console.log("No user")
+        if (this.state.current_auth_user && this.state.is_auth) {
+            if (this.state.is_auth && this.state.current_auth_user.user_category === category && !this.state.error.status) {
+                this.setState({ redirect: "/home-" + category });
+                localStorage.setItem("vgg-error", "")
+            } else {
+                console.log("No user")
+            }
+        }
+        else {
+            return
         }
     }
 
