@@ -9,8 +9,15 @@ export default class CloudinaryUpload extends Component {
             unsignedUploadPreset: "dvjugjo8",
             url: "",
             uploadProgress: 0,
-            progressBar: "none"
+            progressBar: "none",
+            base_url: ""
         }
+    }
+
+    componentDidMount() {
+        const get_base_url = localStorage.getItem("vgg_base_api");
+        console.log(get_base_url)
+        this.setState({ base_url: get_base_url })
     }
 
     handleUploadCLick = () => {
@@ -72,13 +79,15 @@ export default class CloudinaryUpload extends Component {
             headers: { "content-type": "application/json" },
             body: JSON.stringify(videoDetails)
         }
-        const saveResponse = "http://localhost:5000/videos"
-        fetch(saveResponse, config)
+        const base_url = this.state.base_url
+        console.log("savedurl", base_url)
+        fetch(`${base_url}/videos`, config)
             .then(res => res.json())
             .then(rawData => console.log(rawData))
             .catch(err => console.log("Error", err))
     }
     render() {
+        console.log(this.state.base_url)
         const Style = {
             position: "fixed",
             top: 0,
