@@ -4,6 +4,7 @@ import { GoogleLogin } from 'react-google-login'
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import udemy_logo from '../../udemy_logo.png';
+import Loader from '../Loader/Loader';
 
 
 
@@ -11,6 +12,7 @@ export default class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            resting: false,
             redirect: null,
             userData: {},
             activeCategory: "",
@@ -22,7 +24,7 @@ export default class SignIn extends Component {
             correlate: false,
             error: {
                 status: false,
-                errorText:""
+                errorText: ""
             }
         }
     }
@@ -78,6 +80,7 @@ export default class SignIn extends Component {
 
     resolveLogin = (auth_user) => {
         console.log(auth_user)
+        this.setState({ resting: true })
         fetch(this.state.base_api + `/users?userData.email=${auth_user.userData.email}`)
             .then(res => res.json())
             .then(data => {
@@ -140,6 +143,9 @@ export default class SignIn extends Component {
         }
         return (
             <div className="sign-in">
+                {(this.state.resting) ? <div className="loader">
+                    <Loader />
+                </div> : ""}
                 <div className="container">
                     <Helmet>
                         <title>User | Sign</title>
