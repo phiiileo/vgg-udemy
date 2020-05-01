@@ -16,6 +16,12 @@ export default class Tutor extends Component {
             accessLevel: "tutor"
         }
     }
+    componentDidMount() {
+        const getRoute = sessionStorage.getItem("tutor-active-menu");
+        if (getRoute) {
+            this.setState({ activeRoute: getRoute })
+        }
+    }
 
     changeRoute = (route) => {
         this.setState({ activeRoute: route })
@@ -33,7 +39,7 @@ export default class Tutor extends Component {
                 <Sidebar changeRoute={this.changeRoute} access={this.state.accessLevel} title="Tutor" data={data.userData} />
                 <div className="tutor-main">
                     <Header email={data.userData.email} />
-                    <div style={(this.state.activeRoute !=="dashboard")? {padding:"20px 30px"}:null}>
+                    <div style={(this.state.activeRoute !== "dashboard") ? { padding: "20px 30px" } : null}>
                         {ActivePage}
                     </div>
                 </div>

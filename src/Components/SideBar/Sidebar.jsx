@@ -11,12 +11,17 @@ export default class Sidebar extends Component {
         }
     }
     componentDidMount() {
-        // console.log(this.props.data)
+        const getRoute = sessionStorage.getItem("tutor-active-menu")
+        // console.log(getRoute)
+        if (getRoute) {
+            this.setState({ activeRoute: getRoute })
+        }
     }
     openNavBar = () => {
         this.setState({ openNav: !this.state.openNav })
     }
     changeRoute = (route) => {
+        sessionStorage.setItem("tutor-active-menu", route)
         this.setState({ activeRoute: route });
         this.openNavBar()
         this.props.changeRoute(route)
