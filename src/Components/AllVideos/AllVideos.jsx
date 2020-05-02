@@ -23,7 +23,7 @@ export default class AllVideos extends Component {
         }
 
         if (this._isMounted && base_url) {
-            fetch(`${base_url}/videos?_sort=id&_order=desc&_limit=5`)
+            fetch(`${base_url}/videos?_sort=id&_order=desc`)
                 .then(res => res.json())
                 .then(raw => this.setState({ videoData: raw }))
         }
