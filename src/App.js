@@ -5,9 +5,9 @@ import Home from './Components/Home/Home';
 import SignIn from './Components/Auth/SignIn';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faSignOutAlt, faHeart, faQuestion, faStar, faBars, faTimes, faTachometerAlt, faUserGraduate, faSearch, faCloudUploadAlt, faChartLine, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faHeart, faQuestion, faStar, faBars, faTimes, faTachometerAlt, faUserGraduate, faSearch, faCloudUploadAlt, faChartLine, faSpinner, faAmbulance } from '@fortawesome/free-solid-svg-icons';
 import NotFound from './Components/NotFound/NotFound';
-library.add(fab, faSignOutAlt, faHeart, faQuestion, faStar, faBars, faTimes,faTachometerAlt,faUserGraduate, faSearch ,faCloudUploadAlt,faChartLine, faSpinner )
+library.add(fab, faSignOutAlt, faHeart, faQuestion, faStar, faBars, faTimes,faTachometerAlt,faUserGraduate, faSearch ,faCloudUploadAlt,faChartLine, faSpinner, faAmbulance )
 
 function App() {
   return (
