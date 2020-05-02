@@ -17,7 +17,7 @@ export default class TutorDashboard extends Component {
         const current_user = JSON.parse(localStorage.getItem("vgg-auth")).userData;
         const base_api = JSON.parse(localStorage.getItem("vgg_base_api"));
         if (this._isMounted) {
-            fetch(`${base_api}/videos?_sort=id&_order=desc&tutor=${current_user.email}`)
+            fetch(`${base_api}/videos?_sort=id&_order=desc&tutor_email=${current_user.email}`)
                 .then(res => res.json())
                 .then(raw => {
                     const test = JSON.stringify(raw)

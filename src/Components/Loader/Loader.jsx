@@ -9,7 +9,7 @@ export default function Loader(props) {
         // const timeout = 
         setTimeout(() => {
             setIsLoading(false)
-        }, 15000)
+        }, 10000)
     })
 
     const loading = <div> {props.title} Loading <i style={{ marginLeft: "15px" }}><FontAwesomeIcon icon="spinner" spin /></i></div>;

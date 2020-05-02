@@ -16,7 +16,7 @@ export default class CloudinaryUpload extends Component {
 
     componentDidMount() {
         const get_base_url = JSON.parse(localStorage.getItem("vgg_base_api"));
-        console.log(get_base_url)
+        // console.log(get_base_url)
         this.setState({ base_url: get_base_url })
     }
 
@@ -47,7 +47,7 @@ export default class CloudinaryUpload extends Component {
         http.upload.addEventListener("progress", (progressData) => {
             var progress = Math.round((progressData.loaded * 100.0) / progressData.total);
             this.setState({ uploadProgress: progress })
-            console.log(progress)
+            // console.log(progress)
             // console.log(`Amount Uploaded: ${progressData.loaded}, Total Data: ${progressData.total}`);
         });
 
@@ -70,7 +70,7 @@ export default class CloudinaryUpload extends Component {
         videoDetails.totalLikes = [];
         videoDetails.totalStars = [];
         videoDetails.title = data.original_filename;
-        videoDetails.tutor = tutor.userData.email;
+        videoDetails.tutor_email = tutor.userData.email;
         videoDetails.tutor_name = tutor.userData.name
         console.log(videoDetails, this.state.base_url)
         const config = {
@@ -79,7 +79,7 @@ export default class CloudinaryUpload extends Component {
             body: JSON.stringify(videoDetails)
         }
         const base_url = this.state.base_url
-        console.log("savedurl", base_url)
+        // console.log("savedurl", base_url)
         fetch(`${base_url}/videos`, config)
             .then(res => res.json())
             .then(rawData => {
@@ -89,7 +89,7 @@ export default class CloudinaryUpload extends Component {
             .catch(err => console.log("Error", err))
     }
     render() {
-        console.log(this.state.base_url)
+        // console.log(this.state.base_url)
         const Style = {
             position: "fixed",
             top: 0,

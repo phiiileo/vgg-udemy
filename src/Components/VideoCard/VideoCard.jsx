@@ -68,6 +68,21 @@ export default class VideoCard extends Component {
             .catch(err => console.log("Error: Action not successful", err))
     }
 
+    deleteVid = () => {
+        console.log(this.props.videoData.id)
+        const vid_id = this.props.videoData.id;
+        const option = {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ id: vid_id })
+        }
+        fetch(`${this.state.base_api}/videos/${vid_id}`, option)
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
     render() {
         // let videoContainer;
         const liked = this.props.videoData.totalLikes.indexOf(this.state.user_email) < 0 ? false : true
@@ -81,7 +96,7 @@ export default class VideoCard extends Component {
         // check if data exists
         if (this.props.videoData === undefined) { return (<h1>No data</h1>) }
 
-        else if (true) {
+        else if (this.props.videoData) {
             // Check if source is youtube if yes, use Iframe
             // if (this.props.videoData.secure_url.indexOf("www.youtube.com") > 1 || this.props.videoData.secure_url.indexOf("res.cloudinary.com") > 1) {
             //     videoContainer = <iframe src={this.props.videoData.secure_url} title={this.props.videoData.name} frameBorder="0" allow="fullscreen"></iframe>
@@ -125,18 +140,13 @@ export default class VideoCard extends Component {
                         </span>
                     </p>
                     <span style={{ fontSize: "12px", fontWeight: "700" }}>By: {this.props.videoData.tutor_name}. <span style={{ color: "darkred" }}>{VideoDate.month + " " + VideoDate.day + ", " + VideoDate.year}.</span></span>
+                    {/* <button onClick={this.deleteVid}>Delete</button> */}
                 </div>
             )
         }
         else {
             return <div >
-                <ReactPlayer
-                    className='react-player fixed-bottom'
-                    url={this.props.videoData.secure_url}
-                    width='100%'
-                    height='100%'
-                    controls={true}
-                />
+               <h1>Problem Loading data...</h1>
             </div>
         }
     }
