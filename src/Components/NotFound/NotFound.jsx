@@ -17,7 +17,7 @@ export default function NotFound() {
     return (
         <div className="not-found">
             <h1 style={{ color: "deepblue" }}>
-                Opppsss!!! The page you are looking for does not exist.
+                Opppsss!!! The page you are looking for does not exist or broken.
             </h1>
             <p className="message">Drop your message here <FontAwesomeIcon icon="heart" /></p>
 
