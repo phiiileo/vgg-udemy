@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SummaryCard from '../SummaryCard/SummaryCard'
 import VideoCard from '../VideoCard/VideoCard'
 import './tutordashboard.scss';
+import Loader from '../Loader/Loader';
 export default class TutorDashboard extends Component {
     _isMounted = false;
     constructor(props) {
@@ -18,7 +19,11 @@ export default class TutorDashboard extends Component {
         if (this._isMounted) {
             fetch(`${base_api}/videos?_sort=id&_order=desc&tutor=${current_user.email}`)
                 .then(res => res.json())
-                .then(raw => this.setState({ videoData: raw }))
+                .then(raw => {
+                    const test = JSON.stringify(raw)
+                    return test !== `{}` ? this.setState({ videoData: raw }) : null
+                })
+                .catch(err => console.log(err))
         }
     }
     getTotalLikes = () => {
@@ -44,13 +49,15 @@ export default class TutorDashboard extends Component {
         let videos = this.state.videoData.map((vid, index) => <VideoCard likeVideo={this.likeVideo} videoData={vid} key={index} _id={vid.id} />);
         let fallbackText;
         if (videos.length < 1) {
-            fallbackText = <h3 style={{ textAlign: "left", color: "deepskyblue" }}>You have not uploaded a video yet. Go to All Videos to upload one...</h3>
+            fallbackText =
+                <Loader title="Videos" color="deepskyblue" error="You have not uploaded a video yet. Go to All Videos to upload one..." />
+            // <h3 style={{ textAlign: "left", color: "deepskyblue" }}>You have not uploaded a video yet. Go to All Videos to upload one...</h3>
         }
         return (
             <div className="tutorDashboard">
                 <div className="summary">
                     <SummaryCard icon="youtube" fab="true" color="green" title="Videos" value={this.state.videoData.length} />
-                    <SummaryCard title="Your Rating" color="orange" value={rating + "%"} icon="chart-line"/>
+                    <SummaryCard title="Your Rating" color="orange" value={rating + "%"} icon="chart-line" />
                     <SummaryCard title="Total Likes" value={followers} color="red" icon="heart" />
                 </div>
                 <h3>My Videos ({this.state.videoData.length})</h3>
