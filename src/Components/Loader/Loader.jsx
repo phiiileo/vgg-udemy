@@ -6,15 +6,14 @@ export default function Loader(props) {
     let [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const timout = setTimeout(() => {
+        // const timeout = 
+        setTimeout(() => {
             setIsLoading(false)
-        }, 10000)
-
-        return clearTimeout(timout)
+        }, 15000)
     })
 
     const loading = <div> {props.title} Loading <i style={{ marginLeft: "15px" }}><FontAwesomeIcon icon="spinner" spin /></i></div>;
-    const error = <p style={{ color: "red" }}>No {props.title} to show</p>
+    const error = <p style={{ color: "red" }}>{props.error}</p>
 
 
     return (

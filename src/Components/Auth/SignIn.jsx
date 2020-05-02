@@ -170,7 +170,7 @@ export default class SignIn extends Component {
         return (
             <div className="sign-in">
                 {(this.state.loader) ? <div className="loader">
-                    <Loader />
+                    <Loader title=""  error="Network Error, Refresh page" />
                 </div> : ""}
                 <div className="container">
                     <Helmet>

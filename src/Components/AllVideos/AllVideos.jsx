@@ -23,7 +23,7 @@ export default class AllVideos extends Component {
         }
 
         if (this._isMounted && base_url) {
-            fetch(`${base_url}/videos?_sort=id&_order=desc`)
+            fetch(`${base_url}/videos?_sort=id&_order=desc&_limit`)
                 .then(res => res.json())
                 .then(raw => this.setState({ videoData: raw }))
         }
@@ -100,7 +100,7 @@ export default class AllVideos extends Component {
                         <div className="all-videos-container">
                             {videos}
                         </div> :
-                        <Loader title="Videos" color="deepskyblue" />
+                        <Loader title="Videos" error="No Videos to show" color="deepskyblue" />
                 }
             </div>
         )
