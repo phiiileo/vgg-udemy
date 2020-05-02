@@ -21,9 +21,9 @@ export default function NotFound() {
             </h1>
             <p className="message">Drop your message here <FontAwesomeIcon icon="heart" /></p>
 
-            <i style={{ color: "red", fontSize: "40px", display: "block", marginTop: "50px" }}><FontAwesomeIcon icon="ambulance" /></i>
+        <a href="https://twitter.com/phileoManuel"> <i style={{ color: "red", fontSize: "50px", display: "block", marginTop: "50px" }}><FontAwesomeIcon icon="ambulance" /></i></a>
 
-            <Link to={ goBackTo}>Go back home</Link>
+            <Link to={ goBackTo}>Go back</Link>
         </div>
     )
 }
