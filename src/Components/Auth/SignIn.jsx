@@ -12,7 +12,7 @@ export default class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            resting: false,
+            loader: false,
             redirect: null,
             userData: {},
             activeCategory: "",
@@ -70,7 +70,8 @@ export default class SignIn extends Component {
                 token: res.accessToken,
                 user_category: this.state.activeCategory,
                 userData: this.state.userData
-            }
+            };
+            this.setState({ loader: true });
             this.resolveLogin(auth_user)
             localStorage.setItem("vgg-auth", JSON.stringify(auth_user));
             // this.setState({ redirect: "/home-" + this.state.activeCategory })
@@ -79,22 +80,45 @@ export default class SignIn extends Component {
 
 
     resolveLogin = (auth_user) => {
-        console.log(auth_user)
-        this.setState({ resting: true })
+        // console.log(auth_user)
+        // setTimeout(() => {
+        //     this.resetLoader()
+        // }, 10000)
+
         fetch(this.state.base_api + `/users?userData.email=${auth_user.userData.email}`)
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 localStorage.setItem("vgg-error", "")
                 if (data.length < 1) {
                     this.RegisterUser(auth_user)
                 } else {
                     console.log("Existing User", data[0])
-                    this.setState({ redirect: "/home-" + data[0].user_category })
+                    // this.setState({ redirect: "/home-" + data[0].user_category });
+                    this.redirect("/home-" + data[0].user_category)
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                this.resetLoader("Poor Network")
+            }
+
+            )
     }
 
+    resetLoader = (errMessage) => {
+        this.setState({ loader: false });
+        this.setState({
+            error: {
+                status: true,
+                errorText: errMessage
+            }
+        })
+    }
+
+    redirect = (location) => {
+        this.setState({ redirect: location })
+    }
 
     RegisterUser = (RegDetails) => {
         const config = {
@@ -109,7 +133,8 @@ export default class SignIn extends Component {
             .then(res => res.json())
             .then(data => {
                 console.log("RegUser", data)
-                this.setState({ redirect: "/home-" + data.user_category })
+                // this.setState({ redirect: "/home-" + data.user_category });
+                this.redirect("/home-" + data.user_category)
             })
     }
 
@@ -119,7 +144,8 @@ export default class SignIn extends Component {
         // console.log("Cat", this.state.current_auth_user, this.state.is_auth)
         if (this.state.current_auth_user && this.state.is_auth) {
             if (this.state.is_auth && this.state.current_auth_user.user_category === category && !this.state.error.status) {
-                this.setState({ redirect: "/home-" + category });
+                // this.setState({ redirect: "/home-" + category });
+                this.redirect("/home-" + category)
                 localStorage.setItem("vgg-error", "")
             } else {
                 console.log("No user")
@@ -143,7 +169,7 @@ export default class SignIn extends Component {
         }
         return (
             <div className="sign-in">
-                {(this.state.resting) ? <div className="loader">
+                {(this.state.loader) ? <div className="loader">
                     <Loader />
                 </div> : ""}
                 <div className="container">
@@ -183,7 +209,7 @@ export default class SignIn extends Component {
                         </div>
 
                         {(this.state.error) ?
-                            <div style={errStyle}>{this.state.error.status ? this.state.error.errorText + "! Login again" : ""}
+                            <div style={errStyle}>{this.state.error.status ? this.state.error.errorText + "! Try again" : ""}
                             </div> :
                             ""
                         }
