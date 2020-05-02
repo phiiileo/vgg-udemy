@@ -108,7 +108,7 @@ export default class SignIn extends Component {
         fetch(this.state.base_api + "/users", config)
             .then(res => res.json())
             .then(data => {
-                console.log("RegUser", data[0])
+                console.log("RegUser", data)
                 this.setState({ redirect: "/home-" + data.user_category })
             })
     }
