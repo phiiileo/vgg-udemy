@@ -39,9 +39,9 @@ export default class SignIn extends Component {
         localStorage.setItem("vgg_base_api", JSON.stringify(vgg_clone_api));
 
         // Get Auth Details
-        const getToken = localStorage.getItem("vgg-auth");
-        if (getToken !== "null") {
-            const UserData = JSON.parse(getToken)
+        const UserData = JSON.parse(localStorage.getItem("vgg-auth"));
+        console.log(UserData)
+        if (UserData !== null) {
             console.log("Existing Token", UserData);
             this.setState({ is_auth: true, current_auth_user: UserData })
         } else {
@@ -116,7 +116,7 @@ export default class SignIn extends Component {
 
     setActiveCategory = (category) => {
         this.setState({ activeCategory: category })
-        console.log("Cat", this.state.current_auth_user, this.state.is_auth)
+        // console.log("Cat", this.state.current_auth_user, this.state.is_auth)
         if (this.state.current_auth_user && this.state.is_auth) {
             if (this.state.is_auth && this.state.current_auth_user.user_category === category && !this.state.error.status) {
                 this.setState({ redirect: "/home-" + category });
@@ -182,8 +182,11 @@ export default class SignIn extends Component {
                             />
                         </div>
 
-                        <div style={errStyle}>{this.state.error.status ? this.state.error.errorText + "! Login again" : ""}</div>
-
+                        {(this.state.error) ?
+                            <div style={errStyle}>{this.state.error.status ? this.state.error.errorText + "! Login again" : ""}
+                            </div> :
+                            ""
+                        }
                     </form>
                 </div>
             </div>
