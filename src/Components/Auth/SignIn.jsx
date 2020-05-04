@@ -164,21 +164,27 @@ export default class SignIn extends Component {
             color: "red",
             margin: "20px auto"
         }
+        const _date = new Date();
+        const year = _date.getFullYear()
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect}></Redirect>
         }
         return (
             <div className="sign-in">
                 {(this.state.loader) ? <div className="loader">
-                    <Loader title=""  error="Network Error, Refresh page" />
+                    <Loader title="" error="Network Error, Refresh page" />
                 </div> : ""}
                 <div className="container">
                     <Helmet>
                         <title>User | Sign</title>
                     </Helmet>
+                    <section className="header">
+                        <nav> <img src={udemy_logo} alt="" /> <em>U-</em>Phileo</nav>
+                        <div>{year} &copy;</div>
+                    </section>
                     <form>
                         <img src={udemy_logo} alt="logo" />
-                        <h1>Udemy Clone</h1>
+                        <h1>Learn With <em>U-</em>Phileo!</h1>
                         <p className="alert">Note: First New Login doubles as a registration!</p>
                         <h3>Login As</h3>
                         {/* Category selector */}

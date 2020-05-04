@@ -5,7 +5,7 @@
     background-size: cover;
     background-position: bottom left;
 
-    .loader{
+    .loader {
         position: absolute;
         top: 0;
         left: 0;
@@ -18,9 +18,32 @@
         z-index: 5;
     }
 
-    .landing-header {
-        height: 50px;
-        background-color: grey;
+    .header {
+        background-color: rgba(245, 245, 245, 0.651);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5%;
+
+        nav {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(146, 65, 65);
+            font-size: 20px;
+
+            img{
+                height: 30px;
+                width: 30px;
+                margin-right: 10px;
+            }
+        }
+
     }
 
     .container {
@@ -49,12 +72,13 @@
         color: rgb(26, 26, 70);
         margin: 20px auto;
     }
-    p.alert{
-       background-color: rgb(196, 106, 106);
-       color: white;
-       padding: 5px 10px;
-       font-weight: 700;
-       border-radius: 5px;
+
+    p.alert {
+        background-color: rgb(196, 106, 106);
+        color: white;
+        padding: 5px 10px;
+        font-weight: 700;
+        border-radius: 5px;
     }
 
     form {
