@@ -16,6 +16,17 @@
         align-items: center;
         background-color: rgba(177, 171, 171, 0.904);
         z-index: 5;
+
+        .close{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 25px;
+        }
+        .close:hover{
+            color: red;
+        }
     }
 
     .header {

@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import udemy_logo from '../../udemy_logo.png';
 import Loader from '../Loader/Loader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
@@ -90,6 +91,7 @@ export default class SignIn extends Component {
             .then(data => {
                 console.log(data)
                 localStorage.setItem("vgg-error", "")
+
                 if (data.length < 1) {
                     this.RegisterUser(auth_user)
                 } else {
@@ -100,7 +102,7 @@ export default class SignIn extends Component {
             })
             .catch(err => {
                 console.log(err)
-                this.resetLoader("Poor Network")
+                this.resetLoader("Something went wrong...!")
             }
 
             )
@@ -164,14 +166,15 @@ export default class SignIn extends Component {
             color: "red",
             margin: "20px auto"
         }
-        const _date = new Date();
-        const year = _date.getFullYear()
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect}></Redirect>
         }
         return (
             <div className="sign-in">
                 {(this.state.loader) ? <div className="loader">
+                    <span className="close" onClick={() => this.setState({ loader: false })}>
+                        <FontAwesomeIcon icon="times" />
+                    </span>
                     <Loader title="" error="Network Error, Refresh page" />
                 </div> : ""}
                 <div className="container">
@@ -180,11 +183,11 @@ export default class SignIn extends Component {
                     </Helmet>
                     <section className="header">
                         <nav> <img src={udemy_logo} alt="" /> <em>U-</em>Phileo</nav>
-                        <div>{year} &copy;</div>
+                        <div>{2020} &copy;</div>
                     </section>
                     <form>
                         <img src={udemy_logo} alt="logo" />
-                        <h1>Learn With <em>U-</em>Phileo!</h1>
+                        <h1>Learn With <em></em>U-Phileo!</h1>
                         <p className="alert">Note: First New Login doubles as a registration!</p>
                         <h3>Login As</h3>
                         {/* Category selector */}
