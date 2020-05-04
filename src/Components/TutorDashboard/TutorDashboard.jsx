@@ -8,7 +8,8 @@ export default class TutorDashboard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            videoData: []
+            videoData: [],
+            error: { errStatus: false }
         }
     }
 
@@ -20,10 +21,29 @@ export default class TutorDashboard extends Component {
             fetch(`${base_api}/videos?_sort=id&_order=desc&tutor_email=${current_user.email}`)
                 .then(res => res.json())
                 .then(raw => {
-                    const test = JSON.stringify(raw)
-                    return test !== `{}` ? this.setState({ videoData: raw }) : null
+                    const test = JSON.stringify(raw);
+                    // console.log("err", test);
+                    // Check  If there is no Data and return error empty Data error
+                    (test === `[]`) ? this.setState({
+                        error: {
+                            errStatus: true,
+                            errMessage: "You have not uploaded a video yet. Go to All Videos to upload one..."
+                        }
+                    }) : (
+                            // Check if there is valid Data, return data
+                            (test !== `{}`) ?
+                                this.setState({ videoData: raw }) :
+
+                                // Return Error if fetch failed
+                                this.setState({
+                                    error: {
+                                        errStatus: true,
+                                        errMessage: "Something went wrong, unable to fetch..."
+                                    }
+                                })
+                        )
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.log("error", err))
         }
     }
     getTotalLikes = () => {
@@ -33,7 +53,6 @@ export default class TutorDashboard extends Component {
     }
     getRatings = () => {
         const fullRating = this.state.videoData.length * 10;
-        // console.log(fullRating)
         const rating = Math.ceil((this.getTotalLikes() / fullRating) * 100)
         return (isNaN(rating)) ? 0 : rating
     }
@@ -50,7 +69,7 @@ export default class TutorDashboard extends Component {
         let fallbackText;
         if (videos.length < 1) {
             fallbackText =
-                <Loader title="Videos" color="deepskyblue" error="You have not uploaded a video yet. Go to All Videos to upload one..." />
+                <Loader title="Videos" color="deepskyblue" error={this.state.error} />
             // <h3 style={{ textAlign: "left", color: "deepskyblue" }}>You have not uploaded a video yet. Go to All Videos to upload one...</h3>
         }
         return (

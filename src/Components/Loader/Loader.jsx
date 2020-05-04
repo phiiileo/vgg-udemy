@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Loader(props) {
 
-    let [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        // const timeout = 
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 10000)
-    })
-
-    const loading = <div> {props.title} Loading <i style={{ marginLeft: "15px" }}><FontAwesomeIcon icon="spinner" spin /></i></div>;
-    const error = <p style={{ color: "red" }}>{props.error}</p>
-
+    const loading = <div> {props.title} Loading <i style={{ marginLeft: "5px" }}><FontAwesomeIcon icon="spinner" spin /></i></div>;
+    const errorMessage = <p style={{ color: "red" }}>{props.error.errMessage}</p>
+    const error = props.error;
+    console.log(error)
 
     return (
         <div style={{ margin: "20px 0" }}>
             <h3 style={{ color: props.color, }}>
-                {(isLoading) ? loading : error}
+                {error.errStatus ? errorMessage : loading}
             </h3>
         </div >
     )

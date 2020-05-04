@@ -12,7 +12,8 @@ export default class AllVideos extends Component {
         super(props)
         this.state = {
             videoData: [],
-            base_api_url: ""
+            base_api_url: "",
+            error: { errStatus: false, errMessage: "" }
         }
     }
     componentDidMount() {
@@ -25,7 +26,13 @@ export default class AllVideos extends Component {
         if (this._isMounted && base_url) {
             fetch(`${base_url}/videos?_sort=id&_order=desc&_limit`)
                 .then(res => res.json())
-                .then(raw => this.setState({ videoData: raw }))
+                .then(raw => {
+                    if (raw.length < 1) {
+                        this.setState({ error: { errStatus: true, errMessage: "No Video Loaded" } })
+                    } else {
+                        this.setState({ videoData: raw })
+                    }
+                })
         }
     }
 
@@ -100,7 +107,7 @@ export default class AllVideos extends Component {
                         <div className="all-videos-container">
                             {videos}
                         </div> :
-                        <Loader title="Videos" error="No Videos to show" color="deepskyblue" />
+                        <Loader title="Videos" error={this.state.error} color="deepskyblue" />
                 }
             </div>
         )
