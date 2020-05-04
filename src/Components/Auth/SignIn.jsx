@@ -60,6 +60,17 @@ export default class SignIn extends Component {
 
 
     responseGoogle = (res) => {
+        this.setState({ error: { errStatus: false } })
+        if (res.error) {
+            this.setState({
+                error: {
+                    errStatus: true,
+                    errMessage: "You close the Google login Modal, Login again!"
+                }
+            })
+            this.setState({ loader: true })
+            return
+        }
         localStorage.setItem("vgg-error", "")
         if (!res && this.state.activeCategory === "") { return } else {
             this.setState({ userData: res.profileObj });
@@ -170,7 +181,7 @@ export default class SignIn extends Component {
                     <span className="close" onClick={() => this.setState({ loader: false })}>
                         <FontAwesomeIcon icon="times" />
                     </span>
-                    <Loader title="" error="Network Error, Refresh page" />
+                    <Loader title="" error={this.state.error} />
                 </div> : ""}
                 <div className="container">
                     <Helmet>
