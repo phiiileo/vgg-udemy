@@ -81,21 +81,17 @@ export default class SignIn extends Component {
 
 
     resolveLogin = (auth_user) => {
-        // console.log(auth_user)
-        // setTimeout(() => {
-        //     this.resetLoader()
-        // }, 10000)
 
         fetch(this.state.base_api + `/users?userData.email=${auth_user.userData.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 localStorage.setItem("vgg-error", "")
 
                 if (data.length < 1) {
                     this.RegisterUser(auth_user)
                 } else {
-                    console.log("Existing User", data[0])
+                    // console.log("Existing User", data[0])
                     // this.setState({ redirect: "/home-" + data[0].user_category });
                     this.redirect("/home-" + data[0].user_category)
                 }
@@ -143,7 +139,6 @@ export default class SignIn extends Component {
 
     setActiveCategory = (category) => {
         this.setState({ activeCategory: category })
-        // console.log("Cat", this.state.current_auth_user, this.state.is_auth)
         if (this.state.current_auth_user && this.state.is_auth) {
             if (this.state.is_auth && this.state.current_auth_user.user_category === category && !this.state.error.status) {
                 // this.setState({ redirect: "/home-" + category });

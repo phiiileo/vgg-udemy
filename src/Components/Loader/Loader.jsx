@@ -6,7 +6,6 @@ export default function Loader(props) {
     const loading = <div> {props.title} Loading <i style={{ marginLeft: "5px" }}><FontAwesomeIcon icon="spinner" spin /></i></div>;
     const errorMessage = <p style={{ color: "red" }}>{props.error.errMessage}</p>
     const error = props.error;
-    console.log(error)
 
     return (
         <div style={{ margin: "20px 0" }}>
