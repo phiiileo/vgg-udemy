@@ -8,6 +8,7 @@ import Loader from '../Loader/Loader';
 
 export default class AllVideos extends Component {
     _isMounted = false;
+
     constructor(props) {
         super(props)
         this.state = {
@@ -19,17 +20,22 @@ export default class AllVideos extends Component {
     componentDidMount() {
         this._isMounted = true;
         const base_url = JSON.parse(localStorage.getItem("vgg_base_api"));
-        if (base_url) {
+        if (base_url && this._isMounted) {
             this.setState({ base_api_url: base_url })
-        }
 
-        if (this._isMounted && base_url) {
             fetch(`${base_url}/videos?_sort=id&_order=desc&_limit`)
                 .then(res => res.json())
                 .then(raw => {
+                    const test = JSON.stringify(raw)
                     if (raw.length < 1) {
-                        this.setState({ error: { errStatus: true, errMessage: "No Video Loaded" } })
-                    } else {
+                        this.setState({ error: { errStatus: true, errMessage: "There is not video available" } })
+                    }
+                    else if (test === `{}`) {
+                        this.setError("Error Fetching Data... Try again!")
+
+                        console.log(raw)
+                    }
+                    else {
                         this.setState({ videoData: raw })
                     }
                 })
@@ -39,18 +45,26 @@ export default class AllVideos extends Component {
     componentWillUnmount() {
         this._isMounted = false
     }
+
+
     searchValue = (value) => {
         if (value === "") { return }
         else {
+            this.setState({ error: { errStatus: false } })
             this.fetchVideo()
                 .then(data => {
                     const vid = data.filter(video => {
                         return (video.title.toLowerCase().indexOf(value.toLowerCase())) >= 0 || (video.tutor_name.toLowerCase().indexOf(value.toLowerCase())) >= 0
                     })
+                    if (vid.length < 1) {
+                        this.setError("No result!")
+
+                    }
                     this.setState({ videoData: vid })
                 })
         }
     }
+
 
     filterValue = (value) => {
         const current_user = JSON.parse(localStorage.getItem("vgg-auth"));
@@ -65,14 +79,30 @@ export default class AllVideos extends Component {
         } else if (value === "starred") {
             filterParam = "totalStars"
         }
+        this.setState({ error: { errStatus: false } })
         this.fetchVideo()
             .then(data => {
                 const vid = data.filter(video => {
                     return video[filterParam].indexOf(current_user.userData.email) >= 0
                 })
+
+                if (vid.length < 1) {
+                    this.setError(`You do not have any ${value} video`)
+                }
                 this.setState({ videoData: vid })
             })
     }
+
+
+    setError = (message) => {
+        this.setState({
+            error: {
+                errStatus: true,
+                errMessage: message
+            }
+        })
+    }
+
 
     fetchVideo = async () => {
         try {
@@ -85,7 +115,8 @@ export default class AllVideos extends Component {
     }
 
     render() {
-        const videos = this.state.videoData.map((vid) => <VideoCard videoData={vid} key={vid.id} _id={vid.id} />)
+        const videos = (this.state.videoData instanceof Array) ?
+            this.state.videoData.map((vid) => <VideoCard videoData={vid} key={vid.id} _id={vid.id} />) : null
 
         let barContent;
         (this.props.access === "student") ?

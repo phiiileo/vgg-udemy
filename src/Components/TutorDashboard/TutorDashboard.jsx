@@ -24,7 +24,7 @@ export default class TutorDashboard extends Component {
                     const test = JSON.stringify(raw);
                     // console.log("err", test);
                     // Check  If there is no Data and return error empty Data error
-                    (test === `[]`) ? this.setState({
+                    (raw.length < 1) ? this.setState({
                         error: {
                             errStatus: true,
                             errMessage: "You have not uploaded a video yet. Go to All Videos to upload one..."
