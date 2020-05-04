@@ -52,7 +52,7 @@ export default class Sidebar extends Component {
         return (
             <div className={"sidebar " + openNav}>
                 <div className="sidebar-container">
-                    <i onClick={this.openNavBar} className={"navMenu fa " + icon}>
+                    <i title="toggleMenu" onClick={this.openNavBar} className={"navMenu fa " + icon}>
                         <FontAwesomeIcon icon={icon} />
                     </i>
                     <div className="userDetails">

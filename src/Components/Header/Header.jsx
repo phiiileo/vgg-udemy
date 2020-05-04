@@ -12,10 +12,10 @@ export default function Header(props) {
 
     return (
         <header>
-            <h3 style={{wordWrap:"break-word", width:"70%"}}>{props.email}</h3>
-            <button onClick={resetLogin}>
-            <FontAwesomeIcon icon="sign-out-alt" color="white" size="lg"/>
-         </button>
+            <h3 style={{ wordWrap: "break-word", width: "70%" }}>{props.email}</h3>
+            <button title="logout" onClick={resetLogin}>
+                <FontAwesomeIcon icon="sign-out-alt" color="white" size="lg" />
+            </button>
         </header>
     )
 }
