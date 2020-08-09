@@ -10,10 +10,11 @@ export default function OuterLayout(props) {
             minHeight: "100vh"
         },
         header: {
-            border:"1px solid green"
+            border: "1px solid green"
         },
+        body: {},
         footer: {
-            border:"1px solid green"
+            border: "1px solid green"
         }
     }));
     const classes = useStyles()
@@ -22,7 +23,9 @@ export default function OuterLayout(props) {
             <section className={classes.header}>
                 <OuterHeader />
             </section>
-            {props.children}
+            <section className={classes.body}>
+                {props.children}
+            </section>
             <section className={classes.footer}>
                 <OuterFooter />
             </section>
