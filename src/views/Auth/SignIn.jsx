@@ -9,7 +9,7 @@ export default function SignIn() {
         root: {
             padding: "20px",
             width: '90%',
-            maxWidth: "500px",
+            maxWidth: "400px",
             margin: "0 auto",
             minHeight: "90vh"
         }
@@ -22,10 +22,11 @@ export default function SignIn() {
         console.log(event)
         event.preventDefault()
         const form = new FormData(event.target)
-        console.log(form, event.target)
-        for (let key of form) {
-            console.log(key)
+        const formValues = {}
+        for (let [name, value] of form) {
+            formValues[name] = value
         }
+        console.log(formValues)
         dispatch({
             type: "LOGIN",
             payload: { email: "emmanuel@gmail.com" }
@@ -42,21 +43,26 @@ export default function SignIn() {
                 <form action="" onSubmit={login}>
                     <CustomInput
                         type="email"
-                        required="true"
+                        required={true}
                         placeholder="emmanuel@gmail.com"
                         label="Email"
+                        name="email"
                         fullWidth={true} />
                     <CustomInput
                         type="password"
-                        required="true"
+                        required={true}
                         placeholder=""
                         label="Password"
+                        name="password"
+                        icon="true"
                         fullWidth={true} />
                     <CustomButton
                         button_text="Login"
                         type='submit'
-                        variant="outlined"
-                        color="secondary" />
+                        variant="contained"
+                        fullWidth
+                        style={{ boxShadow: "none", padding: "15px 30px" }}
+                        color="primary" />
                 </form>
             </section>
         </OuterLayout>
