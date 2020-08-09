@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { AuthContext } from '../../state-manager/contexts/authContext/AuthContext'
 import { makeStyles } from '@material-ui/core/styles'
-import {Button} from '@material-ui/core'
+import { Button } from '@material-ui/core'
+import OuterLayout from '../Layout/OuterLayout'
 export default function SignIn() {
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -27,11 +28,14 @@ export default function SignIn() {
     })
 
     return (
-        <section className={classes.root}>
-            <form action="" onSubmit={login}>
-                <input type="text" />
-                <Button type='submit' variant="contained" color="secondary">Button</Button>
-            </form>
-        </section>
+        <OuterLayout>
+            <section className={classes.root}>
+                <form action="" onSubmit={login}>
+                    <input type="text" />
+                    <Button type='submit' variant="contained" color="secondary">Button</Button>
+                </form>
+            </section>
+        </OuterLayout>
+
     )
 }

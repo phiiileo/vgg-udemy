@@ -1,9 +1,10 @@
 import React from 'react'
+import OuterLayout from './Layout/OuterLayout'
 
 export default function LandingPage() {
     return (
-        <div>
-            Welcome to the home page
-        </div>
+       <OuterLayout>
+           Home page
+       </OuterLayout>
     )
 }
