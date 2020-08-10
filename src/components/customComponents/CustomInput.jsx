@@ -1,61 +1,65 @@
-import React from 'react'
-import { Input, makeStyles, TextField, IconButton, InputAdornment, OutlinedInput, InputLabel, FormControl } from '@material-ui/core'
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import React, { useState } from 'react'
+import { makeStyles, IconButton, InputAdornment, OutlinedInput, InputLabel, FormControl } from '@material-ui/core'
+import CustomIcon from '../icons/CustomIcon';
 import clsx from 'clsx';
 
-
 export default function CustomInput(props) {
-    const { fullWidth, label, name } = props
+    const { fullWidth, width, label, name } = props
     const useStyles = makeStyles(theme => ({
         root: {
             display: 'flex',
             flexWrap: 'wrap',
-            width: "100%"
+            width: fullWidth ? "100%" : width || "50%"
         },
         margin: {
             marginBottom: theme.spacing(2),
         },
     }));
     const classes = useStyles()
-    const [values, setValues] = React.useState('');
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [value, setValues] = React.useState(props.value || '');
+    const [showPassword, setShowPassword] = useState(false);
+    const [icon_name, setIcon] = useState(props.icon);
 
+    // handle input value change
     const handleChange = (event) => {
         setValues(event.target.value)
     }
 
-    const handleClickShowPassword = () => {
-        console.log(123456)
-        setShowPassword(!showPassword)
+    // handle icon toggle
+    const toggleIcon = () => {
+        if (props.type === 'password') {
+            setIcon(showPassword ? "show" : 'hide');
+            setShowPassword(!showPassword)
+        }
     };
 
+    // handle mouse down event on icon
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
+
     return (
-        <FormControl fullWidth={fullWidth} className={classes.margin} variant="outlined">
+        <FormControl fullWidth={fullWidth} className={clsx(classes.margin, classes.root)} variant="outlined">
             <InputLabel htmlFor={name}>{label}</InputLabel>
             <OutlinedInput
                 type={showPassword ? 'text' : props.type}
-                value={values}
-                name={name}
                 {...props}
+                value={value}
                 onChange={handleChange}
                 endAdornment={(props.icon) ?
                     <InputAdornment position="end">
                         <IconButton
                             aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
+                            onClick={toggleIcon}
                             onMouseDown={handleMouseDownPassword}
                             edge="end"
                         >
-                            {showPassword ? <Visibility /> : <VisibilityOff />}
+                            <CustomIcon name={icon_name} />
                         </IconButton>
                     </InputAdornment> : ""
                 }
-                labelWidth={70}
-            />
+                labelWidth={70} />
         </FormControl>
     )
 }

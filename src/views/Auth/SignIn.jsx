@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import OuterLayout from '../Layout/OuterLayout'
 import CustomButton from '../../components/customComponents/CustomButton'
 import CustomInput from '../../components/customComponents/CustomInput'
+import CustomIcon from '../../components/icons/CustomIcon'
 export default function SignIn() {
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -54,8 +55,9 @@ export default function SignIn() {
                         placeholder=""
                         label="Password"
                         name="password"
-                        icon="true"
-                        fullWidth={true} />
+                        icon="show"
+                        fullWidth />
+
                     <CustomButton
                         button_text="Login"
                         type='submit'
