@@ -5,14 +5,34 @@ import OuterLayout from '../Layout/OuterLayout'
 import CustomButton from '../../components/customComponents/CustomButton'
 import CustomInput from '../../components/customComponents/CustomInput'
 import CustomIcon from '../../components/icons/CustomIcon'
+import { Typography } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 export default function SignIn() {
     const useStyles = makeStyles((theme) => ({
         root: {
             padding: "20px",
             width: '90%',
-            maxWidth: "400px",
+            maxWidth: "500px",
             margin: "0 auto",
-            minHeight: "90vh"
+            minHeight: "90vh",
+            display: 'flex',
+            justifyContent: "center",
+            alignItems: "center",
+            "& form": {
+                width: "100%",
+                border: "1px solid " + theme.palette.primary.main,
+                padding: theme.spacing(5, 2),
+                [theme.breakpoints.up('sm')]: {
+                    padding: theme.spacing(10, 5),
+                },
+                borderRadius: theme.spacing(1)
+            }
+        },
+        title: {
+            marginBottom: theme.spacing(5)
+        },
+        forget_password: {
+            marginTop: theme.spacing(1)
         }
     }))
     const classes = useStyles()
@@ -42,6 +62,11 @@ export default function SignIn() {
         <OuterLayout>
             <section className={classes.root}>
                 <form action="" onSubmit={login}>
+                    <Typography
+                        className={classes.title}
+                        align="center"
+                        color="primary"
+                        variant="h6">LOGIN</Typography>
                     <CustomInput
                         type="email"
                         required={true}
@@ -65,6 +90,18 @@ export default function SignIn() {
                         fullWidth
                         style={{ boxShadow: "none", padding: "15px 30px" }}
                         color="primary" />
+                    <Typography
+                        className={classes.forget_password}
+                        align="right"
+                        color="primary"
+                    >Forget Password?</Typography>
+
+                    <Typography
+                        className={classes.extra}
+                        variant='caption'
+                        color="primary">Don't have an account ? 
+                        <Link to="/"> Sign up</Link>
+                        </Typography>
                 </form>
             </section>
         </OuterLayout>
