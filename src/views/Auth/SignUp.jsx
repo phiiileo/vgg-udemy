@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react'
 import { AuthContext } from '../../state-manager/contexts/authContext/AuthContext'
-import { makeStyles } from '@material-ui/core/styles'
 import OuterLayout from '../../Layout/OuterLayout'
 import CustomButton from '../../components/customComponents/CustomButton'
 import CustomInput from '../../components/customComponents/CustomInput'
