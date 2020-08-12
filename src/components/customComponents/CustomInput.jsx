@@ -43,9 +43,9 @@ export default function CustomInput(props) {
         <FormControl fullWidth={fullWidth} className={clsx(classes.margin, classes.root)} variant="outlined">
             <InputLabel htmlFor={name}>{label}</InputLabel>
             <OutlinedInput
-                type={showPassword ? 'text' : props.type}
                 {...props}
                 value={value}
+                type={showPassword ? 'text' : props.type}
                 onChange={handleChange}
                 endAdornment={(props.icon) ?
                     <InputAdornment position="end">

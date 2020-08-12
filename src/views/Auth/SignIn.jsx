@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import OuterLayout from '../Layout/OuterLayout'
 import CustomButton from '../../components/customComponents/CustomButton'
 import CustomInput from '../../components/customComponents/CustomInput'
-import CustomIcon from '../../components/icons/CustomIcon'
 import { Typography } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import axios from '../../axios/axios'
 export default function SignIn() {
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -37,25 +37,39 @@ export default function SignIn() {
     }))
     const classes = useStyles()
 
+    const history = useHistory()
     const { user, dispatch } = useContext(AuthContext);
 
     const login = (event) => {
-        console.log(event)
         event.preventDefault()
+
         const form = new FormData(event.target)
         const formValues = {}
         for (let [name, value] of form) {
             formValues[name] = value
         }
         console.log(formValues)
-        dispatch({
-            type: "LOGIN",
-            payload: { email: "emmanuel@gmail.com" }
+        axios.post(`/auth/login`, {
+            email: formValues.email,
+            password: formValues.password
         })
+            .then(res => {
+                console.log(res.data)
+                dispatch({
+                    type: "LOGIN",
+                    payload: res.data.data
+                })
+            })
+            .catch(err => {
+                console.log(err.response.data)
+            })
     }
 
     useEffect(() => {
         console.log(user)
+        if(user.isLogin){
+            history.push('/dashboard')
+        }
     })
 
     return (
@@ -72,6 +86,7 @@ export default function SignIn() {
                         required={true}
                         placeholder="emmanuel@gmail.com"
                         label="Email"
+                        value="johndoe2@gmail.com"
                         name="email"
                         fullWidth={true} />
                     <CustomInput
@@ -79,6 +94,7 @@ export default function SignIn() {
                         required={true}
                         placeholder=""
                         label="Password"
+                        value='111111'
                         name="password"
                         icon="show"
                         fullWidth />
@@ -99,9 +115,9 @@ export default function SignIn() {
                     <Typography
                         className={classes.extra}
                         variant='caption'
-                        color="primary">Don't have an account ? 
+                        color="primary">Don't have an account ?
                         <Link to="/"> Sign up</Link>
-                        </Typography>
+                    </Typography>
                 </form>
             </section>
         </OuterLayout>
