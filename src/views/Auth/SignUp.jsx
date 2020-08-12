@@ -11,7 +11,7 @@ import setAuthToken from '../../axios/setToken'
 
 
 
-export default function SignIn() {
+export default function SignUp() {
     const useStyles = makeStyles((theme) => ({
         root: {
             padding: "20px",
@@ -54,9 +54,8 @@ export default function SignIn() {
         }
         console.log(formValues)
         try {
-            const loginDetails = await axios.post(`/auth/login`, {
-                email: formValues.email,
-                password: formValues.password
+            const loginDetails = await axios.post(`/auth/register`, {
+                ...formValues
             })
             console.log(loginDetails.data.data)
             setAuthToken(loginDetails.data.data.active_token)
@@ -85,14 +84,38 @@ export default function SignIn() {
                         className={classes.title}
                         align="center"
                         color="primary"
-                        variant="h6">LOGIN</Typography>
+                        variant="h6">SIGN UP</Typography>
+                    <CustomInput
+                        type="text"
+                        required={true}
+                        placeholder="Emmanuel"
+                        label="First Name"
+                        value="Emmanuel"
+                        name="first_name"
+                        fullWidth={true} />
+                    <CustomInput
+                        type="text"
+                        required={true}
+                        placeholder="Emmanuel"
+                        label="Last Name"
+                        value="Owo"
+                        name="last_name"
+                        fullWidth={true} />
                     <CustomInput
                         type="email"
                         required={true}
                         placeholder="emmanuel@gmail.com"
                         label="Email"
-                        value="johndoe2@gmail.com"
+                        value="emmanuel@gmail.com"
                         name="email"
+                        fullWidth={true} />
+                    <CustomInput
+                        type="text"
+                        required={true}
+                        placeholder="Tutor"
+                        label="Role"
+                        value="Tutor"
+                        name="role"
                         fullWidth={true} />
                     <CustomInput
                         type="password"
@@ -105,23 +128,17 @@ export default function SignIn() {
                         fullWidth />
 
                     <CustomButton
-                        button_text="Login"
+                        button_text="Sign up"
                         type='submit'
                         variant="contained"
                         fullWidth
                         style={{ boxShadow: "none", padding: "15px 30px" }}
                         color="primary" />
                     <Typography
-                        className={classes.forget_password}
-                        align="right"
-                        color="primary"
-                    >Forget Password?</Typography>
-
-                    <Typography
                         className={classes.extra}
                         variant='caption'
-                        color="primary">Don't have an account ?
-                        <Link to="/"> Sign up</Link>
+                        color="primary">Do have an account ?
+                        <Link to="/sign-in"> Sign in</Link>
                     </Typography>
                 </form>
             </section>

@@ -1,5 +1,5 @@
 import React from 'react'
-import OuterLayout from './Layout/OuterLayout'
+import OuterLayout from '../Layout/OuterLayout'
 
 export default function LandingPage() {
     return (
