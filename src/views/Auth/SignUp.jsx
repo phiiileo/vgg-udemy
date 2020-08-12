@@ -8,38 +8,13 @@ import { Typography } from '@material-ui/core'
 import { Link, useHistory } from 'react-router-dom'
 import axios from '../../axios/axios'
 import setAuthToken from '../../axios/setToken'
+import SocialLogin from './SocialLogin'
+import { useAuthStyles } from './AuthStyle'
 
 
 
 export default function SignUp() {
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            padding: "20px",
-            width: '90%',
-            maxWidth: "500px",
-            margin: "0 auto",
-            minHeight: "80vh",
-            display: 'flex',
-            justifyContent: "center",
-            alignItems: "center",
-            "& form": {
-                width: "100%",
-                border: "1px solid " + theme.palette.primary.main,
-                padding: theme.spacing(5, 2),
-                [theme.breakpoints.up('sm')]: {
-                    padding: theme.spacing(8, 5, 10, 5),
-                },
-                borderRadius: theme.spacing(1)
-            }
-        },
-        title: {
-            marginBottom: theme.spacing(5)
-        },
-        forget_password: {
-            marginTop: theme.spacing(1)
-        }
-    }))
-    const classes = useStyles()
+    const classes = { ...useAuthStyles() }
 
     const history = useHistory()
     const { user, dispatch } = useContext(AuthContext);
@@ -85,6 +60,9 @@ export default function SignUp() {
                         align="center"
                         color="primary"
                         variant="h6">SIGN UP</Typography>
+
+                    <SocialLogin />
+                    <div style={{ margin: "20px 0", textAlign: "center" }}>OR</div>
                     <CustomInput
                         type="text"
                         required={true}

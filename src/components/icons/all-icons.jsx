@@ -1,5 +1,5 @@
 import React from 'react'
-import Visibility from '@material-ui/icons/Visibility';
+import { Visibility, AlternateEmail, Twitter, Facebook } from '@material-ui/icons';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { Typography } from '@material-ui/core';
 
@@ -9,7 +9,12 @@ const iconLibrary = [{
 }, {
     name: 'hide',
     icon: <VisibilityOff />
-}]
+}, {
+    name: "google",
+    icon: <AlternateEmail />
+},
+{ name: "facebook", icon: <Facebook /> },
+{ name: "twitter", icon: <Twitter /> }]
 
 
 export const getIcons = (icon_name) => {
@@ -17,10 +22,10 @@ export const getIcons = (icon_name) => {
     const _icon = iconLibrary.filter(icon => {
         return icon.name === icon_name
     })
-    if(_icon.length === 0){
+    if (_icon.length === 0) {
         console.error(`icon name(${icon_name}) not valid`)
         return <Typography> No Icon</Typography>
-    }else{
+    } else {
         return _icon[0].icon
     }
     // return 1

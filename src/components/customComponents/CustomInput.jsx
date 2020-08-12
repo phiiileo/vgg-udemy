@@ -49,14 +49,12 @@ export default function CustomInput(props) {
                 onChange={handleChange}
                 endAdornment={(props.icon) ?
                     <InputAdornment position="end">
-                        <IconButton
+                        <CustomIcon
                             aria-label="toggle password visibility"
                             onClick={toggleIcon}
                             onMouseDown={handleMouseDownPassword}
                             edge="end"
-                        >
-                            <CustomIcon name={icon_name} />
-                        </IconButton>
+                            name={icon_name} />
                     </InputAdornment> : ""
                 }
                 labelWidth={70} />
