@@ -7,6 +7,10 @@ import CustomInput from '../../components/customComponents/CustomInput'
 import { Typography } from '@material-ui/core'
 import { Link, useHistory } from 'react-router-dom'
 import axios from '../../axios/axios'
+import setAuthToken from '../../axios/setToken'
+
+
+
 export default function SignIn() {
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -23,7 +27,7 @@ export default function SignIn() {
                 border: "1px solid " + theme.palette.primary.main,
                 padding: theme.spacing(5, 2),
                 [theme.breakpoints.up('sm')]: {
-                    padding: theme.spacing(10, 5),
+                    padding: theme.spacing(8, 5, 10, 5),
                 },
                 borderRadius: theme.spacing(1)
             }
@@ -40,7 +44,7 @@ export default function SignIn() {
     const history = useHistory()
     const { user, dispatch } = useContext(AuthContext);
 
-    const login = (event) => {
+    const login = async (event) => {
         event.preventDefault()
 
         const form = new FormData(event.target)
@@ -49,25 +53,26 @@ export default function SignIn() {
             formValues[name] = value
         }
         console.log(formValues)
-        axios.post(`/auth/login`, {
-            email: formValues.email,
-            password: formValues.password
-        })
-            .then(res => {
-                console.log(res.data)
-                dispatch({
-                    type: "LOGIN",
-                    payload: res.data.data
-                })
+        try {
+            const loginDetails = await axios.post(`/auth/login`, {
+                email: formValues.email,
+                password: formValues.password
             })
-            .catch(err => {
-                console.log(err.response.data)
+            console.log(loginDetails.data.data)
+            setAuthToken(loginDetails.data.data.active_token)
+            dispatch({
+                type: "LOGIN",
+                payload: loginDetails.data
             })
+        }
+        catch (err) {
+            console.log(err.response)
+        }
     }
 
     useEffect(() => {
         console.log(user)
-        if(user.isLogin){
+        if (user.isLogin) {
             history.push('/dashboard')
         }
     })
