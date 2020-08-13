@@ -1,9 +1,10 @@
 import React from 'react'
+import DashboardLayout from '../../Layout/DashboardLayout'
 
 export default function Dashboard() {
     return (
-        <div>
-            Welcome to the dashboard
-        </div>
+       <DashboardLayout>
+           <h1>Hello world dashboard</h1>
+       </DashboardLayout>
     )
 }

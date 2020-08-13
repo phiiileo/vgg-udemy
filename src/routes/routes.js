@@ -30,7 +30,7 @@ const routes = [{
     id: 5,
     url: '/set-password',
     component: SetPassword
-},
+}
 ]
 
 export default routes
