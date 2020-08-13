@@ -100,7 +100,7 @@ export default function SignIn() {
                         className={classes.extra}
                         variant='caption'
                         color="primary">Don't have an account ?
-                        <Link to="/"> Sign up</Link>
+                        <Link to="/sign-up"> Sign up</Link>
                     </Typography>
                 </form>
             </section>

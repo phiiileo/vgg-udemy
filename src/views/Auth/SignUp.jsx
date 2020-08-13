@@ -62,30 +62,42 @@ export default function SignUp() {
 
                     <SocialLogin />
                     <div style={{ margin: "20px 0", textAlign: "center" }}>OR</div>
-                    <CustomInput
-                        type="text"
-                        required={true}
-                        placeholder="Emmanuel"
-                        label="First Name"
-                        value="Emmanuel"
-                        name="first_name"
-                        fullWidth={true} />
-                    <CustomInput
-                        type="text"
-                        required={true}
-                        placeholder="Emmanuel"
-                        label="Last Name"
-                        value="Owo"
-                        name="last_name"
-                        fullWidth={true} />
-                    <CustomInput
-                        type="email"
-                        required={true}
-                        placeholder="emmanuel@gmail.com"
-                        label="Email"
-                        value="emmanuel@gmail.com"
-                        name="email"
-                        fullWidth={true} />
+                    <div className={classes.col2}>
+                        <CustomInput
+                            type="text"
+                            required={true}
+                            placeholder="Emmanuel"
+                            label="First Name"
+                            value="Emmanuel"
+                            name="first_name"
+                            fullWidth={true} />
+                        <CustomInput
+                            type="text"
+                            required={true}
+                            placeholder="Emmanuel"
+                            label="Last Name"
+                            value="Owo"
+                            name="last_name"
+                            fullWidth={true} />
+                        <CustomInput
+                            type="email"
+                            required={true}
+                            placeholder="emmanuel@gmail.com"
+                            label="Email"
+                            value="emmanuel@gmail.com"
+                            name="email"
+                            fullWidth={true} />
+                        <CustomInput
+                            type="password"
+                            required={true}
+                            placeholder=""
+                            label="Password"
+                            value='111111'
+                            name="password"
+                            icon="show"
+                            fullWidth />
+                    </div>
+
                     <CustomInput
                         type="text"
                         required={true}
@@ -94,15 +106,6 @@ export default function SignUp() {
                         value="Tutor"
                         name="role"
                         fullWidth={true} />
-                    <CustomInput
-                        type="password"
-                        required={true}
-                        placeholder=""
-                        label="Password"
-                        value='111111'
-                        name="password"
-                        icon="show"
-                        fullWidth />
 
                     <CustomButton
                         button_text="Sign up"
