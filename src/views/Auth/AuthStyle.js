@@ -6,7 +6,7 @@ export const useAuthStyles = makeStyles((theme) => ({
     root: {
         padding: "20px",
         width: '90%',
-        maxWidth: "600px",
+        maxWidth: "500px",
         margin: "0 auto",
         minHeight: "80vh",
         display: 'flex',
@@ -33,7 +33,9 @@ export const useAuthStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(3)
     },
     forget_password: {
-        marginTop: theme.spacing(2)
+        marginTop: theme.spacing(2),
+        display: "block",
+        textAlign: "right"
     },
     extra: {
         marginTop: theme.spacing(2),

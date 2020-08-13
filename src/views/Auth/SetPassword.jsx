@@ -7,12 +7,11 @@ import { Typography } from '@material-ui/core'
 import { Link, useHistory } from 'react-router-dom'
 import axios from '../../axios/axios'
 import setAuthToken from '../../axios/setToken'
-import SocialLogin from './SocialLogin'
 import { useAuthStyles } from './AuthStyle'
 
 
 
-export default function SignIn() {
+export default function SetPassword() {
 
     const classes = { ...useAuthStyles() }
 
@@ -60,19 +59,7 @@ export default function SignIn() {
                         className={classes.title}
                         align="center"
                         color="primary"
-                        variant="h6">LOGIN</Typography>
-
-                    <SocialLogin />
-                    <div style={{ margin: "20px 0", textAlign: "center" }}>OR</div>
-
-                    <CustomInput
-                        type="email"
-                        required={true}
-                        placeholder="emmanuel@gmail.com"
-                        label="Email"
-                        value="johndoe2@gmail.com"
-                        name="email"
-                        fullWidth={true} />
+                        variant="h6">Set password</Typography>
                     <CustomInput
                         type="password"
                         required={true}
@@ -84,23 +71,22 @@ export default function SignIn() {
                         fullWidth />
 
                     <CustomButton
-                        button_text="Login"
+                        button_text="Set Password"
                         type='submit'
                         variant="contained"
                         fullWidth
                         style={{ boxShadow: "none", padding: "15px 30px" }}
                         color="primary" />
-                    <p className={classes.forget_password}>
-                        <Link to="/forget-password">Forget Password?</Link>
+                    <p className={classes.forget_password}
+                    >
+                        <Link
+                            className={classes.forget_password}
+                            align="right"
+                            color="primary"
+                            to="/sign-in"
+                        >Sign in?
+                    </Link>
                     </p>
-
-
-                    <Typography
-                        className={classes.extra}
-                        variant='caption'
-                        color="primary">Don't have an account ?
-                        <Link to="/sign-up"> Sign up</Link>
-                    </Typography>
                 </form>
             </section>
         </OuterLayout>
