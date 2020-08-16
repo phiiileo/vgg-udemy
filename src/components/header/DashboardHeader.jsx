@@ -46,7 +46,7 @@ export default function DashboardHeader() {
                 <Link to='/dashboard'>U-Phileo</Link>
             </aside>
             <div>
-                <Typography>{user.data ? user.data.first_name : null}</Typography>
+                <Typography>{user ? user.first_name : null}</Typography>
                 <CustomIcon onClick={logout} color='default' name="logout" />
             </div>
         </header>

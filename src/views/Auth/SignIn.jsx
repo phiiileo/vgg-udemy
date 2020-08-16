@@ -37,7 +37,7 @@ export default function SignIn() {
             setAuthToken(loginDetails.data.data.active_token)
             dispatch({
                 type: "LOGIN",
-                payload: loginDetails.data
+                payload: loginDetails.data.data
             })
         }
         catch (err) {
