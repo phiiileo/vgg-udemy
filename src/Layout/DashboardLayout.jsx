@@ -15,15 +15,18 @@ export default function DashboardLayout(props) {
         },
         body: {
             display: "flex",
+            // border:"1px solid red"
         },
         sideBar: {
             // backgroundColor: theme.palette.grey[500],
             width: "200px",
             padding: "20px 10px",
-            boxShadow:"2px -4px 5px grey"
+            boxShadow: "2px -4px 5px grey"
         },
         main_content: {
-            padding: "20px 10px"
+            padding: "20px 10px",
+            width: "90%",
+            // border:"1px solid red"
         },
         footer: {
         }

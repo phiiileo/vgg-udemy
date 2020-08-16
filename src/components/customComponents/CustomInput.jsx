@@ -40,7 +40,7 @@ export default function CustomInput(props) {
 
 
     return (
-        <FormControl fullWidth={fullWidth} className={clsx(classes.margin, classes.root)} variant="outlined">
+        <FormControl fullWidth={fullWidth} className={clsx(classes.margin, classes.root)} variant="outlined" {...props}>
             <InputLabel htmlFor={name}>{label}</InputLabel>
             <OutlinedInput
                 {...props}
