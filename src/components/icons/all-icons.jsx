@@ -1,5 +1,5 @@
 import React from 'react'
-import { Visibility, AlternateEmail, Twitter, Facebook } from '@material-ui/icons';
+import { Visibility, AlternateEmail, Twitter, Facebook, ExitToApp } from '@material-ui/icons';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { Typography } from '@material-ui/core';
 
@@ -14,7 +14,12 @@ const iconLibrary = [{
     icon: <AlternateEmail />
 },
 { name: "facebook", icon: <Facebook /> },
-{ name: "twitter", icon: <Twitter /> }]
+{ name: "twitter", icon: <Twitter /> },
+{ name: "logout", icon: <ExitToApp /> },
+    // { name: "twitter", icon: <Twitter /> },
+    // { name: "twitter", icon: <Twitter /> },
+
+]
 
 
 export const getIcons = (icon_name) => {

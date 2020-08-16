@@ -12,11 +12,16 @@ const AuthReducer = (state, action) => {
                 ...payload,
                 isLogin: !state.isLogin
             };
-        default:
-            console.log(1)
+        case "LOGOUT":
+            console.log("Logout")
             return {
-                ...state
+                isLogin: false
             }
+            default:
+                console.log(1)
+                return {
+                    ...state
+                }
     }
 }
 
