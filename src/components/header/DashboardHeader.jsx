@@ -8,8 +8,6 @@ import { AuthContext } from '../../state-manager/contexts/authContext/AuthContex
 export default function DashboardHeader() {
     const useStyles = makeStyles(theme => ({
         header: {
-            backgroundColor: theme.palette.grey[500],
-            padding: "10px",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
