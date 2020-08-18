@@ -4,14 +4,14 @@ import { useHistory } from 'react-router';
 import DashboardHeader from '../components/header/DashboardHeader';
 import TutorSideBar from '../components/sideBar/TutorSideBar';
 import { AuthContext } from '../state-manager/contexts/authContext/AuthContext';
-
+import bgImage from './../assets/images/bg_image.jpg'
 export default function DashboardLayout(props) {
     const useStyles = makeStyles((theme) => ({
         layout: {
             minHeight: "100vh"
         },
         header: {
-            backgroundColor: theme.palette.grey[500],
+            backgroundColor: theme.palette.primary.main,
             padding: "10px 20px",
             borderBottom: "2px solid " + theme.palette.grey[600],
         },
@@ -21,9 +21,17 @@ export default function DashboardLayout(props) {
         },
         sideBar: {
             // backgroundColor: theme.palette.grey[500],
-            width: "200px",
-            padding: "20px 10px",
-            boxShadow: "2px -4px 5px grey"
+            boxShadow: "2px -4px 5px grey",
+            background: `url(${bgImage})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            "& div": {
+                backgroundColor: "rgba(255, 255, 255, 0.759)",
+                width: "200px",
+                padding: "20px 10px",
+                minHeight: "100%"
+
+            }
         },
         main_content: {
             padding: theme.spacing(5),
@@ -53,7 +61,9 @@ export default function DashboardLayout(props) {
             </section>
             <section className={classes.body}>
                 <div className={classes.sideBar}>
-                    <TutorSideBar />
+                    <div>
+                        <TutorSideBar />
+                    </div>
                 </div>
                 <div className={classes.main_content}>
                     {props.children}

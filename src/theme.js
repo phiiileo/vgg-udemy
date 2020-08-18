@@ -4,12 +4,13 @@ import {
 
 
 const theme = createMuiTheme({
-    palette:{
-        primary:{
-            main:"#99223E"
+    palette: {
+        primary: {
+            main: "#99223E",
+            dark: "#5f1929"
         },
-        secondary:{
-            main:"#094745"
+        secondary: {
+            main: "#094745"
         }
     }
 })
