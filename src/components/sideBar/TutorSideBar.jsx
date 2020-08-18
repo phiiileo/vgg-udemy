@@ -15,6 +15,10 @@ export default function TutorSideBar() {
                     <Link to='/videos'>Videos</Link>
                 </li>
                 <li>
+                    <CustomIcon name='live-tv' />
+                    <Link to='/upload'>Add Video</Link>
+                </li>
+                <li>
                     <CustomIcon name='person-outline' />
                     <Link to='/profile'>Profile</Link>
                 </li>

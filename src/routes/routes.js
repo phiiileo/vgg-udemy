@@ -6,6 +6,7 @@ import ForgetPassword from "../views/Auth/ForgotPassord";
 import SetPassword from "../views/Auth/SetPassword";
 import Profile from "../views/Profile/Profile";
 import Videos from "../views/Videos/Videos";
+import UploadVideo from "../views/UploadVideo/UploadVideo";
 
 const routes = [{
         id: 1,
@@ -41,6 +42,11 @@ const routes = [{
         id: 7,
         url: "/videos",
         component: Videos
+    },
+    {
+        id: 8,
+        url: "/upload",
+        component: UploadVideo
     }
 ]
 
