@@ -19,5 +19,6 @@ a{
 }
 
 .color{
-  color: #5f1929
+  color: #5f1929;
+  color:rgba(255, 255, 255, 0.719)
 }
