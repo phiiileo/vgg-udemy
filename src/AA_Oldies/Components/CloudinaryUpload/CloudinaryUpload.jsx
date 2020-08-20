@@ -27,7 +27,7 @@ export default class CloudinaryUpload extends Component {
     }
 
     getFiles = (e) => {
-        console.log(e.target.files[0]);
+        console.log(e.target.files);
         this.uploadFile(e.target.files[0])
     }
     uploadFile = (file) => {
