@@ -1,4 +1,4 @@
-const VideoReducer = (state = {}, action) => {
+const VideoReducer = (state, action) => {
     const {
         type,
         payload
@@ -8,11 +8,10 @@ const VideoReducer = (state = {}, action) => {
             console.log(payload);
             return {
                 ...state,
-                payload
-            }
-
-            default:
-                return state
+                videos: payload.reverse()
+            };
+        default:
+            return state
     }
 }
 

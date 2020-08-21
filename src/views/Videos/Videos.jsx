@@ -9,13 +9,16 @@ import { VideoContext } from '../../state-manager/contexts/videoContext/VideoCon
 
 export default function Videos() {
     // const [videos, setVideos] = useState([])
-    const videos = useContext(VideoContext)
+    const { videos, dispatch } = useContext(VideoContext)
 
     const fetchVideos = useCallback(async () => {
         const res = await axios.get('videos/all')
         console.log(res.data)
-        // dispatch(res.data.data)
-    }, [])
+        dispatch({
+            type: "GET_VIDEOS",
+            payload: res.data.data
+        })
+    }, [dispatch])
     console.log(videos)
     useEffect(() => {
         fetchVideos()
@@ -25,7 +28,7 @@ export default function Videos() {
         <DashboardLayout>
             <h1>All videos</h1>
 
-            <VideoList videos={videos || []} />
+            <VideoList videos={videos} />
         </DashboardLayout>
     )
 }

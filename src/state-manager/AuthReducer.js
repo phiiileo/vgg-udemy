@@ -28,16 +28,11 @@ const AuthReducer = (state, action) => {
                 ...payload,
             };
         default:
-            checkUser()
-            console.log(1)
             return {
                 ...state
             }
     }
 }
 
-const checkUser = () => {
-    console.log(56789)
-}
 
 export default AuthReducer

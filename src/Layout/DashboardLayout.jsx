@@ -56,7 +56,6 @@ export default function DashboardLayout(props) {
         }
     })
     return (
-        <VideoProvider>
             <section className={classes.layout} >
                 <section className={classes.header}>
                     <DashboardHeader />
@@ -72,6 +71,5 @@ export default function DashboardLayout(props) {
                     </div>
                 </section>
             </section>
-        </VideoProvider>
     )
 }

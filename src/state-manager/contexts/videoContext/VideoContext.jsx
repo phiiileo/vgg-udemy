@@ -1,19 +1,21 @@
-import React from 'react'
-import { createContext } from "react";
-import { useReducer } from 'react';
-import AuthReducer from '../../AuthReducer';
+import React, { useReducer, createContext } from 'react'
+import VideoReducer from '../../VideoReducer';
 
 
 export const VideoContext = createContext();
 
 const VideoProvider = (props) => {
 
-    const [videos, dispatch] = useReducer(AuthReducer, {
+    const [videos, dispatch] = useReducer(VideoReducer, {
         videos: []
     })
-    return <VideoContext.Provider value={{ videos, dispatch }}>
-        {props.children}
-    </VideoContext.Provider>
+
+    console.log(videos.videos)
+    return (
+        <VideoContext.Provider value={{ videos: videos.videos, dispatch }}>
+            {props.children}
+        </VideoContext.Provider>
+    )
 }
 
 export default VideoProvider

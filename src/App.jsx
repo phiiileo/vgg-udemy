@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core';
 import AllPagesRoute from './routes/IndexRoute';
 import theme from './theme';
 import AuthContextProvider from './state-manager/contexts/authContext/AuthContext';
+import VideoProvider from './state-manager/contexts/videoContext/VideoContext';
 // import './App.css';
 // import { library } from '@fortawesome/fontawesome-svg-core';
 // import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -15,7 +16,7 @@ function App() {
     console.log(theme.palette.type)
     return ({
       root: {
-        minHeight:"100vh"
+        minHeight: "100vh"
       }
     })
   })
@@ -24,9 +25,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AuthContextProvider>
-        <section className={classes.root}>
-          <AllPagesRoute />
-        </section>
+        <VideoProvider>
+          <section className={classes.root}>
+            <AllPagesRoute />
+          </section>
+        </VideoProvider>
       </AuthContextProvider>
     </ThemeProvider>
   );
