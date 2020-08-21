@@ -5,6 +5,7 @@ import DashboardHeader from '../components/header/DashboardHeader';
 import TutorSideBar from '../components/sideBar/TutorSideBar';
 import { AuthContext } from '../state-manager/contexts/authContext/AuthContext';
 import bgImage from './../assets/images/bg_image.jpg'
+import VideoProvider from '../state-manager/contexts/videoContext/VideoContext';
 export default function DashboardLayout(props) {
     const useStyles = makeStyles((theme) => ({
         layout: {
@@ -55,20 +56,22 @@ export default function DashboardLayout(props) {
         }
     })
     return (
-        <section className={classes.layout} >
-            <section className={classes.header}>
-                <DashboardHeader />
-            </section>
-            <section className={classes.body}>
-                <div className={classes.sideBar}>
-                    <div>
-                        <TutorSideBar />
+        <VideoProvider>
+            <section className={classes.layout} >
+                <section className={classes.header}>
+                    <DashboardHeader />
+                </section>
+                <section className={classes.body}>
+                    <div className={classes.sideBar}>
+                        <div>
+                            <TutorSideBar />
+                        </div>
                     </div>
-                </div>
-                <div className={classes.main_content}>
-                    {props.children}
-                </div>
+                    <div className={classes.main_content}>
+                        {props.children}
+                    </div>
+                </section>
             </section>
-        </section>
+        </VideoProvider>
     )
 }

@@ -1,44 +1,31 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import DashboardLayout from '../../Layout/DashboardLayout'
 import VideoList from '../../components/video/videoList/VideoList'
+import { useEffect } from 'react'
+import axios from '../../axios/axios'
+import { useState } from 'react'
+import { useContext } from 'react'
+import { VideoContext } from '../../state-manager/contexts/videoContext/VideoContext'
 
 export default function Videos() {
+    // const [videos, setVideos] = useState([])
+    const videos = useContext(VideoContext)
 
-    const vidoes = [
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588761947/api_uploads/tqhzf4dgfe7oolajeylr.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588762781/api_uploads/fazu6unozyqziarsklcm.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588616736/api_uploads/ik8alssvgot2qc6rlidp.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588530437/api_uploads/ij9xpdri9eia8zbeklhs.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588530213/api_uploads/hzgzah4awvtikhzplbm4.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1569439734/samples/sea-turtle.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588761947/api_uploads/tqhzf4dgfe7oolajeylr.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588761947/api_uploads/tqhzf4dgfe7oolajeylr.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588762781/api_uploads/fazu6unozyqziarsklcm.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588616736/api_uploads/ik8alssvgot2qc6rlidp.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588530437/api_uploads/ij9xpdri9eia8zbeklhs.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588530213/api_uploads/hzgzah4awvtikhzplbm4.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1569439734/samples/sea-turtle.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588761947/api_uploads/tqhzf4dgfe7oolajeylr.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588761947/api_uploads/tqhzf4dgfe7oolajeylr.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588762781/api_uploads/fazu6unozyqziarsklcm.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588616736/api_uploads/ik8alssvgot2qc6rlidp.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588530437/api_uploads/ij9xpdri9eia8zbeklhs.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588530213/api_uploads/hzgzah4awvtikhzplbm4.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1569439734/samples/sea-turtle.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588761947/api_uploads/tqhzf4dgfe7oolajeylr.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588762781/api_uploads/fazu6unozyqziarsklcm.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588616736/api_uploads/ik8alssvgot2qc6rlidp.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588530437/api_uploads/ij9xpdri9eia8zbeklhs.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1588530213/api_uploads/hzgzah4awvtikhzplbm4.mp4' },
-        { link: 'https://res.cloudinary.com/phiileo/video/upload/v1569439734/samples/sea-turtle.mp4' }
-    ]
-
+    const fetchVideos = useCallback(async () => {
+        const res = await axios.get('videos/all')
+        console.log(res.data)
+        // dispatch(res.data.data)
+    }, [])
+    console.log(videos)
+    useEffect(() => {
+        fetchVideos()
+    }, [fetchVideos])
     return (
 
         <DashboardLayout>
             <h1>All videos</h1>
 
-            <VideoList videos={vidoes} />
+            <VideoList videos={videos || []} />
         </DashboardLayout>
     )
 }
