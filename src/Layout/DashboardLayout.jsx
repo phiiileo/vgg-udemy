@@ -5,7 +5,6 @@ import DashboardHeader from '../components/header/DashboardHeader';
 import TutorSideBar from '../components/sideBar/TutorSideBar';
 import { AuthContext } from '../state-manager/contexts/authContext/AuthContext';
 import bgImage from './../assets/images/bg_image.jpg'
-import VideoProvider from '../state-manager/contexts/videoContext/VideoContext';
 export default function DashboardLayout(props) {
     const useStyles = makeStyles((theme) => ({
         layout: {

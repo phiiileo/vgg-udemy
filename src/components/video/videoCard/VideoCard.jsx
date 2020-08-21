@@ -16,7 +16,7 @@ export default function VideoCard(props) {
     const videoUrl = props.data.url || props.data.link || 'https://www.youtube.com/watch?v=Q8hm0vilhUU'
     const title = props.data.title || 'New video'
     const amount = props.data.amount || 'Free'
-    const owner = props.data.owner || 'New video'
+    // const owner = props.data.owner || 'New video'
     return (
         <section className={classes.root}>
             <div className={classes.videoContainer}>

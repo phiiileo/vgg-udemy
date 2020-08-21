@@ -1,14 +1,11 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useContext } from 'react'
 import DashboardLayout from '../../Layout/DashboardLayout'
 import VideoList from '../../components/video/videoList/VideoList'
 import { useEffect } from 'react'
 import axios from '../../axios/axios'
-import { useState } from 'react'
-import { useContext } from 'react'
 import { VideoContext } from '../../state-manager/contexts/videoContext/VideoContext'
 
 export default function Videos() {
-    // const [videos, setVideos] = useState([])
     const { videos, dispatch } = useContext(VideoContext)
 
     const fetchVideos = useCallback(async () => {
